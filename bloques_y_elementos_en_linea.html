@@ -2,6 +2,27 @@
 <html>
 
 <head>
+  <style>
+.all-browsers {
+  margin: 0;
+  padding: 5px;
+  background-color: lightgray;
+}
+
+.all-browsers > h1, .browser {
+  margin: 10px;
+  padding: 5px;
+}
+
+.browser {
+  background: white;
+}
+
+.browser > h2, p {
+  margin: 4px;
+  font-size: 90%;
+}
+</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
@@ -59,6 +80,54 @@ La mayoría de los navegadores mostrarán el <address>elemento con los siguiente
   display: block;
   font-style: italic;
   } -->
+  
+  <!--lArticle 
+  Definición y uso
+  La <article>etiqueta especifica contenido independiente e independiente.
+  
+    Un artículo debe tener sentido por sí mismo y debe ser posible distribuirlo independientemente del resto del sitio.
+  
+    Fuentes potenciales para el <article>elemento:
+  
+      Publicación en el foro
+      Entrada en el blog
+      Noticia
+      Nota: El <article>elemento no se muestra como algo especial en un navegador. Sin embargo, puede usar CSS para diseñar el <article> elemento (vea el ejemplo a continuación).-->
+      
+      <h1>The article element</h1>
+      
+      <article>
+        <h2>Google Chrome</h2>
+        <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
+      </article>
+      
+      <article>
+        <h2>Mozilla Firefox</h2>
+        <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
+      </article>
+      
+      <article>
+        <h2>Microsoft Edge</h2>
+        <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet Explorer.</p>
+      </article>
+      
+      <h1>The article element - Styled with CSS</h1>
+      
+      <article class="all-browsers">
+        <h1>Most Popular Browsers</h1>
+        <article class="browser">
+          <h2>Google Chrome</h2>
+          <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
+        </article>
+        <article class="browser">
+          <h2>Mozilla Firefox</h2>
+          <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
+        </article>
+        <article class="browser">
+          <h2>Microsoft Edge</h2>
+          <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet Explorer.</p>
+        </article>
+      </article>
   
   
 
