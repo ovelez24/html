@@ -14,6 +14,8 @@
   <p id="demo"></p>
   <p id="demo1"></p>
   <p id="demo2"></p>
+  <p id="demo3"></p>
+  <p id="demo4"></p>
   
   <script>
     var x = 5;
@@ -30,6 +32,18 @@
     
     let person = "john Doe", carName = "Volvo", price = 200;
     document.getElementById("demo2").innerHTML = person;
+    
+    const cars= ["Saab", "Volvo", "BMW"];
+    cars[0]= "Toyota";
+    cars.push("Audi");
+    document.getElementById("demo3").innerHTML= cars;
+    
+    //constante en un objeto
+    const car = {type:"fiat", model:"500", color:"white"};
+    car.color= "red";
+    car.owner= "Oscar"
+    document.getElementById("demo4").innerHTML= "car owner is" + car.color;
+    
   </script>
 </body>
 
