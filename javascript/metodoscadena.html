@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>metodos de cadena</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        
+
+        <h1>METODOS</h1>
+        <h2>lA PROPIEDAD LENGTH</h2>
+        <p> La length propiedad devuelve la longitud de una cadena:</p>
+        <p id="demo"></p>
+        <h2>LA PROPIEDAD SLICE()</h2>
+        <p>extrae una parte de una cadena y devuelve la parte extraida en una nueva cadena
+            el metodo toma 2 parametros:posicion inicial y posicion final(final no incluida) ,Si un parámetro es negativo, la posición se cuenta desde el final de la cadena:</p>
+        <p id="demo1"></p>
+        <h2>LA PROPIEDAD SUBSTRING()</h2>
+        <p id="demo2"></p>
+        <h2>LA PROPIEDAD SUBSTR()</h2>
+        <p>substr() es similar a slice().<br/> La diferencia es que el segundo parámetro especifica la longitud de la parte extraída.</p>
+        <p id="demo3"></p>
+
+        <script>
+            /* longitud de cadena
+           La length propiedad devuelve la longitud de una cadena: -*/
+            let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.getElementById("demo").innerHTML = text.length;
+            /*extraccion de partes de cuerdas*/
+
+            //slice() 
+
+            /*extrae una parte de una cadena y devuelve la parte extraida en una nueva cadena
+            el metodo toma 2 parametros:posicion inicial y posicion final(final no incluida) ,Si un parámetro es negativo, la posición se cuenta desde el final de la cadena:
+            */
+
+            let text1 = "Apple, Banana, Kiwi";
+            let part = text1.slice(7, 13)
+            document.getElementById("demo1").innerHTML = part;
+
+            // substring() es similar a slice().
+            /* La diferencia es que los valores iniciales y finales inferiores a 0 se tratan como 0 en substring()*/
+
+            let str = "Apple, Banana, Kiwi";
+            document.getElementById("demo2").innerHTML = str.substring(7,13);
+
+
+            // substr()
+            let str1 = "Apple, Banana, Kiwi";
+            document.getElementById("demo3").innerHTML = str.substr(7,6);
+
+            
+
+
+
+        </script>
+
+    </body>
+</html>
