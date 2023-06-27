@@ -10,6 +10,8 @@
 <body>
   <p id="demo"></p>
   <p id="demo1"></p>
+  <p id="demo3"></p>
+  <p id="demo4"></p>
   <script>
     
     const car = {
@@ -20,10 +22,22 @@
         return this.type + " " + this.color;
       }
     };
+
+    const person = {
+      genero: "masculino",
+      altura: 176,
+      nombre: "oscar",
+      apellido: "velez",
+      minombre: function(){
+        return this.nombre + " " + this.apellido;
+      }
+    };
     
-    document.getElementById("demo").innerHTML = "the car type is " + car.type+ car ["type"];
+    document.getElementById("demo").innerHTML = "the car type is " + car.type + car ["type"];
     
     document.getElementById("demo1").innerHTML = car.fullName();
+    document.getElementById("demo3").innerHTML = "mi nombre es " + person.nombre + " " + person ["apellido"];
+    document.getElementById("demo4").innerHTML = person.minombre();
     
   </script>
 
