@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo Mayusculas y minusculas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo Uppercase()</h1>
+        <p>Este es el metodo Uppercase</p>
+        <button type="button" onclick="myfunction()">Try it</button>
+        <p id="demo">Please visit Microsoft and Microsoft!</p>
+        <h1>Metodo lowercase()</h1>
+        <p>Este es el metodo lowerercase</p>
+        <button type="button" onclick="myfunction1()">Try it</button>
+        <p id="demo1">Please visit Microsoft and Microsoft!</p>
+        
+        <script>
+            //UpperCase
+            function myfunction() {
+                let text = document.getElementById("demo").innerHTML;
+                document.getElementById("demo").innerHTML = text.toUpperCase();
+            }
+            //LowerCase
+                function myfunction1() {
+                let text = document.getElementById("demo1").innerHTML;
+                document.getElementById("demo1").innerHTML = text.toLowerCase();
+            }
+             
+        </script>
+    </body>
+</html>
