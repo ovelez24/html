@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo trim</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo trim()</h1>
+        <p>Este es el metodo trim</p>
+        <p id="demo"></p>
+          <h1>Metodo trimStart()</h1>
+        <p>Este es el metodo trimStart</p>
+        <p id="demo1"></p>
+        <h1>Metodo trimEnd()</h1>
+        <p>Este es el metodo trimEnd</p>
+        <p id="demo2"></p>
+        <script>
+           let text1 = "   Hello World        ";
+           let text2 = text1.trim();
+           document.getElementById("demo").innerHTML = "Length text1 = " + text1.length + "<br> Length text2 = " + text2.length;
+            let text3 = "   Hello World        ";
+           let text4 = text3.trimStart();
+           document.getElementById("demo1").innerHTML = "Length text1 = " + text3.length + "<br> Length text2 = " + text4.length;
+            let text5 = "   Hello World        ";
+           let text6 = text5.trimEnd();
+           document.getElementById("demo2").innerHTML = "Length text1 = " + text5.length + "<br> Length text2 = " + text6.length;
+
+        </script>
+    </body>
+</html>
