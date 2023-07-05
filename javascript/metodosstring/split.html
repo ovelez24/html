@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo split </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo split()</h1>
+        <p>Este es el metodo split</p>
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <script>
+           let text = "a, b, c, d, e, f";
+           const myArray = text.split(",");
+           let text1 = "Hello";
+           const myArr = text1.split(",");
+           text1 = "";
+           for(let i = 0; i < myArr.length; i++) {
+            text1 += myArr[i] + "<br>"
+           }
+           document.getElementById("demo").innerHTML = myArray[0];
+           document.getElementById("demo1").innerHTML = text1;
+           
+        </script>
+    </body>
+</html>

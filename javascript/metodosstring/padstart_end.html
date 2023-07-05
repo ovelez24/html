@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo padStart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo padstart()</h1>
+        <p>Este es el metodo padstart</p>
+        <p id="demo"></p>
+          <h1>Metodo padEnd()</h1>
+        <p>Este es el metodo padEnd</p>
+        <p id="demo1"></p>
+        <script>
+           let text = "5";
+           let text1 = "5";
+           let numb = 5;
+           let text3 = "5";
+           let text4= "5";
+           let text2 = numb.toString();//asi se convierte numeros a cadenas
+           text = text.padStart(4,"0");
+           text1 = text1.padStart(4,"x");
+           text2 = text2.padStart(4,"0");
+           text3= text3.padEnd(4, "0");
+           text4= text4.padEnd(4, "x");
+           document.getElementById("demo").innerHTML = text + " " + text1 + " " + text2;
+           document.getElementById("demo1").innerHTML = text3 + " " + text4;
+          </script>
+    </body>
+</html>
