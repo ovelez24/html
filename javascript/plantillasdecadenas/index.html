@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo plantillas de cadena</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo Back-ticks()</h1>
+        <p>Este es el metodo Back-ticks</p>
+        <p id="demo"></p>
+        <h1>Metodo comillas simples y dobles()</h1>
+        <p>Este es el metodo comillas simples y dobles</p>
+        <p id="demo1"></p>
+        <h1>Metodo multilinea()</h1>
+        <p>Este es el metodo multilinea</p>
+        <p id="demo2"></p>
+     <script>
+           let text = 'Hello world';//back-ticks
+           let text1 = 'He´s often called "Johnny"';//comillas simples y dobles
+           let text2 =
+           'The Quick brown fox jumped over the lazy dog';
+           document.getElementById("demo").innerHTML = text;
+           document.getElementById("demo1").innerHTML = text1;
+           document.getElementById("demo2").innerHTML = text2;
+        </script>
+    </body>
+</html>

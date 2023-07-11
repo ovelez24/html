@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo Match</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo Match()</h1>
+        <p>Este es el metodo Match</p>
+        <p id="demo"></p>
+     <script>
+           let text = "The rain in SPAIN stays mainly in the plain";
+           let index = text.match(/ain/gi);
+          document.getElementById("demo").innerHTML = index.length + " " + index;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo Indexof</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo Indexof()</h1>
+        <p>Este es el metodo Indexof</p>
+        <p id="demo"></p>
+        <h1>Metodo lastIndexof()</h1>
+        <p>Este es el metodo lastIndexof</p>
+        <p id="demo1"></p>
+        <script>
+           let text = "Please locate where 'locate' occurs!";
+           let index = text.indexOf("locate", 15);
+           let index1 = text.lastIndexOf("locate", 15);
+           document.getElementById("demo").innerHTML = index;
+           document.getElementById("demo1").innerHTML = index1;
+             
+        </script>
+    </body>
+</html>

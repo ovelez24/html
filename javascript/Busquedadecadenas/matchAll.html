@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Metodo MatchAll</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Metodo MatchAll()</h1>
+        <p>Este es el metodo MatchAll</p>
+        <p id="demo"></p>
+     <script>
+           let text = "I love cats. Cats are very easy to love. Cats are very popular.";
+           let index = text.matchAll(/Cats/gi);
+          document.getElementById("demo").innerHTML = Array.from(index);//esto devuelve un array de la solucion que hay en la variable index.
+        </script>
+    </body>
+</html>
