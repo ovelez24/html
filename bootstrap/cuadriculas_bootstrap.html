@@ -14,7 +14,76 @@
 </head>
 
 <body>
+  <!--Sistema de cuadricula Bootstrap 4
+  
+  El sistema de cuadricula de bootstrap esta construido con flexbos y permite hasta 12 columnas en la pagina
+  
+  si no desea usar las 12 columnas individualmente, puede agrupar las columnas para crear columnas mas anchas
+  
+  las clases de cuadricula:
+  
+  .col- (dispositivos extrapequeños:ancho de pantalla inferior a 576px) 
+  .col- sm (dispositivos pequeños:ancho de pantalla igual o mayor a 576px)
+  .col-md- (dispositivos medianos - ancho de pantalla igual o mayor a 768px) 
+  .col-lg- (dispositivos grandes - ancho de pantalla igual o mayor a 992px) 
+  .col-xl- (dispositivos extragrandes - ancho de pantalla igual o mayor a 1200px)
+  
+  las clases anteriores se pueden combinar para crear diseños mas dinamicos y flexibles.
+  
+  sugerencia: cada clase se amplia, por lo que si desea establecer los mismos anchos para sm y md,
+  solo necesita especificar sm. -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col"style="background-color:lavender">
+      .col
+    </div>
+     <div class="col"style="background-color:orange">
+      .col
+     </div>
+  
+    <div class="col"style="background-color:lavender">
+      .col
+    </div>
+  </div>
+</div>
+<!-- El siguiente ejemplo muestra como crear cuatro columnas de igual ancho en tabletas y escalando a escritorios
+extragrandes. en telefonos moviles o pantallas de menos de 576px de ancho, las columnas se apilaran
+automaticamente una encima de la otra -->
+<h1>Cuatro columnas iguales</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3"style="background-color:lavender">
+      .col
+    </div>
+     <div class="col-sm-3"style="background-color:orange">
+      .col
+     </div>
+  
+    <div class="col-sm-3"style="background-color:lavenderblush">
+      .col
+    </div>
+    <div class="col-sm-3"style="background-color:lavender">
+      .col
+    </div>
+  </div>
+</div>
 
+<!-- Dos columnas de respuesta desiguales
+
+El siguiente ejemplo muestra como obtener dos columnas de varios anchos comenzando en tabletas y
+escalando a grandes escritorios adicionales -->
+<h1>dos columnas desiguales</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"style="background-color:lavender">
+      .col
+    </div>
+     <div class="col-sm-8"style="background-color:orange">
+      .col
+     </div>
+  </div>
+</div>
+  
 </body>
 
 </html>
