@@ -16,14 +16,47 @@
         <h1>Metodo multilinea()</h1>
         <p>Este es el metodo multilinea</p>
         <p id="demo2"></p>
+        <h1>Metodo interpolacion()</h1>
+        <p>Este es el metodo interpolacion</p>
+        <p>Los literales de plantilla proporcionan una manera facil de interpolar variables<br>
+        y expresiones en cadenas<br>
+        El metodo se llama interpolacion de cadenas</p>
+        <h3>Sustituciones de variables</h3>
+        <p><b>Los literales de plantilla</b>permiten variables en cadenas:<br>
+        La sustitucion automatica de variables reales se denomina <strong>interpolacion de cadenas</strong></p>
+        <p id="demo3"></p>
+        <h1>Sustituciones de expresion</h1>
+        <p><b>Los literales de plantilla</b>permiten expresiones en cadenas:<br>
+        let price = 10;<br>
+        let VAT = 0.25;<br>
+        let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;</p>
+        <p id="demo5"></p>
+        <h1>Plantillas HTML</h1>
+        <p ID="demo6"></p>
      <script>
            let text = 'Hello world';//back-ticks
            let text1 = 'He´s often called "Johnny"';//comillas simples y dobles
-           let text2 =
-           'The Quick brown fox jumped over the lazy dog';
+           let nombre = "Juan";
+           let lastName = "Doe";
+           let text2 = `Bienvenido ${nombre}, ${lastName}!`;
+           let price = 10;
+           let VAT = 0.25;
+           let total =  `Total:${(price * (1 + VAT)).toFixed(2)}`;
+           let header = "Templates Literales";
+           let tags = ["Template literals", "javascript", "es6"];
+           let html = `<h2>${header}</h2><ul>`;
+           for(const x of tags){
+            html += `<li>${x}</li>`;
+           }
+           html += `</ul>`;
+
            document.getElementById("demo").innerHTML = text;
            document.getElementById("demo1").innerHTML = text1;
-           document.getElementById("demo2").innerHTML = text2;
+           document.getElementById("demo3").innerHTML = text2;
+           document.getElementById("demo5").innerHTML = total;
+           document.getElementById("demo6").innerHTML = html;
+           
+           
         </script>
     </body>
 </html>
