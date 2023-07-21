@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>JavaScript Strings</h1>
+  <h2>The length Property</h2>
+  
+  <p>The length of the string is:</p>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <p id="demo3"></p>
+  <p id="demo4"></p>
+  
+  
+  <script>
+    let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    document.getElementById("demo").innerHTML = text.length;//cuenta la cantidad de letras
+    /* La secuencia \"  inserta una comilla doble en una cadena: */
+    let text1 = "We are the so-called \"Vikings\" from the north.";
+    document.getElementById("demo1").innerHTML = text1;
+    
+    /* La secuencia \'  inserta una comilla simple en una cadena: */
+    let text2 = 'It\'s alright.';
+    document.getElementById("demo2").innerHTML = text2;
+    
+    /* La secuencia \\  inserta una barra invertida en una cadena:  */
+    let text3 = "The character \\ is called backslash.";
+    document.getElementById("demo3").innerHTML = text3;
+    
+    /* Si una declaración de JavaScript no cabe en una línea, el mejor lugar para dividirla es después de un operador:
+    
+      Ejemplo
+    document.getElementById("demo").innerHTML =
+      "Hello Dolly!";
+      
+      También puede dividir una línea de código dentro de una cadena de texto con una sola barra invertida:
+      
+        Ejemplo
+      document.getElementById("demo").innerHTML = "Hello \
+      Dolly!";
+      
+      Una forma más segura de dividir una cadena es usar la suma de cadenas:
+      
+        Ejemplo
+      document.getElementById("demo").innerHTML = "Hello " +
+        "Dolly!";
+        
+        */
+        
+        // x is a string
+        let x = "John";
+        
+        // y is an object
+        let y = new String("John");
+        
+        document.getElementById("demo4").innerHTML =
+          typeof x + "<br>" + typeof y;
+  </script>
+</body>
+
+</html>
