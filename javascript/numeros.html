@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Numeros js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Numeros js</h1>
+        <p>Los numeros se pueden escribir con o sin decimales</p>
+        <p id="demo"></p>
+        <p>Los numeros extragrandes se pueden escribir con notacion cientifica</p>
+        <p id="demo1"></p>
+        <<h2>Precision de enteros</h2>
+        <p>Los números enteros (números sin notación de punto o exponente) tienen una precisión de hasta 15 dígitos.</p>
+        <p id="demo2"></p>
+        <<h2>Precision flotante</h2>
+        <p>La aritmética de punto flotante no siempre es 100% precisa:</p>
+        <p id="demo3"></p>
+        <p>Para resolver el problema anterior, es útil multiplicar y dividir:</p>
+        <p id="demo4"></p>
+        <h2>Infinity</h2>
+         <p>Infinity(o -Infinity) es el valor que JavaScript devolverá si calcula un número fuera del número más <br>
+         grande posible.</p>
+        <p id="demo5"></p>
+        <script>
+            //Los numeros se pueden escribir con o sin decimales
+            let x = 3.14;
+            let y = 7;
+            //Los numeros extragrandes se pueden escribir con notacion cientifica
+            let z = 123e5;
+            let w = 123e-5;
+            /*Los números enteros (números sin notación de punto o exponente) tienen una precisión
+             de hasta 15 dígitos. el numero maximo de decimales es 17*/
+            let a = 999999999999999;
+            let b = 9999999999999999;
+            //La aritmética de punto flotante no siempre es 100% precisa:
+            let c = 0.2 + 0.1;
+            //Para resolver el problema anterior, es útil multiplicar y dividir:
+            let d = ((0.2 * 10) +( 0.1 * 10)) / 10;
+            //Infinity(o -Infinity) es el valor que JavaScript devolverá si calcula un número fuera del número más grande posible.
+            let miNumero = 2;
+            let txt = "";
+            while(miNumero != Infinity) {
+                miNumero = miNumero * miNumero;
+                txt = txt + miNumero + "<br";
+            }
+            document.getElementById("demo").innerHTML = x + "<br>" + y;
+            document.getElementById("demo1").innerHTML = z + "<br>" + w;
+            document.getElementById("demo2").innerHTML = a + "<br>" + b;
+            document.getElementById("demo3").innerHTML = "0.2 + 0.1 = " + c;
+            document.getElementById("demo4").innerHTML = "0.2 + 0.1 = " + d;
+            document.getElementById("demo5").innerHTML = txt;
+        </script>
+    </body>
+</html>
