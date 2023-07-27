@@ -19,12 +19,83 @@
        alt: especifica el texto alternativo para la imagen-->
 
        <h1>Imagenes</h1>
-       <img src="IMG_0274.jpg" alt="Es un hombre con su hija" width="460" height="345">
+       <img src="IMG_0274.jpg" alt="Es un hombre con su hija" width="460" height="345" usemap="#workmap">
        <img src="IMG_0274.jpg" alt="Es un hombre con su hija" style="float:right;width:300px;height:300">
        <img src="IMG_0274.jpg" alt="Es un hombre con su hija" style="float:left;width:300px;height:300">
 
        <a href="www.gnbsudameris.com.co"><img src="IMG_0274.jpg" alt="Es un hombre con su hija" width="460" height="345"></a>
-       <!-- Mapa de imagenes -->
+       
+       <!-- Mapa de imagenes
+       
+       Con los mapas de imagenes html, se puede crear areas en las que se puede hacer clic en una imagen
+       La etiqueta HTML <map> define un mapa de imagen. un mapa de imagen es una imagen con areas en las que se puede hacer clic.
+       las areas se definen con una o mas <area> etiquetas
+       
+       Como funciona?
+       
+       La idea detras de un mapa de imagen es que deberia poder realiar diferentes acciones segun el lugar de la imagen en el que haga clic.
+       Para crear un mapa de imagen, necesita una imagen y algun codigo HTML que describa las areas en las que se puede hacer clic.
+       
+       LA IMAGEN
+       
+       La imagen se inserta usando la <img> etiqueta. la unica diferencia con otras imagenes es que debes agregar usemap atributo
+       ejemplo:
+       
+        <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+        
+        El usemap valor comienza con una etiqueta hash # seguida del nombre del mapa de imagen y se usa para crear una relacion entre la imagen
+        y el mapa de imagen
+        
+        CREAR MAPA DE IMAGEN
+        
+        Luego, agregue un <map> elemento.
+        El <map> elemento se utiliza para crear un mapa de imagen y se vincula a la imagen mediante el name atributo requerido; ejemplo:
+        
+       <map name="workmap">
+       El name atributo debe tener el mismo valor que el atributo <img> de usemap 
+       
+       LAS AREAS
+       
+       Luego, agregue las areas en las que se puede hacer clic.
+       una area en la que se puede hacer clic se define mediante un <area> elemento.
+       
+       FORMA
+       
+       Debe definir la forma del area en la que se puede hacer clic y puede elegir uno de estos valores:
+       
+       rect- define una region rectangular
+       circle-define una region circular
+       poly-define una region poligonal
+       default- define toda la region
+       
+       Tambien debe definir algunas coordenadas para poder colocar el area en la que se puede hacer clic en la imagen
+       
+       FORMA = "rect"
+       
+       Las coordenadas para shape="rect" vienen en pares, una para el eje x y otra para el eje y.
+       entonces, las coordenadas 34,44 se ubican en 34 pixeles del margen izquierdo y a 44 pixeles de la parte superior
+
+
+       
+       las coordenadas 270,350 se encuentran 270 pixeles del margen izquierdo y a 350 pixeles de la parte superior
+       
+       forma = "circulo"
+       
+       -->
+
+       <h1>mapa de imagenes</h1>
+
+       <img src="IMG_0274.jpg" alt="Es un hombre con su hija" width="460" height="345" usemap="#workmap">
+
+       <map name="workmap">
+           <area shape="rect" coords="34,44,270,350" href="www.alkosto.com" alt="oscar">
+       </map>
+
+
+
+
+
+
        
     </body>
 </html>
