@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Propiedades del numero</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <h1>Propiedads del numero js</h1>
+    <h2>Javascript Epsilon</h2>
+    <p id="demo"></p>
+    <h2>Javascript MAX_VALUE</h2>
+    <p id="demo1"></p>
+    <h2>Javascript MIN_VALUE</h2>
+    <p id="demo2"></p>
+    
+    <script>
+        /* el Number.EPSILON es la diferencia entre el numero de punto flotante mas pequeño que 1 y 1*/
+        let x = Number.EPSILON;
+        document.getElementById("demo").innerHTML = x;
+        /* El Number.MAX_VALUE es una constante que representa el mayor numero posible en javascript */
+        let x1 = Number.MAX_VALUE;
+        document.getElementById("demo1").innerHTML = x1;
+        /* Number.MIN_VALUE es una constante que representa el numero mas bajo posible en javascript */
+        let x2 = Number.MIN_VALUE;
+        document.getElementById("demo2").innerHTML = x2;
+    </script>
+    </body>
+</html>
