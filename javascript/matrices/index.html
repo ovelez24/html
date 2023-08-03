@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matrices</title>
+  
+</head>
+
+<body>
+  <h1>Matrices</h1>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <p id="demo3"></p>
+  <h2>Cambio de mmatriz a una cadena</h2>
+  <p id="demo4"></p>
+  <p id="demo5"></p>
+  <script>
+    const cars = ["saab", "Volvo", "BMW"];
+    //se [uede crear una matriz y luego proporcionar los elementos asi:]
+    const cars1 = [];
+    cars1[0] = "Saab";
+    cars1[1] = "Volvo";
+    cars1[2] = "BMW";
+    //tambien se puede crear una Array o matriz asi:
+    const cars2 = new Array("saab", "Volvo", "BMW");
+    // pero la opcion anterior no hay necesidad de hacerlo.
+    //cambio de un elemento de matriz
+    cars1[0] = "Opel";
+    //Convertir una matriz en una cadena
+    /* El metodo toString convierte una matriz en una cadena de valores
+    de matriz(separdos por comas)*/
+    const fruits = ["Banana", "Orange", "Apple", 'Mango'];
+    let length = fruits.length;
+    document.getElementById("demo").innerHTML = cars;
+    document.getElementById("demo1").innerHTML = cars1;
+    document.getElementById("demo2").innerHTML = cars2;
+    // acceso a los elementos de la matriz
+    document.getElementById("demo3").innerHTML = cars2[0];
+    document.getElementById("demo4").innerHTML = fruits.toString();
+    document.getElementById("demo5").innerHTML = length;
+    
+  </script>
+  
+</body>
+
+</html>
