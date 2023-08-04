@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <style>
+        body {
+          background-image: url('/IMG_0274.jpg');
+          background-attachment: fixed;/*esto cubre todo el elemento */
+          background-size: cover; /*esto cubre todo el elemento */
+        } 
+      </style>
         <title>Imagenes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,6 +88,14 @@
        
        forma = "circulo"
        
+       Para agregar una area circular, primero ubique las coordenadas del centro del circulo 337, 300
+       luego especifique el radio del circulo: 44 pixeles
+       
+       Forma "poli"
+       
+       el shape="poly" contiene varios puntos de coordenadas , lo que crea una formada con lineas rectas un poligono.
+       se tienen que encontrar las coordenadas x e y para todos los bordes de la imagen, las coordenadas vienen en pares, una para el eje x y otra para el eje y:
+       
        -->
 
        <h1>mapa de imagenes</h1>
@@ -90,8 +105,32 @@
        <map name="workmap">
            <area shape="rect" coords="34,44,270,350" href="www.alkosto.com" alt="oscar">
        </map>
+       <h1>mapa de imagenes y javascript</h1>
+       <p>Agregar un click evento al area elemento para ejecutar una funcion javascript</p>
 
+       <img src="IMG_0274.jpg" alt="Es un hombre con su hija" width="460" height="345" usemap="#workmap">
 
+       <map name="workmap">
+           <area shape="rect" coords="34,44,270,350" href="www.w3schools.com" onclick="myFunction()"alt="oscar">
+       </map>
+       
+       <script>
+         function myFunction(){
+           alert("You clicked the photo");
+         }
+       </script>
+       
+       <h1>Imagen de fondo en un elemento HTML</h1>
+       <p style="background-image: url('/IMG_0274.jpg');">Para agregar una imagen de fondo en un elemento HTML, use el style atributo HTMML y la background-image propiedad css, tambien se puede especificar
+       la imagen de fondo en el style elemento en la head seccion</p>
+       
+      <h1>Elemento picture</h1>
+      <p>El picture elemento permmite mostrar diferentes imagenes para diferentes dispositivos o tamaños de pantalla</p>
+      <picture>
+        <source media="(min-width: 650px)" srcset="/IMG_0274.jpg">
+        <source media="(min-width: 465px)" srcset="img_car.jpg">
+        <img src="/IMG_0274.jpg">
+      </picture>
 
 
 
