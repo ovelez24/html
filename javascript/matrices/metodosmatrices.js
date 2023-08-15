@@ -56,5 +56,45 @@ document.getElementById("demo15").innerHTML = myChildren1;
 const myChildren2 = arr3.concat("Peter");
 document.getElementById("demo16").innerHTML = myChildren2;
 
+// Aplanando una matriz
 
+/* Aplanar una matriz es el procesos de reducir la dimensionalidad de una matriz.
 
+el metodo flat() crea una nueva matriz con elementos de submatrices concatenados a una profundidad especifica
+*/
+
+const myArr = [[1,2], [3,4], [5,6]];
+const newArr = myArr.flat();
+document.getElementById("demo17").innerHTML = newArr;
+
+//Matrices de empalme y corte
+
+// splice() metodo se puede usar para agregar nuevos elementos a una matriz
+
+document.getElementById("demo18").innerHTML = fruits;
+fruits.splice(2, 0, "guanabana", "kiwi");//el primer parametro (2) define la posicion en la que se deben agregar nuevos elementos, el segundo (0) define cuantos elementos se deben eliminar
+document.getElementById("demo19").innerHTML = fruits;
+let removed = fruits.splice(2,2, "guanabana", "kiwi")
+document.getElementById("demo20").innerHTML = "items removidos: <br> " + removed;
+
+//usando splice para eliminar elementos sin dejar agujeros en la matriz
+
+document.getElementById("demo21").innerHTML = fruits;
+fruits.splice(0, 1);//el primer parametro define la posicion en la que se deben agregar nuevos elementos en este caso (0) y el segundo define cuantos elementos se deben eliminar
+document.getElementById("demo22").innerHTML = fruits;
+
+//Metodo slice()
+
+// el metodo slice corta una parte de una matriz en una nueva matriz asi:
+//nota: el slice crea una nueva matriz y no elimina ningun elemento de la matriz origen
+
+const citrus = fruits.slice(1);
+document.getElementById("demo23").innerHTML = fruits + "<br><br>" + citrus;
+const citrus1 = fruits.slice(3);
+document.getElementById("demo24").innerHTML = fruits + "<br><br>" + citrus1;
+/* el slice puede tomar dos argumentos como slice(1,3), luego el metodo 
+selecciona elementos desde el argumento inicial y hasta el argumento final,
+pero sin incluir. si se omite el argumento final, corta el resto de la matriz*/
+
+const citrus2 = fruits.slice(1,3);
+document.getElementById("demo25").innerHTML = fruits + "<br><br>" + citrus2;
