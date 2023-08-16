@@ -2,6 +2,7 @@
 
 const natalia = {
     name: "natalia",
+    name: "natalia",
     age: 20,
     cursosAprobados: [
         "curso definitivo de HTML  CSS", "Curso practico de HTMl y CSS",
@@ -16,6 +17,11 @@ const natalia = {
 
 // crear prototipo
 
+function Student(name, age, cursosAprobados) {
+    this.name = name;
+    this.age = age;
+    this.cursosAprobados = cursosAprobados;
+}
 function Student(name, age, cursosAprobados) {
     this.name = name;
     this.age = age;
@@ -37,9 +43,19 @@ const juanita = new Student(
 // crear prototipos con la sintaxis de clases
 
 class Student2 {
-    constructor(name, age, cursosAprobados) {
+    constructor({
+        name,
+        age, 
+        cursosAprobados = [],
+        email,
+        
+    
+        
+    }) {
+        this.name = name;
         this.name = name;
         this.age = age;
+        this.email = email;
         this.cursosAprobados = cursosAprobados;
     }
 
@@ -49,8 +65,52 @@ class Student2 {
 }
 
 const miguelito = new Student2(
-    "miguel Antonio",
-    28,
-    ["Cursos de negocios para ciencia de datos", "Curso de principios de visualizacion de datos para BI"],
+  {
+      email: "miguelito@platzi.com",
+      name: "Miguel",
+      name: "Miguel",
+    age: 28,
+    cursosAprobados: ["curso Analisis de Negocios para ciencia de datos", 
+    "Curso de Principios de visualizacion de Datos para BI"],
+
+  }
+);
+
+//crear  otra clase
+
+class Student {
+    constructor({
+       name,
+       email,
+       username,
+       twitter = undefined, 
+       instagram = undefined, 
+       facebook = undefined, 
+       approvedCourses =[],
+       learningPaths = [],
+       
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.socialMedia = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approvedCourses  = approvedCourses;
+        this.learningPaths  = learningPaths;
+    }
+
+    
+
+}
+
+const juan2 = new Student(
+    name: "juanDC",
+    username: "juanDC",
+    email: "juanDC@gmail.com",
+
+
 );
 
