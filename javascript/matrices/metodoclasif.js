@@ -25,7 +25,7 @@ Debido a esto, el sort() método producirá un resultado incorrecto al ordenar n
 
 Puede solucionar esto proporcionando una función de comparación asi: */
 
-const points = [40, 100, 1, 5, 25, 10];
+const points = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 42, 43,44,45];
 document.getElementById("demo3").innerHTML = points + " sin el sort";
 points.sort(function(a, b) { return a - b}); 
 document.getElementById("demo4").innerHTML = points + " con el sort ordenando los numeros con una funcion en orden ascendente ";
@@ -92,10 +92,25 @@ function myFunction4() {
     }
     
     document.getElementById("demo8").innerHTML = points;
+    
+    
 
 }
 
+function myFunction5(){
 
+  
+document.getElementById("demo9").innerHTML =
+Math.floor(Math.random() * 45);
+}
+
+
+function myFunction6(){
+
+  
+document.getElementById("demo10").innerHTML =
+Math.floor(Math.random() * 16);
+}
 
 
 
