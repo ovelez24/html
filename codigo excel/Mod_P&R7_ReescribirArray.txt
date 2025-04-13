@@ -1,0 +1,28 @@
+Option Base 1
+
+Sub SobreescribirArray()
+
+Dim Micuenta As Integer      'Retiene la cuenta de integrantes por grupo
+Dim MiArray() As Variant     'Un array genérico
+
+'Seleccionar el inicio del rango
+Range("A2").Select
+
+'Hacer loop en la columna A hasta la celda vacía
+Do While ActiveCell.Value <> ""
+
+    'Contar cuántas veces aparece el valor de la celda activa en la columna A
+    Micuenta = Application.WorksheetFunction.CountIf(Range("A:A"), ActiveCell.Value)
+    
+    'Cargar el array
+    MiArray = Range(ActiveCell.Address & ":C" & ActiveCell.Row + Micuenta - 1).Value
+    
+    'Hacer algo con el array antes de reescribirlo
+    
+    'Pasar al siguiente grupo
+    ActiveCell.Offset(Micuenta, 0).Select
+
+Loop
+
+End Sub
+

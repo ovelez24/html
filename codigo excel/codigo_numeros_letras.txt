@@ -1,0 +1,171 @@
+'Funciones para convertir de números a letras
+'Llamada : Letras(Número,Formato) - Formato 1-Pesos, 2-Dólares
+Function Unidades(num, UNO)
+Dim U
+Dim Cad
+    
+    U = Array("UN", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE")
+    Cad = ""
+    If num = 1 Then
+        If UNO = 1 Then
+            Cad = Cad & "UNO"
+        Else
+            Cad = Cad & "UN"
+        End If
+    Else
+        Cad = Cad & U(num - 1)
+    End If
+    Unidades = Cad
+End Function
+
+Function Decenas(num1, res)
+Dim D1
+    D1 = Array("ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE", "DIECISEIS", "DIECISIETE", _
+                "DIECIOCHO", "DIECINUEVE")
+    D2 = Array("DIEZ", "VEINTE", "TREINTA", "CUARENTA", "CINCUENTA", "SESENTA", _
+                "SETENTA", "OCHENTA", "NOVENTA")
+    
+    If num1 > 10 And num1 < 20 Then
+        Cad1 = D1(num1 - 10 - 1)
+    Else
+        Cad1 = D2((num1 \ 10) - 1)
+        If (num1 \ 10) <> 2 Then
+            If res > 0 Then
+                Cad1 = Cad1 & " Y "
+                Cad1 = Cad1 & Unidades(num1 Mod 10, 0)
+            End If
+        Else
+            If res = 0 Then
+                Cad1 = Cad1 & "E"
+            Else
+                Cad1 = Cad1 & "I"
+                Cad1 = Cad1 & Unidades(num1 Mod 10, 0)
+            End If
+        End If
+    End If
+    Decenas = Cad1
+End Function
+
+Function Cientos(num2)
+   num3 = num2 \ 100
+    Select Case num3
+        Case 1
+                If num2 = 100 Then
+                    cad2 = "CIEN "
+                Else
+                    cad2 = "CIENTO "
+                End If
+        Case 5
+                cad2 = "QUINIENTOS "
+        Case 7
+                cad2 = "SETECIENTOS "
+        Case 9
+                cad2 = "NOVECIENTOS "
+        Case Else
+                cad2 = Unidades(num3, 0) & "CIENTOS "
+    End Select
+    
+    num2 = num2 Mod 100
+    If num2 > 0 Then
+        If num2 < 10 Then
+            cad2 = cad2 & Unidades(num2, num2)
+        Else
+            cad2 = cad2 & Decenas(num2, num2 Mod 10)
+        End If
+    End If
+    Cientos = cad2
+End Function
+
+Function Miles(num4)
+    If (num4 >= 100) Then
+        cad3 = Cientos(num4)
+    Else
+        If (num4 >= 10) Then
+            cad3 = Decenas(num4, num4 Mod 10)
+        Else
+            cad3 = Unidades(num4, 0)
+        End If
+    End If
+    cad3 = cad3 & " MIL "
+    Miles = cad3
+End Function
+
+Function Millones(cant)
+    If cant = 1 Then
+        ter = " "
+    Else
+        ter = "ES "
+    End If
+    If (cant >= 1000) Then
+        cantl = cantl & Miles(cant \ 1000)
+        cant = cant Mod 1000
+    End If
+    If cant > 0 Then
+        If cant >= 100 Then
+            cantl = cantl & Cientos(cant)
+        Else
+            If cant >= 10 Then
+                cantl = cantl & Decenas(cant, cant Mod 10)
+            Else
+                cantl = cantl & Unidades(cant, 0)
+            End If
+        End If
+    End If
+    Millones = cantl & " MILLON" & ter
+End Function
+Function decimales(numero As Single) As Integer
+Dim iaux As Integer
+  iaux = numero - Application.Round(numero, 2)
+  decimales = iaux
+End Function
+
+Function letras(cantm As Variant, ByVal mon As Integer) As String
+  Dim cants1 As String, num1 As Variant, num2 As Variant
+  
+    num1 = cantm \ 1000000
+    num2 = cantm - (num1 * 1000000)
+
+    cents = (num2 * 100) Mod 100
+    If cents = 0 Then
+        cents1 = "00"
+    Else
+      cents1 = Format(cents)
+    End If
+    cantm = cantm - (cents / 100)
+    If cantm >= 1000000 Then
+        cantlm = Millones(cantm \ 1000000)
+        cantm = cantm Mod 1000000
+    End If
+    If cantm > 0 Then
+        If (cantm >= 1000) Then
+            cantlm = cantlm & Miles(cantm \ 1000)
+            cantm = cantm Mod 1000
+        End If
+    End If
+    If cantm > 0 Then
+        If cantm >= 100 Then
+            cantlm = cantlm & Cientos(cantm)
+        Else
+            If cantm >= 10 Then
+                cantlm = cantlm & Decenas(cantm, cantm Mod 10)
+            Else
+                cantlm = cantlm & Unidades(cantm, 1)
+            End If
+        End If
+    End If
+    If mon = 1 Then
+        letras = cantlm & " PESOS " & cents1 & "/100 M.N."
+    Else
+        letras = cantlm & " DOLARES " & cents1 & "/100 U.S.D."
+    End If
+End Function
+
+Sub prueba()
+  Dim res As String, num As Single
+  num = 50899697.51
+  res = letras(num, 1)
+End Sub
+
+
+
+

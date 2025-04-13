@@ -1,0 +1,42 @@
+Sub Encontrar()
+
+Dim MiBusqueda As Variant   'Retiene el valor a buscar
+Dim X As Integer            'contador para el loop
+
+'Obtener el string del usuario
+MiBusqueda = InputBox("Ingrese una palabra a buscar", _
+    "¿Qué está buscando?")
+
+'Activar el libro de datos
+Workbooks("P&R5 - Datos").Activate
+
+'Seleccionar el comienzo del rango
+Range("A1").Select
+
+'Hacer loop hasta encontrar un valor
+For X = 1 To Sheets.Count
+    
+    'Fuerza a continuar si no hay coincidencia
+    On Error Resume Next
+    
+    'seleccionar la hoja por su número de índice
+    Sheets(X).Select
+    
+    'Realizar búsqueda
+    Cells.Find(What:=MiBusqueda, After:=ActiveCell, LookIn:=xlValues, LookAt _
+            :=xlPart, SearchOrder:=xlByRows, _
+                SearchDirection:=xlNext, MatchCase:= _
+                    False, SearchFormat:=False).Activate
+    
+    'Prueba lógica para ver si aparece el valor buscado en la celda activa.
+    'vbTextCompare lo hace insensible a mayúsculas
+    If InStr(1, ActiveCell.Value, MiBusqueda, vbTextCompare) Then End
+Next X
+
+'Caja de texto para avisar que no hubo coincidencia
+MsgBox "Disculpa " & MiBusqueda & " no fue encontrado en ninguna hoja", _
+        vbOKOnly, "¡No hubo coincidencias!"
+
+End Sub
+
+

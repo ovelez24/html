@@ -1,0 +1,116 @@
+Option Base 1       'Hacer que los Arrays comiencen en 1
+Option Explicit     'Forzar la declaración de variables
+Private Sub CodigoCentral()
+
+'La línea principal para agregar una nueva carpeta es
+MkDir "C:\Users\usuario\Desktop\Mi Archivo\He creado una carpeta"
+' La ruta es C:\Users\usuario\Desktop\Mi Archivo
+' La carpeta es Mi Archivo
+
+End Sub
+
+ Sub CrearCarpetaSimple()
+'Código completo
+'Agrega una estructura a nivel de carpeta simple usando nombres provistos
+
+    'Elije la hoja correcta (nombre vb)
+    HCarpetas.Select
+    
+    'Selecciona el comienzo del rango
+    Range("H5").Select
+    
+    'Loop para agregar todo
+    While ActiveCell.Offset(0, -1).Value <> ""
+    
+        'Manejo de errores (fuerza a continuar)
+        On Error Resume Next
+        'Construye esta ruta concatenando valores de la columna G en la ruta
+        MkDir "C:\Users\usuario\Desktop\Mi Archivo\" & ActiveCell.Offset(0, -1).Value
+        'Desactiva errores
+        On Error GoTo 0
+        
+        'Agrega un enlace
+        ActiveSheet.Hyperlinks.Add Anchor:=Selection, Address:= _
+            "C:\Users\usuario\Desktop\Mi Archivo\" & ActiveCell.Offset(0, -1).Value _
+            , TextToDisplay:="Abrir Ahora"
+        
+        'Desplaza una celda hacia abajo
+        ActiveCell.Offset(1, 0).Select
+    
+    Wend
+
+End Sub
+
+ Sub CrearCarpetasMultiples()
+'Código completo
+'Agrega una estructura a nivel de carpeta simple usando nombres provistos
+'Agrega subcarpetas usando nombres provistos
+
+Dim MiRuta As String                'Retiene la ruta hacia el directorio madre
+Dim ArrayEstructura() As String     'Array para retener los nombres de las subcarpetas
+Dim CuentaCarpetas As Integer       'Retiene la cuenta de las subcarpetas
+Dim LoopSubCarpetas As Integer      'Loop interno para agregar subcarpetas
+
+
+'Especifica la ruta hacia el directorio madre
+MiRuta = "C:\Users\usuario\Desktop\Mi Archivo\"
+
+    '___________________________________________________________________________
+    
+    'Captura la información de la subcarpeta
+
+    'Selecciona la hoja de subcarpetas
+    HSubcarpetas.Select
+    'Obtiene el recuento de (sub) carpetas
+    CuentaCarpetas = Range(Range("B5"), Range("B5").End(xlDown)).Count
+  
+    'Redimensiona el array ahora que sabemos el tamaño
+    ReDim ArrayEstructura(CuentaCarpetas)
+    
+    'Hace un loop para poner los nombres de las subcarpetas en el array
+    For LoopSubCarpetas = 1 To CuentaCarpetas
+        ArrayEstructura(LoopSubCarpetas) = HSubcarpetas.Cells(LoopSubCarpetas + 4, 2).Value
+    Next LoopSubCarpetas
+    
+    '___________________________________________________________________________
+    
+    'Crea la estructura de carpetas
+    
+    'Selecciona la hoja correcta (nombre vb)
+    HCarpetas.Select
+    
+    'Selecciona el comienzo del rango
+    Range("H5").Select
+    
+    'Loop externo para agregar carpetas
+    While ActiveCell.Offset(0, -1).Value <> ""
+        
+        'Manejo de errores (continuar aún si la carpeta ya existe)
+        On Error Resume Next
+        'Construir la ruta concatenando valores desde la columna G hacia la ruta
+        MkDir MiRuta & ActiveCell.Offset(0, -1).Value
+            
+            'Loop interno para agregar sub carpetas
+            For LoopSubCarpetas = 1 To CuentaCarpetas
+                'Como recién, pero con la subcarpeta añadida al final
+                MkDir MiRuta & ActiveCell.Offset(0, -1).Value & "\" _
+                       & ArrayEstructura(LoopSubCarpetas)
+            'Siguiente loop interno
+            Next LoopSubCarpetas
+        
+        'Desactiva errores
+        On Error GoTo 0
+            
+        'Agrega enlace
+        ActiveSheet.Hyperlinks.Add Anchor:=Selection, Address:= _
+            MiRuta & ActiveCell.Offset(0, -1).Value _
+                , TextToDisplay:="Abrir Ahora"
+        
+        'Bajar una celda
+        ActiveCell.Offset(1, 0).Select
+    
+    Wend
+
+End Sub
+
+

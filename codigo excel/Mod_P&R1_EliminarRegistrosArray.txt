@@ -1,0 +1,52 @@
+Option Base 1   'Asegurarse de que el array comience en 1
+
+
+Sub EliminarRegistrosDelArray()
+
+Dim MiArray() As Variant    'Declara el array
+Dim CuentaFilas As Integer  'Retiene la cantidad de filas con datos
+Dim Contador As Integer     'Contador para el loop
+
+    'Desactiva la actualización de pantalla (DEBE activarse al final)
+    Application.ScreenUpdating = False
+    'Desactiva los cálculos automáticos (DEBE activarse al final)
+    Application.Calculation = xlCalculationManual
+    
+    'Limpia los datos anteriores
+    Range("D:E").ClearContents
+
+'Lee la información
+    'Carga el array
+    MiArray = Range("A1").CurrentRegion
+    
+    'Ceunta cuántas filas tiene el array
+    CuentaFilas = UBound(MiArray)
+
+'Escribe la información
+    'Selecciona la celda donde comenzará a escribir
+    Range("D1").Select
+    
+    On Error Resume Next
+        For Contador = 1 To CuentaFilas
+            If IsError _
+                (WorksheetFunction.Match _
+                (MiArray(Contador, 1), Range("MiRango"), 0)) Then
+                ActiveCell.Value = MiArray(Contador, 1)
+                ActiveCell.Offset(0, 1).Value = MiArray(Contador, 2)
+                ActiveCell.Offset(1, 0).Select
+            Else
+                'No hacer nada
+            End If
+        Next Contador
+    On Error GoTo 0
+
+    
+    'Reactivar cálculos automáticos
+    Application.Calculation = xlCalculationAutomatic
+    
+    'Reactivar actualización de pantalla
+    Application.ScreenUpdating = False
+
+End Sub
+
+

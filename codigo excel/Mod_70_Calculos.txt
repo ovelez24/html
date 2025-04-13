@@ -1,0 +1,92 @@
+'Este módulo muestra varias maneras de realizar cálculos desde el código
+
+'Declaración de las variables
+Dim MiUltimaFila As Integer        'Obtiene el número de la última fila para el loop For/Next
+
+
+Sub CalculosEnCodigo()
+'Realizar cálculos simples en el código
+
+'Declaración de las variables locales
+Dim X As Integer        'Un contador simple para usar en los loops
+
+    'Selección de la hoja correta (nombre vb)
+    ShCalculos.Select
+    
+    'Limpiar celdas ocupadas
+    Range("G2:I1000000").ClearContents
+      
+    'Obtener el número de la última fila
+    MiUltimaFila = Range("A100000").End(xlUp).Row
+    
+    'Repetir tantas veces como filas hay en la tabla
+    For X = 2 To MiUltimaFila
+        
+        'Escribir el valos de la celda(X,4 (Columna D)) más 1 en la celda (X,7 (columna G))
+        Cells(X, 7) = Cells(X, 4) + 1
+    
+    'Fin del loop
+    Next
+    
+End Sub
+
+
+Sub EscribirFormulasEnCeldasSimples()
+
+    'Macro grabada de la celda H2 con la fórmula (=65-G2)
+    Range("H2").Select
+    ActiveCell.FormulaR1C1 = "=65-RC[-1]"
+    
+    'Usando .Formula - Funciona si la celda activa es la celda CORRECTA
+    ActiveCell.Formula = "=65-G2"
+    
+    'Usando .FormulaR1C1...R2 es Fila(Row) 2, C7 es Columna 7
+    '...esencialmente es una referencia absoluta (R1C1 = $A$1, and R2C7 = $G$2)
+    ActiveCell.FormulaR1C1 = "=65-R2C7"
+    
+    'Usando .FormulaR1C1 otra vez, pero ahora RELATIVAMENTE
+    'R no tiene número (nos quedamos en la misma fila), C[-1] significa que buscamos en la columna de la izquierda
+    'RC[1] buscaría una columna a la derecha
+    ActiveCell.FormulaR1C1 = "=65-RC[-1]"
+
+End Sub
+
+
+Sub EscribirFormulasEnRangosDeCeldas()
+'Escribiendo la misma fórmula en un conjunto de celdas
+
+    'Si escribimos en un conjunto de celdas, usando .Formula nuestros cálculos regulares funcionan
+    Range("H2:H20").Formula = "=65-G2"
+    
+End Sub
+
+
+Sub FuncionesDeHoja()
+'Usando las fórmulas incorporadas en Excel
+
+    'Variable declarada a nivel local
+    Dim Temporal As Integer
+
+    'Usando la función VLookup (BUSCARV) dentro del código
+    Temporal = Application.WorksheetFunction.VLookup _
+                (Range("E2"), Range("O4:P8"), 2, False)
+                
+
+End Sub
+
+
+Sub FuncionesDeHoja2()
+
+   'Variable declarada a nivel local
+    Dim Temporal As Integer
+    
+    'Cargando un rango en una variable
+    MiRangoDeBusqueda = Range("O4:P8")
+    
+    'Usando la función VLookup (BUSCARV) dentro del código
+    Range("L5") = Application.WorksheetFunction.VLookup _
+                    (Range("E2"), MiRangoDeBusqueda, 2, False)
+
+End Sub
+
+

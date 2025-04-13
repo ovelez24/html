@@ -1,0 +1,105 @@
+'Diferentes alternativas para usar BUSCARV (VLOOKUP)
+
+'Rangos fijos, usando el nombre de etiqueta de la hoja
+
+Sub RangoFijoUnaCelda()
+
+    Range("B1").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1").Value, Sheets("Datos").Range("A:B"), 2, False)
+
+End Sub
+
+Sub RangoFijoMuchasCeldas()
+
+    Range("B1:B3").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1:A3").Value, Sheets("Datos").Range("A:B"), 2, False)
+
+End Sub
+
+
+
+
+'Rangos fijos, usando nombre de rango
+
+Sub RangoFijoUnaCeldaNombreDeRang()
+
+    Range("B1").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1").Value, Range("mitabla"), 2, False)
+
+End Sub
+
+Sub RangoFijoMuchasCeldasNombreDeRango()
+
+    Range("B1:B3").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1:A3").Value, Range("mitabla"), 2, False)
+
+End Sub
+
+
+
+
+'Rangos fijos, usando nombre VB de la hoja
+
+Sub RangoFijoUnaCeldaNombreVB()
+
+    Range("B1").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1").Value, HDatos.Range("A:B"), 2, False)
+
+End Sub
+
+Sub RangoFijoMuchasCeldasNombreVB()
+
+    Range("B1:B3").Value = Application.WorksheetFunction.VLookup _
+        (Range("A1:A3").Value, HDatos.Range("A:B"), 2, False)
+
+End Sub
+
+
+
+
+'Rangos dinámicos...
+
+Sub SeleccionaRrangoDinámico()
+
+    'Esto queremos seleccionar...
+    'Range("A1:A4").Select
+    
+    'Para hacerlo necesitamos construir el string "A1:AX" dinámicamente
+    Range("A1:A" & Range("A1").End(xlDown).Row).Select
+    
+
+    Range("A1:A" & Range("A1").End(xlDown).Row).Offset(0, 1).Select
+    
+    
+End Sub
+
+
+
+'Usando el nombre de etiqueta de la hoja
+Sub RangoDinamicoMuchasCeldasNombreHoja()
+
+    Range("A1:A" & Range("A1").End(xlDown).Row).Offset(0, 1).Value = _
+        Application.WorksheetFunction.VLookup _
+        (Range("A1:A" & Range("A1").End(xlDown).Row), Sheets("Datos").Range("A:B"), 2, False)
+
+End Sub
+
+'Usando un nombre de rango
+Sub RangoDinamicoMuchasCeldasNombreDeRango()
+
+     Range("A1:A" & Range("A1").End(xlDown).Row).Offset(0, 1).Value = _
+        Application.WorksheetFunction.VLookup _
+        (Range("A1:A" & Range("A1").End(xlDown).Row), Range("mitabla"), 2, False)
+
+End Sub
+
+'Usando el nombre VB de la hoja
+Sub RangoDinamicoMuchasCeldasNombreVB()
+
+     Range("A1:A" & Range("A1").End(xlDown).Row).Offset(0, 1).Value = _
+        Application.WorksheetFunction.VLookup _
+        (Range("A1:A" & Range("A1").End(xlDown).Row), HDatos.Range("A:B"), 2, False)
+
+End Sub
+
+

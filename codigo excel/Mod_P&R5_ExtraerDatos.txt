@@ -1,0 +1,81 @@
+Sub Extraer()
+
+Dim MiString As String      'El string a buscar
+Dim X As Integer            'Contador para el loop
+Dim MiArchivo As String     'Retiene el nombre del archivo a guardar
+
+'Apagar las alertas
+Application.DisplayAlerts = False
+
+'Seleccionar la hoja correcta
+Sheets("Hoja2").Select
+
+'Seleccionar el comienzo del rango
+Range("A2").Select
+
+'Hacer loop para repasar todas las empresas
+Do While ActiveCell <> ""
+
+    'Capturar el string a buscar
+    MiString = ActiveCell.Value
+
+    'Probar si el string aparece en la columna A
+    X = Application.WorksheetFunction.CountIf(Sheets("Hoja1").Range("A:A"), MiString)
+
+    'Verificar si el string no fue encontrado
+    If X = 0 Then
+        'Bajar una celda
+        ActiveCell.Offset(1, 0).Select
+    Else
+        'Abrir el libro "Plantilla" (cambiar nombre y ruta)
+        Workbooks.Open "C:\Users\usuario\Desktop\Mi Archivo\Plantilla.xlsx"
+        
+        'Activar este libro
+        ThisWorkbook.Activate
+        'Seleccionar la hoja correcta
+        Sheets("Hoja1").Select
+        'Seleccionar el comienzo del rango
+        Range("A2").Select
+               
+            'Hacer loop por todos los valores de l columna A
+            Do While ActiveCell.Value <> ""
+                
+                'Verificar si el valor de la celda activa coincide con el string buscado
+                If ActiveCell.Value <> MiString Then
+                    'Bajar una celda
+                    ActiveCell.Offset(1, 0).Select
+                Else
+                    'Copiar toda la fila en la primera celda vacía del archivo destino
+                    ActiveCell.EntireRow.Copy Workbooks("Plantilla").Sheets("Hoja1").Range("A10000").End(xlUp).Offset(1, 0)
+                    'Bajar una celda
+                    ActiveCell.Offset(1, 0).Select
+                End If
+            
+            Loop
+                
+        'Seleccionar el libro "Plantilla"
+        Workbooks("Plantilla").Activate
+        'Autoajustar las columnas
+        Range("A:B").EntireColumn.AutoFit
+        'Crear el nombre del archivo a guardar
+        MiArchivo = Format(Now(), "YYYYMMDD") & " - " & MiString & ".xlsx"
+        'Crear la ruta y guardar
+        ActiveWorkbook.SaveAs ("C:\Users\usuario\Desktop\Mi Archivo\" & MiArchivo)
+        'Cerrar el libro
+        ActiveWorkbook.Close
+        
+        'Seleccionar la hoja correcta
+        Sheets("Hoja2").Select
+        'Bajar una celda
+        ActiveCell.Offset(1, 0).Select
+        
+    End If
+
+Loop
+
+'Volver a encender las alertas
+Application.DisplayAlerts = True
+
+
+End Sub
+

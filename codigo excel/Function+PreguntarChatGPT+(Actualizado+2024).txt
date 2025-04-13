@@ -1,0 +1,47 @@
+Function PreguntarChatGPT(prompt As String) As String
+    If prompt = "" Or IsNull(prompt) Then
+        PreguntarChatGPT = ""
+        Exit Function
+    End If
+ 
+    Dim pedido As Object
+    Dim json As Object
+    Dim url As String
+    Dim api_key As String
+    Dim data As String
+    Dim respuesta As String
+    
+    On Error GoTo ErrorHandler
+    
+    Set pedido = CreateObject("MSXML2.ServerXMLHTTP")
+    
+    ' Reemplazar con el modelo actualizado, por ejemplo, "text-davinci-003" o "gpt-3.5-turbo", etc.
+    url = "https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions"
+    api_key = [tu_api_key]
+    data = "{""prompt"": """ & prompt & """, ""max_tokens"": 2000}"
+    
+    With pedido
+        .Open "POST", url, False
+        .setRequestHeader "Content-Type", "application/json"
+        .setRequestHeader "Authorization", "Bearer " & api_key
+        .send data
+        respuesta = .responseText
+    End With
+    
+    ' Verificar si la respuesta contiene "error"
+    If InStr(respuesta, "error") > 0 Then
+        Dim errJson As Object
+        Set errJson = JsonConverter.ParseJson(respuesta)
+        MsgBox errJson("error")("message")
+        Exit Function
+    End If
+ 
+    Set json = ParseJson(respuesta)
+    ' El índice en VBA es base 1, por lo tanto, debe ser (1) en lugar de (0) o (1) dependiendo de la estructura de la respuesta.
+    PreguntarChatGPT = json("choices")(1)("text")
+    
+    Exit Function
+ 
+ErrorHandler:
+    PreguntarChatGPT = "Error: " & Err.Description
+End Function

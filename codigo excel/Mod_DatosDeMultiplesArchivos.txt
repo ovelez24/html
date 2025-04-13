@@ -1,0 +1,220 @@
+'Variables declaradas públicamentePublicly declared variables
+Dim NombreCarpeta As String       'Retiene la ruta hacia la carpeta seleccionada
+Dim NombreArchivo As String       'Retiene el nombre de el archivo que abrimos
+Dim MiCriterio As String          'Retiene el criterio para la búsqueda
+
+
+Sub ImportarInformacion()
+'El menu principal
+
+    'Anular la actualización de pantalla
+    'Application.ScreenUpdating = False
+    
+    'Lista de subrutinas
+    ObtenerRutaCarpeta
+    HacerLoopEntreArchivos
+    Limpiar
+    
+    'Reactivar actualización de pantalla
+    'Application.ScreenUpdating = True
+    
+    'Ir a la primera celda con datos
+    Range("A4").Select
+
+End Sub
+
+
+
+Private Sub ObtenerRutaCarpeta()
+'El selector de carpetas
+
+'Esta subrutina abre el cuadro de selección de carpetas
+'Permite al usuario elegir la carpeta que contiene los archivos de interés
+
+    'Sólo para comprobar errores, limpiar el valor de C1
+    'Range("C8").Value = ""
+    With Application.FileDialog(msoFileDialogFolderPicker)
+         'No permitir selecciones múltiples
+         .AllowMultiSelect = False
+         'Agregar un título
+         .Title = "Por favor elija la carpeta que contiene los archivos que desea importar"
+         'Establecer el nombre del botón
+         .ButtonName = "Elegir esta carpeta"
+         'Si se requiere una ruta inicial
+         .InitialFileName = "C:\Users\usuario\Desktop\"
+         
+         '-1 significa que fue presionado el botón que no es "Cancelar"
+         If .Show = -1 Then
+            NombreCarpeta = .SelectedItems(1) & "\"
+            'Escribir un string en C1 (para comprobar errores)
+            'Range("C8").Value = NombreCarpeta
+         End If
+     End With
+     
+End Sub
+
+
+
+Private Sub HacerLoopEntreArchivos()
+
+ 'Opción 1: Si quieres especificar un criterio para los archivos que quieres
+    'Usa esto si quieres buscar un string en particular en los archivos
+    MiCriterio = InputBox("Por favor ingrese una palabra que quiera encontrar en los archivos" _
+                    , "Abrir Archivos que Contengan la Palabra...")
+    
+    'Eliminar apóstofe si utiliza MiCriterio
+    'En caso de que no se ingrese nada...
+    If MiCriterio = "" Then
+        MsgBox "No ingresó nada"
+        End
+    End If
+
+    'Obtener el nombre de la primera coincidencia en la carpeta
+    'Aquí especificamos la ruta hacia el archivo
+    NombreArchivo = Dir(NombreCarpeta & "*" & MiCriterio & "*" & ".xl??")
+       
+ 'Opción 2: Use esto si quiere todos los archivos Excel
+    'NombreArchivo = Dir(NombreCarpeta & "*.xl??")
+      
+     
+    'Hacer loop entre todos los archivos encontrados
+    Do While NombreArchivo <> ""
+        'Abrir el siguiente libro encontrado
+        Workbooks.Open (NombreCarpeta & NombreArchivo)
+        
+        'Llamar a ObtenerLaInformación
+        ObtenerLaInformacion
+                
+        'Cerrar el libro
+        Workbooks(NombreArchivo).Close savechanges:=False
+        
+        'Obtener el nombre del siguiente archivo encontrado
+        NombreArchivo = Dir
+    Loop
+
+End Sub
+
+Private Sub ObtenerLaInformacion()
+
+'Aquí se copia y pega toda la información desde las hojas recién abiertas
+'Según los nombres específicos identificados en la hoja "Hojas"
+'Luego agrega los detalles para la tienda, región y fecha
+
+    'Declaración de variables locales
+    Dim FilaInicial As Integer  'Retiene la fila inicial para ocupar las primeras 3 columnas
+    Dim FilaFinal As Integer    'Retiene la última fila donde se ocupan las 3 primeras columnas
+    
+    'Activar ESTE libro
+    ThisWorkbook.Activate
+    
+    'Seleccionar la hoja "Hojas"
+    HHojas.Select
+    
+    'Seleccionar el principio del rango
+    Range("A1").Select
+    
+    'Hacer loop para escribir la información
+    Do While ActiveCell <> ""
+    
+        'Evitar error si la tienda no existe en esta región
+        On Error GoTo SiguienteTienda
+        
+        'Copiar y pegar el bloque principal de datos
+        Workbooks(NombreArchivo).Worksheets(ActiveCell.Value).Range("A1").CurrentRegion.Copy _
+        HResumen.Range("D1048575").End(xlUp).Offset(1, 0)
+                
+        'Captura los nombres de las filas inicial y final a las que ocupar las columnas Tienda, Región y Fecha
+        FilaInicial = HResumen.Range("A1048575").End(xlUp).Offset(1, 0).Row
+        FilaFinal = HResumen.Range("D1048575").End(xlUp).Offset(0, -1).Row
+                    
+        'Agregar la tienda
+        HResumen.Range _
+            (HResumen.Range("C" & FilaInicial).Address & ":" & _
+             HResumen.Range("C" & FilaFinal).Address).Value _
+            = ActiveCell.Value
+                
+        'Agregar la región
+        HResumen.Range _
+            (HResumen.Range("B" & FilaInicial).Address & ":" & _
+             HResumen.Range("B" & FilaFinal).Address).Value _
+             = Workbooks(NombreArchivo).Worksheets(ActiveCell.Value).Range("B1").Value
+               
+        'Agregar la fecha
+        HResumen.Range _
+            (HResumen.Range("A" & FilaInicial).Address & ":" & _
+             HResumen.Range("A" & FilaFinal).Address).Value _
+             = Workbooks(NombreArchivo).Worksheets(ActiveCell.Value).Range("B2").Value
+    
+    
+    'Manejar errores
+SiguienteTienda:
+        On Error GoTo -1
+        'Desplazar una celda hacia abajo
+        ActiveCell.Offset(1, 0).Select
+        
+    Loop
+
+End Sub
+
+Private Sub Limpiar()
+
+    'Seleccionar la hoja correcta
+    HResumen.Select
+
+    'Ir a la primera celda a chequear
+    Range("D4").Select
+
+    'Hacer loop para remover las filas que no queremos
+    Do While ActiveCell.Value <> ""
+      If ActiveCell.Value = "Región:" Then ActiveCell.EntireRow.Delete
+      If ActiveCell.Value = "Fecha:" Then ActiveCell.EntireRow.Delete
+      If ActiveCell.Value = "Artículo" Then ActiveCell.EntireRow.Delete
+      ActiveCell.Offset(1, 0).Select
+    Loop
+
+End Sub
+
+Sub Reiniciar()
+
+    Range(("A4"), Range("A4").End(xlToRight)).Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("A4").Select
+
+End Sub
+
+Private Sub Prueba()
+
+Range("K2:R2").Value = "Hola"
+
+End Sub
+
+
+Private Sub AbrirTodosLosArchivos()
+'Una rutina simple para abrir y luego cerrar todos los archivos excel de una carpeta
+
+    'Especificar la ruta hacia el/los archivo/s
+    NombreCarpeta = "C:\Users\usuario\Desktop\Mi Archivo\Ventas\"
+
+    'Asignar la ruta y el string de búsqueda a la variable "NombreArchivo"
+    'La estrella "*" significa "cualquier caracter", o sea que el archivo puede tener cualquier nombre
+    'Los símbolos "??" cualquier letra, o sea que puede ser "xlsx", "xlsm", o cualquier archivo de Excel
+    NombreArchivo = Dir(NombreCarpeta & "*.xl??")
+
+    'Hacer loop sobre todos lo archivos encontrados
+    Do While NombreArchivo <> ""
+        'Abrir el siguiente libro encontrado
+        Workbooks.Open (NombreCarpeta & NombreArchivo)
+    
+       'Otro código aquí
+    
+       'Cerrar el libro
+       Workbooks(NombreArchivo).Close savechanges:=False
+    
+       'Obtener el nombre del siguiente archivo en la carpeta
+       NombreArchivo = Dir
+    Loop
+
+End Sub
+
+

@@ -1,0 +1,143 @@
+Sub CrearGantt()
+
+'Desactivar actualización de pantalla
+'Application.ScreenUpdating = False
+
+'Limpiar datos anteriores
+HGantt.Range("7:10000").ClearContents
+HGantt.Range("7:10000").ClearFormats
+
+'Copiar A4 (hasta el fondo) de la hoja de datos y pegarlo en la hoja Gantt
+HDatos.Range("A4:A" & HDatos.Range("A65000").End(xlUp).Row).Copy _
+    HGantt.Range("A7")
+
+'Seleccionar la hoja de Gantt
+HGantt.Select
+
+'Eliminar duplicados
+Range("A7:A" & Range("A7").End(xlDown).Row).RemoveDuplicates Columns:=1, Header:=xlNo
+    
+'Eliminar ordenamientos previos
+ActiveSheet.Sort.SortFields.Clear
+'...y reordenar de menor a mayor
+ActiveSheet.Sort.SortFields.Add Key:=Range("A7"), _
+        SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveSheet.Sort
+    .SetRange Range("A7:A" & Range("A7").End(xlDown).Row)
+        .Header = xlNo
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+    
+'Volver a la hoja de datos
+HDatos.Select
+
+'Seleccionar la primera celda del rango
+Range("A4").Select
+
+'Hacer loop externo a lo largo de columna A
+Do While ActiveCell.Value <> ""
+    'Cargar datos de la fila en variables locales
+    MiTienda = ActiveCell.Value
+    MiComienzo = ActiveCell.Offset(0, 1).Value
+    MiFinal = ActiveCell.Offset(0, 2).Value
+    MiMotivo = ActiveCell.Offset(0, 3).Value
+
+    'Seleccionar la hoja Gantt
+    HGantt.Select
+
+    'Seleccionar la primera celda del rango
+    Range("A7").Select
+
+    'Hacer loop interno para actualizar gráfico con datos nuevos
+    Do While ActiveCell.Value <> ""
+    
+        'Prueba lógica para ver si la celda actual coincide con MiTienda
+        If ActiveCell.Value = MiTienda Then
+            
+            'Movernos a la derecha para estar debajo de la primera fecha
+            ActiveCell.Offset(0, 1).Select
+            
+            'Segundo loop para avanzar controlando fechas
+            Do While ActiveCell.Offset(-(ActiveCell.Row - 6), 0).Value <> ""
+                      
+                'Verificar si la fecha es menor a MiFinal (si no ir a Siguiente)
+                If ActiveCell.Offset(-(ActiveCell.Row - 6), 0).Value > MiFinal Then GoTo Siguiente
+                      
+                xx = ActiveCell.Offset(-(ActiveCell.Row - 6), 0).Value
+                'Ver si la fecha es >= MiComienzo y <= MiFinal...
+                If ActiveCell.Offset(-(ActiveCell.Row - 6), 0).Value >= MiComienzo And _
+                    ActiveCell.Offset(-(ActiveCell.Row - 6), 0).Value <= MiFinal Then
+                
+                'Pruebas lógicas para elegir color y abreviatura según motivo
+                If MiMotivo = "Enfermedad" Then
+                    ActiveCell.Interior.Color = vbRed
+                    ActiveCell.Value = "EN"
+                End If
+                
+                If MiMotivo = "Vacaciones" Then
+                    ActiveCell.Interior.Color = vbGreen
+                    ActiveCell.Value = "VA"
+                End If
+                
+                If MiMotivo = "Capacitación" Then
+                    ActiveCell.Interior.Color = vbYellow
+                    ActiveCell.Value = "CA"
+                End If
+                
+                'Moverse a la derecha
+                ActiveCell.Offset(0, 1).Select
+                
+                Else
+                    'Moverse a la derecha
+                    ActiveCell.Offset(0, 1).Select
+                End If
+            Loop
+            
+        Else
+            'Bajar una celda
+            ActiveCell.Offset(1, 0).Select
+        End If
+            
+    Loop
+        
+Siguiente:
+
+    'Seleccionar la celda de "Código de Tienda"
+    Range("A6").Select
+    
+    'Volver a la hoja de datos
+    HDatos.Select
+
+    'Bajar una celda
+    ActiveCell.Offset(1, 0).Select
+
+Loop
+
+'Seleccionar la hoja de Gantt
+HGantt.Select
+
+'Activar actualización de pantalla
+'Application.ScreenUpdating = True
+
+End Sub
+
+
+
+
+
+
+
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    
+    Set isect = Application.Intersect(Target, Range("B3:B4"))
+    If isect Is Nothing Then
+        'No hacer nada
+    Else
+         MsgBox "Has cambiado el incremento o la fecha de inicio. Active el botón para refrescar"
+    End If
+
+End Sub

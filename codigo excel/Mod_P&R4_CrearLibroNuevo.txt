@@ -1,0 +1,34 @@
+Sub GuardarCambios()
+'Crea un libro nuevo en base a una hoja
+'Lo guarda en diferentes carpetas según la zona
+
+'Declaración de variables
+Dim MiGE As String
+Dim MiRuta As Variant
+Dim MiAnio As Integer
+Dim MiMes As Integer
+Dim MiDia As Integer
+
+    'Generar datos de fecha
+    MiAnio = Year(Now)
+    MiMes = Month(Now)
+    MiDia = Day(Now)
+
+    'Obtener nombre de equipo
+    MiGE = Left(ActiveSheet.Name, 4)
+    
+    'Buscar ruta a partir de nombre de equipo
+    MiRuta = Application.WorksheetFunction.VLookup(MiGE, Range("Equipo"), 2, False)
+
+    'Crear nuevo libro
+    ActiveSheet.Copy
+    
+    'Guardar libro nuevo con nombre de hoja
+    ActiveWorkbook.SaveAs Filename:= _
+        MiRuta & "\" & MiAnio & MiMes & MiDia & " - " & ActiveSheet.Name & ".xlsx", _
+        FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
+        
+    'Cerrar libro nuevo
+    ActiveWindow.Close
+
+End Sub

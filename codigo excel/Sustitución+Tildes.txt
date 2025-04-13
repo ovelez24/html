@@ -1,0 +1,1 @@
+=SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(SUSTITUIR(A1;"á";"a");"é";"e");"í";"i");"ó";"o");"ú";"u");"Á";"A");"É";"E");"Í";"I");"Ó";"O");"Ú";"U")

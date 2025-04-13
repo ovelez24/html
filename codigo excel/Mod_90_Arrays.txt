@@ -1,0 +1,261 @@
+Option Base 1   'Fuerza a losarrays a comenzar desde 1 (no cero)
+
+Sub ComoSeriaLaVidaSinArrays()
+
+'Declarar las variables
+Dim MiVariable1 As String
+Dim MiVariable2 As String
+Dim MiVariable3 As String
+Dim MiVariable4 As String
+Dim MiVariable5 As String
+Dim MiVariable6 As String
+Dim MiVariable7 As String
+
+'Leer la información
+MiVariable1 = Range("A1").Value
+MiVariable2 = Range("A2").Value
+MiVariable3 = Range("A3").Value
+MiVariable4 = Range("A4").Value
+MiVariable5 = Range("A5").Value
+MiVariable6 = Range("A6").Value
+MiVariable7 = Range("A7").Value
+
+'Escribir la información
+Range("B1").Value = MiVariable1
+Range("B2").Value = MiVariable2
+Range("B3").Value = MiVariable3
+Range("B4").Value = MiVariable4
+Range("B5").Value = MiVariable5
+Range("B6").Value = MiVariable6
+Range("B7").Value = MiVariable7
+
+
+End Sub
+
+
+Sub Arrays1()
+'Un array simple y unidimencional
+
+    'Declarar las variables
+    'Nota: 7 NO ES el número de elementos, es el LÍMITE SUPERIOR
+    Dim MiArrayA(7) As String       'Establecer el array
+    Dim MiContador As Integer       'Un contador simple para el loop
+    
+    'Selecciona la hoja correcta...
+    'Nota: no es necesario seleccionar el comienzo del rango
+    'Usamos el objeto Cells
+    ShSimple.Select
+    
+    'Limpiar columna D
+    Range("D:D").ClearContents
+    
+    'Hacer loop para poner datos en ArrayA
+    For MiContador = 1 To 7
+        'Cargar los datos (se incrementa cada vez que pasa por el loop)
+        MiArrayA(MiContador) = Cells(MiContador, 1).Value
+    Next
+         
+    'Loop para escribir los datos desde ArrayA
+    For MiContador = 1 To 7
+        Cells(MiContador, 4).Value = MiArrayA(MiContador)
+    Next
+
+End Sub
+
+
+
+Sub Arrays2()
+'Un array dinámico simple y unidimensional
+
+    'Declarar las variables
+    'Nota: 7 NO ES el número de elementos, es el LÍMITE SUPERIOR
+    Dim MiArrayB() As String        'Establecer el array
+    Dim MiContador As Integer       'Un contador simple para el loop
+    Dim MiContadorDeFilas As Long   'Lleva la cuenta de filas con información
+       
+    'Selecciona la hoja correcta...
+    'Nota: no es necesario seleccionar el comienzo del rango
+    'Usamos el objeto Cells
+    ShSimple.Select
+    
+    'Limpiar columna D
+    Range("D:D").ClearContents
+    
+    'Encuentra el número de fila de la última celda no vacía
+    MiContadorDeFilas = Range("A1048576").End(xlUp).Row
+    
+    'Redimensiona el array (ahora conocemos su tamaño)
+    ReDim MiArrayB(MiContadorDeFilas)
+    
+    'Hacer loop para poner datos en ArrayB
+    For MiContador = 1 To MiContadorDeFilas
+        'Cargar los datos (se incrementa cada vez que pasa por el loop)
+        MiArrayB(MiContador) = Cells(MiContador, 1).Value
+    Next
+         
+    'Loop para escribir los datos desde ArrayB
+    For MiContador = 1 To MiContadorDeFilas
+        Cells(MiContador, 4).Value = MiArrayB(MiContador)
+    Next
+    
+    'Destruir el Array
+    Erase MiArrayB
+
+End Sub
+
+Sub Arrays3()
+'Un array simple estático de dos dimensiones
+
+    'Declarar las variables
+    'Nota: 7 NO ES el número de elementos, es el LÍMITE SUPERIOR
+    Dim MiArrayC(7, 2) As Variant   'Declarar el array
+    Dim MiLoopExterno As Integer    'Un contador simple para el loop
+    Dim MiLoopInterno As Integer    'Un contador simple para el loop
+       
+    'Selecciona la hoja correcta...
+    'Nota: no es necesario seleccionar el comienzo del rango
+    'Usamos el objeto Cells
+    ShSimple.Select
+    
+    'Limpiar columnas D y E
+    Range("D:E").ClearContents
+    
+    'Hacer loop para poner datos en ArrayC
+    For MiLoopExterno = 1 To 7
+        For MiLoopInterno = 1 To 2
+            'Cargar los datos (se incrementa cada vez que pasa por el loop)
+            MiArrayC(MiLoopExterno, MiLoopInterno) = _
+              Cells(MiLoopExterno, MiLoopInterno).Value
+        Next    'Loop interno
+    Next    'Loop externo
+         
+    'Loop para escribir los datos desde ArrayC
+    For MiLoopExterno = 1 To 7
+        For MiLoopInterno = 1 To 2
+            'Cargar los datos (se incrementa cada vez que pasa por el loop)
+            'Nota: el +3 nos lleva a la columna D
+            Cells(MiLoopExterno, MiLoopInterno + 3).Value = _
+                            MiArrayC(MiLoopExterno, MiLoopInterno)
+              
+        Next    'Loop interno
+    Next    'Loop externo
+
+End Sub
+
+Sub Arrays4()
+'Lee una tabla completa dinámicamente
+
+'Declarar las variables
+Dim MiArrayD() As Variant       'El Array
+Dim CuentaFilas As Integer      'Lleva la cuenta del número de filas en el array
+Dim CuentaColumnas As Integer   'Lleva la cuenta del número de columnas en el array
+
+'Carga el array
+'Nota: La hoja de origen no fue seleccionada
+'Se especifica antes del objeto Range
+MiArrayD = ShDatosVentas.Range("A6").CurrentRegion
+
+'Obtener el número de filas. Es la 1ra dimensión del array
+CuentaFilas = UBound(MiArrayD)
+'Obtener el número de filas. Es la 2da dimensión del array
+CuentaColumnas = UBound(MiArrayD, 2)
+
+'Seleccionar la hoja destino por nombre vb
+ShEscribeAqui.Select
+'El rango se especifica usando Cells
+'Cells(1,1) significa que la primera celda es A1
+'Y Cells(CuentaFilas, CuentaColumnas) nos da la última celda
+Range(Cells(1, 1), Cells(CuentaFilas, CuentaColumnas)) = MiArrayD
+
+End Sub
+
+Sub Arrays5()
+    'Lee una tabla completa dinámicamente
+    'y devuelve un resultado específico en una caja de mensajes
+    
+    'Declarar las variables
+    Dim MiArrayE() As Variant       'El Array
+    Dim CuentaFilas As Integer      'Lleva la cuenta del número de filas en el array
+    Dim CuentaColumnas As Integer   'Lleva la cuenta del número de columnas en el array
+    Dim Contador As Integer         'Un contador simple
+    Dim MiCategoria As String       'Guarda la categoría del usuario
+    Dim MiSuma As Variant           'Lleva la cuenta de la suma
+    Dim MiRespuesta As Variant      'Para el mensaje de "Vuelve a intentarlo"
+    
+    'Cargar el array
+    'Nota: la hoja de origen no fue seleccionada
+    'se especifica antes del objeto Range
+    MiArrayE = ShDatosVentas.Range("A6").CurrentRegion
+    
+    'Obtener el número de filas. Es la 1ra dimensión del array
+    CuentaFilas = UBound(MiArrayE)
+    'Obtener el número de filas. Es la 2da dimensión del array
+    CuentaColumnas = UBound(MiArrayE, 2)
+   
+   
+StartOver:
+   
+    'Obtener la categoría del usuario
+    MiCategoria = LCase(InputBox("¿Qué categoría desea sumar?", _
+                                        "Seleccione categoría"))
+                                        
+    'Loop para encontrar coincidencias
+    For Contador = 1 To CuentaFilas
+        If LCase(MiArrayE(Contador, 5)) = MiCategoria Then
+            MiSuma = MiSuma + MiArrayE(Contador, 7)
+        End If
+    Next Contador
+    
+    'Chequear para ver si encontró un valor
+    If MiSuma = 0 Then
+        MsgBox "No se encontró un valor", vbCritical, "Selección inválida"
+        End
+    End If
+    
+    MiRespuesta = MsgBox("La ganancia total en " & MiCategoria & " fue:" _
+                        & vbNewLine & Format(MiSuma, "Pesos") & vbNewLine _
+                            & "¿Quiere consultar por otra categoría?", _
+                                vbYesNo, "¡Resultado encontrado!")
+    
+    'Resetear MiSuma a cero
+    MiSuma = 0
+    
+    If MiRespuesta = vbYes Then GoTo StartOver
+
+End Sub
+
+
+Sub Arrays6()
+    'Lee una tabla completa dinámicamente
+    'y devuelve un resultado específico en una caja de mensajes usando BuscarV (Vlookup)
+    
+    'Declarar las variables
+    Dim MiArrayF() As Variant   'El Array
+    Dim MiCategoria As String   'Retiene la categoría ingresada
+    Dim MiNombre As String      'Retiene el valor devuelto del VLOOKUP
+    Dim MiRespuesta As Variant  'Para el mensaje de "Vuelve a intentarlo"
+    
+    'Cargar el array
+    'Nota: la hoja de origen no fue seleccionada
+    'se especifica antes del objeto Range
+    MiArrayF = ShTablaHR.Range("A6").CurrentRegion
+   
+StartOver:
+   
+    'Obtener la categoría ingresada
+    MiCategoria = InputBox("Por favor ingrese el número de empleado", _
+                                        "Empleado #")
+                                        
+    'Usar VLookup para devolver un valor
+    MiNombre = Application.WorksheetFunction.VLookup _
+        (MiCategoria, MiArrayF, 2, False)
+    
+    MiRespuesta = MsgBox("El nombre de este empleado es:" _
+                & vbNewLine & MiNombre & vbNewLine _
+                    & "¿Quiere consultar por otro empleado?", _
+                                vbYesNo, "¡Resultado encontrado!")
+    
+    
+    If MiRespuesta = vbYes Then GoTo StartOver
+
+End Sub

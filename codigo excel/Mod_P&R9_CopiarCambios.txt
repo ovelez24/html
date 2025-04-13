@@ -1,0 +1,77 @@
+Sub LoopCambiosInfo()
+
+'Este código hace loop en múltiples hojas buscando cambios...
+'... entre los libros "Origen" y "Destino"
+'Ambos archivos son idénticos en estructura
+
+Dim MiArchivoOrigen As String   'Retiene el nombre del archivo de origen
+Dim MiArchivoDestino As String  'Retiene el nombre del archivo de destino
+Dim MiNombreDeHoja As String    'Retiene el nombre de la hoja
+Dim LoopExterno As Integer      'Loop entre hojas
+
+'Carga los nombres de los archivos origen y destino
+MiArchivoOrigen = "P&R9 - Buscar Actualizaciones Origen"
+MiArchivoDestino = "P&R9 - Buscar Actualizaciones Destino"
+
+'Ir al archivo origen
+Workbooks(MiArchivoOrigen).Activate
+
+'Loop externo entre hojas
+For LoopExterno = 1 To Workbooks(MiArchivoOrigen).Sheets.Count
+
+    'Seleccionar la hoja correcta
+    Sheets(LoopExterno).Select
+    
+    'Obtener el nombre de la hoja seleccionada
+    MiNombreDeHoja = ActiveSheet.Name
+    
+    'Agregar un bloque con la fórmula concatenada para al hoja origen
+    'Se leería así "=CONCATENAR(A2,B2,C2,D2)"
+    Workbooks(MiArchivoOrigen).Sheets(MiNombreDeHoja).Range("E2:E" & _
+    Workbooks(MiArchivoOrigen).Sheets(MiNombreDeHoja).Range("A65000").End(xlUp).Row). _
+    Formula = "=CONCATENATE(RC[-4],RC[-3],RC[-2],RC[-1])"
+
+    'Agregar un bloque con la fórmula concatenada para al hoja fuente
+    'Se leería así "=CONCATENAR(A2,B2,C2,D2)"
+    Workbooks(MiArchivoDestino).Sheets(MiNombreDeHoja).Range("E2:E" & _
+    Workbooks(MiArchivoDestino).Sheets(MiNombreDeHoja).Range("A65000").End(xlUp).Row). _
+    Formula = "=CONCATENATE(RC[-4],RC[-3],RC[-2],RC[-1])"
+
+    'Agrega un bloque que chequea la hoja de origen
+    'se leería así "=SI.ERROR(COINCIDIR(E2,'[P&R9 - Buscar Actualizaciones Destino.xlsx]Hoja1'!$E:$E,0),"Actualizado")
+    Workbooks(MiArchivoOrigen).Sheets(MiNombreDeHoja).Range("F2:F" & _
+    Workbooks(MiArchivoOrigen).Sheets(MiNombreDeHoja).Range("A65000").End(xlUp).Row). _
+    Formula = "=IFERROR(MATCH(RC[-1],'[" & MiArchivoDestino & ".xlsx]" & MiNombreDeHoja & "'!C5,0),""Actualizado"")"
+
+    'Ahora todo lo que cambió, dice "Actualizado" en la columna F
+        
+    'Ir al comienzo del rango
+    Range("F2").Select
+    
+        'Loop interno para repasar las lineas de datos
+        Do While ActiveCell.Value <> ""
+            'Prueba lógica para ver si dice "Actualizado"
+            If ActiveCell.Value = "Actualizado" Then
+                'Copiar la linea entera al final de la tabla
+                ActiveCell.EntireRow.Copy _
+                Workbooks(MiArchivoDestino).Sheets(MiNombreDeHoja).Range("A65000").End(xlUp).Offset(1, 0)
+                Workbooks(MiArchivoDestino).Sheets(MiNombreDeHoja).Range("A65000").End(xlUp).Font.Color = vbRed
+                
+                'Bajar una celda
+                ActiveCell.Offset(1, 0).Select
+            Else
+                'Bajar una celda
+                ActiveCell.Offset(1, 0).Select
+            End If
+        Loop
+            
+    'Limpiar las fórmulas
+    Workbooks(MiArchivoOrigen).Sheets(MiNombreDeHoja).Range("E:F").ClearContents
+    Workbooks(MiArchivoDestino).Sheets(MiNombreDeHoja).Range("E:F").ClearContents
+        
+Next LoopExterno
+
+
+End Sub
+
+

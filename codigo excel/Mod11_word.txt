@@ -1,0 +1,119 @@
+Option Explicit                 'Fuerza a declarar las variables
+Dim TextoGeneral As String      'Retiene el texto del documento
+
+Sub CrearLaInformacion()
+
+Dim TotalVentas As Integer       'Retiene el total de ventas en la región
+Dim TuPorcentaje As String       'Retiene el porcentaje del mejor vendedor
+Dim ContarVendedores As Integer  'Retiene el número de vendedores en la región
+
+    'Seleccionar la hoja correcta
+    HDatos.Select
+    
+    'Crear en K una lista con los elementos únicos de la columna B
+    'Nota: el rango donde se peguen debe estar vacío
+    HDatos.Range(Range("B1"), Range("B1").End(xlDown)). _
+        AdvancedFilter Action:=xlFilterCopy, CopyToRange:=Range("K1"), Unique:=True
+    
+    'Agregar las fórmulas para hacer sumas por vendedor
+    Range(Range("K1").Offset(0, -1), Range("K1").End(xlDown).Offset(0, -1)). _
+        FormulaR1C1 = "=SUMIF(C[-8],RC[1],C[-3])"
+
+    'Ordenar de mayor a menor valor
+    ActiveWorkbook.Worksheets("Hoja1").Sort.SortFields.Add Key:=Range("J1:J7"), _
+        SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Hoja1").Sort
+        .SetRange Range("J1").CurrentRegion
+        .Orientation = xlTopToBottom
+        .Apply
+    End With
+        
+    'Capturar el total de ventas
+    TotalVentas = Application.WorksheetFunction.Sum(Range("J:J").Value)
+    TuPorcentaje = Int((Range("J1").Value / TotalVentas) * 100) & "%"
+    ContarVendedores = Application.WorksheetFunction.CountA(Range("K:K")) - 1
+    
+    'Construir el cuerpo del texto
+    'Primera línea
+    TextoGeneral = "Saludos " & Range("K1").Value & "," & vbNewLine & vbNewLine
+    'Agregar primer párrafo
+    TextoGeneral = TextoGeneral & _
+        "¡Felicitaciones! ¡Has sido el mejor vendedor en tu región!"
+    'Agregar segundo párrafo
+    TextoGeneral = TextoGeneral & vbNewLine & _
+        "De un total de " & _
+        ContarVendedores & _
+        " vendedores en tu región, has logrado " & _
+        "$" & Int(Range("J1").Value) & _
+        " en ganancias. Es significa un " & _
+        TuPorcentaje & _
+        " de $" & _
+        TotalVentas & _
+        " en ganancias totales alcanzadas por tu región este mes" & _
+        vbNewLine & vbNewLine & _
+        "Muchas gracias, de parte de la Gerencia"
+
+    'Eliminar la información que escribimos
+    Range("J:K").Delete
+    
+    'Llamar a la subrutina Word
+    CartaMejorVendedor
+    
+End Sub
+
+
+Private Sub CartaMejorVendedor()
+
+Dim AppWord As Object
+Dim NuevoDocumento As Object
+
+    'Abrir aplicación Word
+    Set AppWord = CreateObject("Word.Application")
+
+    'Agregar un nuevo documento
+    Set NuevoDocumento = AppWord.Documents.Add
+
+    'Hacer que Word sea visible (NO Activo)
+    AppWord.Visible = True
+   
+    'Agregar texto
+    AppWord.Selection.typetext Text:=TextoGeneral
+    
+    'Destruir las variables objeto (en el orden inverso)
+    Set NuevoDocumento = Nothing
+    Set AppWord = Nothing
+
+End Sub
+
+Private Sub NuevoInformeWord()
+
+Dim AppWord As Object
+Dim NuevoDocumento As Object
+
+    'Abrir aplicación Word
+    Set AppWord = CreateObject("Word.Application")
+
+    'Agregar un nuevo documento
+    Set NuevoDocumento = AppWord.Documents.Add
+
+    'Hacer que Word sea visible (NO Activo)
+    AppWord.Visible = True
+   
+    'Agregar texto
+    AppWord.Selection.typetext Text:="¡Hola Mundo!"
+    
+    'Destruir las variables objeto (en el orden inverso)
+    Set NuevoDocumento = Nothing
+    Set AppWord = Nothing
+
+End Sub
+
+
+
+
+
+
+
+
+
+

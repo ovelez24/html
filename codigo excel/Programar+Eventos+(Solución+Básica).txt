@@ -1,0 +1,9 @@
+Private Sub Workbook_NewSheet(ByVal Sh As Object)
+
+Dim Nombre As String
+
+Nombre = Application.InputBox("Ingrese el nombre de la nueva hoja. Asegúrate de no utilizar un nombre ya empleado en este libro", "Nueva hoja creada")
+
+ActiveSheet.Name = Nombre
+
+End Sub

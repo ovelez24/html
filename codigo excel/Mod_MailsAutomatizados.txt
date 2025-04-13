@@ -1,0 +1,164 @@
+Option Base 1       'Fuerza a los array a comenzar en 1
+Option Explicit     'Fuerza la declaración de variables
+
+'Declaraciones a nivel del módulo
+Dim CuentaRubios As Integer  'Retiene el conteo de rubios
+Dim MiArray()                'Retiene el nombre de los receptores
+Dim MiContador As Integer    'Contador usado para completar el array
+Dim MiTitulo As String       'Retiene el título del email
+
+Sub SeleccionaRubios()
+
+    MiTitulo = "Prueba nuestros nuevos protectores solares"
+
+    'Selecciona la hoja correcta
+    HDatos.Select
+    
+    'Contar los rubios
+    CuentaRubios = Application.WorksheetFunction.CountIf(Range("E:E"), "Rubio")
+
+    'Redimensiona el array (ahora que sabemos la cantidad de rubios)
+    '2 elementos...1 para el primer nombre, 1 para la dirección de email
+    ReDim MiArray(CuentaRubios, 2)
+
+    'Busca el primer rubio en la columna E
+    Columns("E:E").Select
+    Selection.Find(What:="Rubio", After:=ActiveCell, LookIn:=xlFormulas, _
+        LookAt:=xlPart, SearchOrder:=xlByRows, SearchDirection:=xlNext, _
+        MatchCase:=False, SearchFormat:=False).Activate
+    'Elige el primer valor encontrado
+    ActiveCell.Select
+    
+    'Inicializa el contador
+    MiContador = 0
+    
+    'Hace loop para obtener los datos
+    While ActiveCell.Value <> ""
+    
+        'Verifica si ya capturamos todos los registros
+        If MiContador = CuentaRubios Then GoTo secciónEmail
+        
+        'Si aun no están todos, hacer loop para capturar la información
+        If ActiveCell.Value = "Rubio" Then
+            'Incrementa el valor de MiContador en 1
+            MiContador = MiContador + 1
+            'Obtener el primer nombre
+            MiArray(MiContador, 1) = _
+                Left(ActiveCell.Offset(0, -4), InStr(ActiveCell.Offset(0, -4).Value, " ") - 1)
+            'Obtener la dirección de email
+            MiArray(MiContador, 2) = ActiveCell.Offset(0, 2).Value
+            'Desplazarse una celda hacia abajo
+            ActiveCell.Offset(1, 0).Select
+        Else
+            'Desplazarse una celda hacia abajo
+            ActiveCell.Offset(1, 0).Select
+        End If
+    Wend
+
+'Etiqueta (llegaremos hasta aquí solo si tenemos todos los registros antes de terminar la tabla)
+secciónEmail:
+
+    'Hacer loop enviando todos los emails
+    For MiContador = 1 To CuentaRubios
+            
+        'Llama a la rutina de emails
+        'Nota: como el array fue declarado a nivel del módulo...
+        '... tgodas las variables (el contenido) se pasan a la sub del mail
+        EnviaEmails
+        
+    Next MiContador
+
+    'Go back to top of page
+    Range("A1").Select
+
+End Sub
+
+
+Private Sub EnviaEmails()
+
+Dim AppOutlook As Object        'Declara a Outlook como un objeto
+Dim EmailSaliente As Object     'Declara al email como un objeto
+Dim CuerpoDeTexto As String     'Retiene el mensaje a enviar
+    
+    'Crea un objeto para Outlook
+    Set AppOutlook = CreateObject("Outlook.Application")
+    'Crea un objeto para el email
+    Set EmailSaliente = AppOutlook.CreateItem(0)
+
+    'Construye el texto para el cuerpo del mensaje (puede leerse en rangos desde Excel)
+    CuerpoDeTexto = "Hola, ¿cómo estás? " & MiArray(MiContador, 1) & "," & _
+                    vbNewLine & vbNewLine & _
+                    "te queríamos contactar para informarte acerca de nuestra nueva línea de protectores solares!" & _
+                    vbNewLine & vbNewLine & _
+                    "Esta el la mejor línea que se ha creado, y queremos enviarte unamuestra." & _
+                    vbNewLine & _
+                    "Espera nuestro envío en los próximos días" & vbNewLine & _
+                    vbNewLine & vbNewLine & _
+                    "Gracias por confiar en nosotros."
+
+    'Anula los mensajes de error (unas que dicen "alguien está intentando enviar un email")
+    On Error Resume Next
+    
+    With EmailSaliente
+        .To = MiArray(MiContador, 2)
+        '.CC = ""
+        '.BCC = ""
+        .Subject = MiTitulo
+        .Body = CuerpoDeTexto
+        '.Attachments.Add ("C:\Users\usuario\Desktop\Libro1.xlsx")
+        .Send
+    End With
+    
+    'Cancela el bloqueo de errores
+    On Error GoTo 0
+
+    'Destruye las variables
+    '  (en el orden inverso al que se declararon)
+    Set EmailSaliente = Nothing
+    Set AppOutlook = Nothing
+
+End Sub
+Private Sub EnviarMailCodigoOriginal()
+'Este es el código original, que tiene pequeñas modificaciones
+'Este código puede ser usado desde cualquier PC
+
+Dim AppOutlook As Object        'Declara a Outlook como un objeto
+Dim EmailSaliente As Object     'Declara al email como un objeto
+Dim CuerpoDeTexto As String     'Retiene el mensaje a enviar
+    
+    'Crea un objeto para Outlook
+    Set AppOutlook = CreateObject("Outlook.Application")
+    'Crea un objeto para el email
+    Set EmailSaliente = AppOutlook.CreateItem(0)
+
+    'Construye el texto para el cuerpo del mensaje (puede leerse en rangos desde Excel)
+    CuerpoDeTexto = "Hola, ¿cómo estás? " & vbNewLine & vbNewLine & _
+                    "Línea 1" & vbNewLine & _
+                    "Línea 2" & vbNewLine & _
+                    "Línea 3" & vbNewLine & _
+                    "Línea 4"
+
+    'Anula los mensajes de error (unas que dicen "alguien está intentando enviar un email")
+    On Error Resume Next
+    
+    With EmailSaliente
+        .To = "alguien@empresa.com"
+        '.CC = ""
+        '.BCC = ""
+        .Subject = "Este es el título"
+        .Body = CuerpoDeTexto
+        '.Attachments.Add ("C:\Users\usuario\Desktop\Libro1.xlsx")
+        .Send
+    End With
+    
+    'Cancela el bloqueo de errores
+    On Error GoTo 0
+    
+    'Destruye las variables
+    '  (en el orden inverso al que se declararon)
+    Set EmailSaliente = Nothing
+    Set AppOutlook = Nothing
+
+End Sub
+
+

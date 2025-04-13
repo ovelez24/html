@@ -1,0 +1,134 @@
+Sub InputBoxes1()
+'Obtener información del usuario desde una InputBox (caja de información)
+
+'Declarar las variables
+Dim Respuesta1 As String
+Dim Respuesta2 As String
+Dim MiString As String
+
+
+'Obtener respuestas del usuario
+Respuesta1 = InputBox("Por favor ingrese su nombre...", _
+                "Nombre")
+Respuesta2 = InputBox("Por favor ingrese su apellido...", _
+                "Apellido")
+
+'Elabora una cadena de texto (string) con la información del usuario
+MiString = "Es un placer conocerte, " & Respuesta1 _
+                & " " & Respuesta2
+                
+'Escribe la string recién creada en la celda A1
+Range("A1").Value = MiString
+
+End Sub
+
+Sub InputBoxes2()
+'Obtener información del usuario desde una InputBox (caja de información)
+
+'Declarar las variables
+Dim Respuesta1 As String
+Dim Respuesta2 As String
+Dim MiString As String
+
+'Obtener respuestas del usuario
+Respuesta1 = InputBox("Por favor ingrese su nombre...", _
+                "Nombre")
+Respuesta2 = InputBox("Por favor ingrese su apellido...", _
+                "Apellido")
+                
+Respuesta1 = UCase(Respuesta1)
+Respuesta2 = LCase(Respuesta2)
+
+MiString = "Es un placer conocerte, " & Respuesta1 _
+                & " " & Respuesta2
+                
+MiString = Application.WorksheetFunction.Proper(MiString)
+
+'Escribe la string recién creada en la celda A2
+Range("A2").Value = MiString
+
+End Sub
+
+Sub InputBoxes3()
+'Obtener información del usuario desde una InputBox (caja de información)
+
+'Declarar las variables
+ Dim Respuesta1 As Range
+ Dim MiUbicacion As String
+
+ Set Respuesta1 = Application.InputBox("Haga click en una celda", _
+                    "Seleccione la celda", Type:=8)
+                
+'Extraer la ubicación desde la información recolectada
+ MiUbicacion = Respuesta1.Address
+
+'https://docs.microsoft.com/es-es/office/vba/api/Excel.Application.InputBox
+
+End Sub
+
+Sub CajasDeMensajes1()
+'Muestra una caja de mensaje simple
+
+'Muestra la caja con el mensaje
+MsgBox "Este es un mensaje simple", vbOKOnly, "Hola"
+
+End Sub
+
+Sub CajasDeMensajes2()
+'Muestra una caja de mensaje simple con información de una celda
+
+'Muestra la caja con el mensaje
+MsgBox Range("A1"), vbOKOnly, "Hola"
+
+End Sub
+
+Sub CajasDeMensajes3()
+'Muestra una caja de mensaje usando las entradas del usuario
+
+    'Declarar las variables
+    Dim Respuesta1 As String
+    Dim Respuesta2 As String
+    Dim MiString As String
+    
+    'Obtener la respuesta del usario
+    Respuesta1 = InputBox("Por favor ingrese su nombre...", _
+                "Nombre")
+    Respuesta2 = InputBox("Por favor ingrese su apellido...", _
+                "Apellido")
+    
+    'Elabora una cadena de texto (string) con la información del usuario
+    MiString = "Es un placer conocerte, " & Respuesta1 _
+                & " " & Respuesta2
+                
+    'Asignar la string nueva a la variable MiString
+    MiString = Application.WorksheetFunction.Proper(MyString)
+                    
+    'Escribe la nueva string a la caja de mensajes
+    MsgBox MyString, vbOKOnly, "Greetings"
+
+
+End Sub
+
+Sub CajasDeMensajes4()
+'Mostrar una caja de mensajes y devolver la respuesta a una variable
+
+    'Declara las variables
+    Dim MiRespuesta As String
+    
+    'Caja de mensajes con botones SI y NO
+    MiRespuesta = MsgBox("¿Quieres limpiar la hoja?", _
+                        vbYesNo, "¿Limpiamos la hoja?")
+                        
+    'Si devuelve 6
+    'No devuelve 7
+    'Prueba qué botón se presionó
+    If MiRespuesta = 6 Then
+        'Limpia el contenido de la hoja
+        Cells.ClearContents
+    Else
+        'Termina el código
+        End
+    End If
+
+End Sub
+

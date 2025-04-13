@@ -1,0 +1,19 @@
+'Pegar esto como evento para Worksheet de tipo Change
+
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Dim CeldasClave As Range    'Contiene las celdas que se desea controlar
+
+    'Determinar celdas a controlar
+    Set CeldasClave = Range("B:D, F:F")
+    
+    If Not Application.Intersect(CeldasClave, Range(Target.Address)) _
+           Is Nothing Then
+
+        Range("G" & Target.Row).Value = Now()
+       
+    End If
+    
+End Sub
+
+

@@ -1,0 +1,82 @@
+'Pegar en un módulo normal
+'Las Funciones Definidas por el Usuario (UDF en inglés)siempre comienzan con la palabra "Function"
+
+Function Pila(MiValor As Variant)
+
+    Pila = MiValor * 3.14159
+
+End Function
+
+Function AlCuadrado(MiValor As Variant)
+
+    AlCuadrado = MiValor * MiValor
+    
+End Function
+
+Function DondeEstaElArchivo()
+
+    DondeEstaElArchivo = ThisWorkbook.Path
+
+End Function
+
+Function ContadorFechaLimite(MiValor As Variant)
+
+    'Establecer las variables
+    Dim CuentaDias As Variant
+    Dim CuentaHoras As Variant
+    Dim CuentaMinutos As Variant
+    Dim CuentaSegundos As Variant
+    
+    'Fuerza un recálculo con F9
+    Application.Volatile
+    
+    'Calcula los elementos individuales
+    CuentaDias = Int(MiValor - Now()) & " días, "
+    CuentaHoras = Hour(MiValor - Now()) & " horas, "
+    CuentaMinutos = Minute(MiValor - Now()) & " minutos, "
+    CuentaSegundos = Second(MiValor - Now()) & " segundos!"
+    
+    'Construir el string y asignarlo a "ContadorFechaLimite"
+    ContadorFechaLimite = CuentaDias & CuentaHoras & CuentaMinutos & CuentaSegundos
+    
+    'Método Alternativo
+    'ContadorFechaLimite = Int(MiValor - Now()) & " días, " & _
+                    Hour(MiValor - Now()) & " horas, " & _
+                    Minute(MiValor - Now()) & " minutos, y " & _
+                    Second(MiValor - Now()) & " segundos!"
+
+End Function
+
+
+Function CalcularDescuento(MiCantidad As Integer, MiPrecio As Single)
+
+    Dim Oferta As Integer
+    Dim Descuento As Single
+    
+    'Establecer la cantidad de descuento
+    Oferta = 1000
+    'Establecer el descuento
+    Descuento = 0.05
+    
+    If MiCantidad <= Oferta Then
+        CalcularDescuento = 0
+    Else
+        CalcularDescuento = MiCantidad * MiPrecio * Descuento
+    End If
+
+End Function
+
+Function OBTENERNOMBREHOJA(numero As Long)
+    'Obtiene el nombre de la hoja (de la pestaña) de cualquier hoja...
+    '...por su número de índice.
+    '...entonces, =OBTENERNOMBREHOJA(1) devolverá el nombre de la primera hoja
+    '...=OBTENERNOMBREHOJA(2) devolverá el nombre de la segunda, y así...
+    '...Para hacer que sea arrastrable, reemplazar el índice #...
+    '...con la función ROW...
+    '...=OBTENERNOMBREHOJA(ROW(1:1)), y luego arrastrarlo
+    
+    OBTENERNOMBREHOJA = Sheets(numero).Name
+
+End Function
+
+

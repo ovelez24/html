@@ -1,0 +1,11 @@
+Function CELSIUSAFAHRENHEIT(GradosCelsius As Double)
+
+    CELSIUSAFAHRENHEIT = (GradosCelsius * (9 / 5)) + 32
+
+End Function
+
+Function FAHRENHEITACELSIUS(GradosFahrenheit As Double)
+
+    FAHRENHEITACELSIUS = (GradosFahrenheit - 32) * (5 / 9)
+
+End Function

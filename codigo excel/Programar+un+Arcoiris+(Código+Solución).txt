@@ -1,0 +1,38 @@
+Sub PintarArcoiris()
+
+Range("A1").Select
+Range("A1").Interior.Color = vbRed
+ActiveCell.Offset(1, 0).Interior.Color = vbMagenta
+ActiveCell.Offset(2, 0).Interior.Color = vbYellow
+ActiveCell.Offset(3, 0).Interior.Color = vbGreen
+ActiveCell.Offset(4, 0).Interior.Color = vbCyan
+ActiveCell.Offset(5, 0).Interior.Color = vbBlue
+ActiveCell.Offset(6, 0).Interior.Color = vbBlack
+
+End Sub
+
+Sub EscribirArcoiris()
+
+Range("A1").Select
+Range("A1").Value = "Red"
+ActiveCell.Offset(1, 0).Value = "Magenta"
+ActiveCell.Offset(2, 0).Value = "Yellow"
+ActiveCell.Offset(3, 0).Value = "Green"
+ActiveCell.Offset(4, 0).Value = "Cyan"
+ActiveCell.Offset(5, 0).Value = "Blue"
+ActiveCell.Offset(6, 0).Value = "Black"
+
+End Sub
+
+Sub colorearfuentearcoiris()
+
+Range("A1").Select
+Range("A1").Font.Color = vbWhite
+ActiveCell.Offset(1, 0).Font.Color = vbWhite
+ActiveCell.Offset(2, 0).Font.Color = vbWhite
+ActiveCell.Offset(3, 0).Font.Color = vbWhite
+ActiveCell.Offset(4, 0).Font.Color = vbWhite
+ActiveCell.Offset(5, 0).Font.Color = vbWhite
+ActiveCell.Offset(6, 0).Font.Color = vbWhite
+
+End Sub

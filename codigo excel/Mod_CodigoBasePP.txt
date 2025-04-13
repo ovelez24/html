@@ -1,0 +1,205 @@
+'Pegar en un módulo normal
+
+Private Sub CodigoBasePP()
+
+'Nota: La mayor parte del código funcionará bien en todas las versiones
+'Pero las imágenes se manejan un poco diferente en 2010
+'Más bajo se detallan las diferencias
+'Pero lo principal es que las "Formas" deben ser referidas por su nombre
+
+'Reemplazando lo siguiente en el código para 2013 en adelante...
+'... hará que funcione en 2010:
+'BUSCAR:        AppPP.ActiveWindow.Selection.ShapeRange.
+'REEMPLAZAR:    DiapoPP.Shapes("Foto 2").
+'... reemplazando "Foto 2" con el nombre que tenga.
+
+'También, para usuarios de 2010, la función msoAlign no sirve
+'necesita ser especificada manualmente (ver detalles más abajo)
+
+
+
+Dim AppPP As Object
+Dim PresentacionPP As Object
+Dim DiapoPP As Object
+
+
+    'Crear (abrir) las aplicación PowerPoint
+    Set AppPP = CreateObject("PowerPoint.Application")
+
+    'Agregar una nueva presentación
+    Set PresentacionPP = AppPP.Presentations.Add
+    
+    'Hacer que PowerPoint est'visible (NO activo)
+    AppPP.Visible = True
+       
+   
+    'Diapositivas
+   
+    'Agregar una nueva diapositiva
+    '  (Index se refiere a su posición en la presentación)
+    '  (Layout se refiere a su posición en el estilo de diseño)
+    Set DiapoPP = PresentacionPP.Slides.Add(Index:=1, Layout:=11)
+    '  Layouts:
+    '  Layout:=1    Título (arriba), subtitulo (abajo)
+    '  Layout:=2    Título (arriba), texto (abajo)
+    '  Layout:=3    Título (arriba), texto (abajo izquierda), texto (abajo derecha)
+    '  Layout:=4    Título (arriba), tabla (abajo)
+    '  Layout:=5    Título (arriba), texto (abajo izquierda), gráfico (abajo derecha)
+    '  Layout:=6    Título (arriba), gráfico (abajo izquierda), texto (abajo derecha)
+    '  Layout:=7    Título (arriba), SmartArt (abajo)
+    '  Layout:=8    Título (arriba), gráfico (abajo)
+    '  Layout:=9    Título (arriba), texto (abajo izquierda), imágen online (abajo derecha)
+    '  Layout:=10   Título (arriba), imágen online (abajo izquierda), texto (abajo derecha)
+    '  Layout:=11   Título (solamente)
+    '  Layout:=11+  Personalizado (así, 11 generará una diapositiva en blanco)
+
+    'Texto
+    
+    'Agregar texto
+    
+    'Usando el nombre de la forma
+    'DiapoPP.Shapes.Title.TextFrame.TextRange.Text = "Hola a todos"
+    'DiapoPP.Shapes.Title.TextFrame.TextRange.Text = Range("C1").Value
+    
+    'Usando el número de índice de la forma
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Text = "Hola a todos"
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Text = Range("A1").Value
+    'DiapoPP.Shapes(2).TextFrame.TextRange.Text = "Presentado por Federico Garay"
+    
+    'Para gregar un nuevo item (hacia una caja de texto), usar vbNewLine...
+    'DiapoPP.Shapes(2).TextFrame.TextRange.Text = "Presentado por Federico Garay" _
+        & vbNewLine & "Instructor"
+        
+       
+    'Formatear texto
+    
+    'Propiedades individuales
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Font.Name = "Times"
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Font.Color = vbBlue
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Font.Size = 12
+    'DiapoPP.Shapes(1).TextFrame.TextRange.Font.Italic = True
+    
+    'Usando With / End With
+    'With DiapoPP.Shapes(1)
+    '    .TextFrame.TextRange.Font.Name = "Times"
+    '    .TextFrame.TextRange.Font.Color = vbBlue
+    '    .TextFrame.TextRange.Font.Size = 24
+    '    .TextFrame.TextRange.Font.Italic = True
+    'End With
+   
+
+    'Alinear texto
+    
+    'DiapoPP.Shapes(1).TextFrame.TextRange.ParagraphFormat.Alignment = msoAlignRight
+    'DiapoPP.Shapes(1).TextFrame.TextRange.ParagraphFormat.Alignment = msoAlignLeft
+    'DiapoPP.Shapes(1).TextFrame.TextRange.ParagraphFormat.Alignment = msoAlignCenter
+
+
+    'Agregar una caja de texto
+    
+    'Agregar una nueva caja de texto (que es una "forma")
+    'Posición y tamaño se manejan por "puntos" (1 cm = 28.346 puntos)
+    'AppPP.ActivePresentation.Slides(1).Shapes.AddTextbox _
+        (1, Left:=100, Top:=100, Width:=100, Height:=50). _
+            TextFrame.TextRange.Text = "Este es mi texto"
+    ' .AddTextbox(1...  1 el texto va arriba a la derecha
+    ' .AddTextbox(2...  2 el texto rota en el sentido antihorario
+    ' .AddTextbox(3...  3 el texto rota en el sentido horario
+   
+    
+    'Eliminar una forma
+    
+    'Se la refiere por su número de índice
+    'DiapoPP.Shapes(2).Delete
+    
+    
+    'Para encontrar el nombre de una forma/objeto, seleccionarla (con click) y correr este código
+    '(Ejecutar desde un módulo normal en PowerPoint)
+    
+    'Sub InfoFormaSelccionada()
+    'Dim forma As Shape
+    'If ActiveWindow.Selection.Type = ppSelectionNone Then
+    '    MsgBox "Por favor seleccione objetos", vbExclamation, "Seleccionar"
+    'Else
+    '    For Each forma In ActiveWindow.Selection.ShapeRange
+    '        MsgBox forma.Name
+    '    Next forma
+    'End If
+    'End Sub
+    
+    
+    'Imágenes
+    
+    'Agregar imágenes
+
+    'Pegar un rango como bitmap
+    'Range("A23:B30").CopyPicture Appearance:=xlScreen, Format:=xlPicture
+    'DiapoPP.Shapes.Paste
+    '(se pega en el centro por defecto)
+    
+    'Pegar gráfico como bitmap
+    'Sheets("Hoja1").ChartObjects("Graficotorta").Chart.CopyPicture
+    'DiapoPP.Shapes.Paste
+    '(se pega en el centro por defecto)
+
+   
+    'Agregar una imagen guardada (cambio de ruta de destino para entrar)
+    'Posición y tamaño se manejan por "puntos" (1 cm = 28.346 puntos)
+    'AppPP.ActivePresentation.Slides(1).Shapes.AddPicture _
+        "Bibliotecas\Imágenes\Logo.jpg", _
+            LinkToFile:=msoFalse, _
+                SaveWithDocument:=msoTrue, _
+                    Left:=100, Top:=100, Width:=100, Height:=100
+
+
+    'Las versiones 2013 en adelante, asumen que la imagen ya se agregó (pasted), por lo tanto la refieren como "Selección"
+    'Re-dimensionar imágenes (2013 en adelante)
+
+    'Re-dimensionar (mantiene la relación de aspecto. No se necesita ancho y alto)
+    '   Los lados se calculan en "puntos" (1 cm = 28.346 puntos)
+    'AppPP.ActiveWindow.Selection.ShapeRange.Height = 50
+    'AppPP.ActiveWindow.Selection.ShapeRange.Width = 600
+
+    'La versión 2010 necesita referirse a la imagen por su nombre (usa la sub InfoFormaSelccionada paraobtener el nombre)
+    'Re-dimensionar imágenes (2010)
+
+    'Re-dimensionar en 2010 NO mantiene la relación de aspecto, por lo que necesitas cambiar alto y ancho(
+    '   Los lados se calculan en "puntos" (1 cm = 28.346 puntos)
+    'DiapoPP.Shapes("Foto 2").Height = 11.65 * CM
+    'DiapoPP.Shapes("Foto 2").Width = 24.2 * CM
+     
+     
+    'Posicionando imágenes (2013 en adelante)
+
+    'Alinear la imágen usando MSO (MicroSoft Office constant)
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignLefts, True
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignRights, True
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignMiddles, True
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignCenters, True
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignTops, True
+    'AppPP.ActiveWindow.Selection.ShapeRange.Align msoAlignBottoms, True
+        
+    'Posicionando imágenes (2010)
+    
+    'La alineación MSO no funciona en 2010, por lo que se usa .Left y .Top
+    'Necesita ser agregado (la manera más fácil en un With/End With)
+    'With DiapoPP.Shapes("Foto 2")
+    '    .Left = 0.6 * CM
+    '    .Top = 5.33 * CM
+    'End With
+    
+    
+    'Alinear la imágen usando puntos
+    '   Se posiciona la imagágen con "puntos" (1 cm = 28.346 puntos)
+    'AppPP.ActiveWindow.Selection.ShapeRange.Left = 144
+    'AppPP.ActiveWindow.Selection.ShapeRange.Top = 288
+   
+     
+    'Destruir las variables objeto (en orden inverso)
+    'Set DiapoPP = Nothing
+    'Set PresentacionPP = Nothing
+    'Set AppPP = Nothing
+
+End Sub
+
+

@@ -1,0 +1,250 @@
+'Pegar en un módulo normal
+
+'Declarar las variables a nivel del módulo
+Dim AppPP As Object
+Dim PresentacionPP As Object
+Dim DiapoPP As Object
+Dim NombrePresentador As String
+Dim CM As Single
+Dim Pulgada As Integer
+Dim X As Integer
+
+'NOTA ESPECIAL PARA USUARIOS DE VERSIÓN 2010
+'PowerPoint 2010 usa diapositivas de aspecto 4:3 por defecto
+'Mientras que 2013 en adelante usa 16:9.
+'Este código fue escrito para 16:9,
+'por lo que se requiere un pequeño ajuste manual en la diapositiva 4.
+'Para cambiar la relación de aspecto a 16:9, haz lo siguiente:
+'Elije la diapositiva, CTRL + A, CTRL + C y luego eliminar.
+'Cambiar el tamaño de la diapositiva desde:
+'Diseño/Tamaño de la Diapositiva, luego CTRL + V
+'Ajustar lo necesario
+
+Private Sub ElPedido()
+
+CrearPresentacionPP
+Diapo1
+Diapo2
+Diapo3
+Diapo4
+Diapo5
+DestruirVariables
+
+End Sub
+
+Private Sub AgregarLogo()
+
+    'Agrega una imagen guardada
+    AppPP.ActivePresentation.Slides(X).Shapes.AddPicture _
+        "Bibliotecas\Imágenes\Logo.jpg", _
+            LinkToFile:=msoFalse, _
+                SaveWithDocument:=msoTrue, _
+                    Left:=30.36 * CM, Top:=0.68 * CM, Width:=2.52 * CM, Height:=2.52 * CM
+
+End Sub
+
+Private Sub Diapo5()
+
+    'Establecer número de diapositiva
+    X = 5
+    
+    'Agregar diapositiva (título y subtítulo)
+    Set DiapoPP = PresentaciónPP.Slides.Add(Index:=X, Layout:=1)
+
+    AgregarLogo
+    
+    'Agregar título
+    DiapoPP.Shapes(1).TextFrame.TextRange.Text = "Gracias y..." & vbNewLine & "¿alguna pregunta?"
+    
+    With DiapoPP.Shapes(1)
+        .TextFrame.TextRange.Font.Color = vbBlue
+        '.TextFrame.TextRange.Font.Size = 24
+        .TextFrame.TextRange.Font.Bold = True
+    End With
+    
+    'Agregar subtítulo
+    DiapoPP.Shapes(2).Delete
+
+
+End Sub
+
+
+Private Sub Diapo4()
+
+    'Establecer número de diapositiva
+    X = 4
+    
+    'Agregar diapositiva (título y subtítulo)
+    Set DiapoPP = PresentaciónPP.Slides.Add(Index:=X, Layout:=8)
+    
+    AgregarLogo
+    
+    'Agregar título
+    DiapoPP.Shapes(1).TextFrame.TextRange.Text = "Informe de Desempeño"
+    
+    With DiapoPP.Shapes(1)
+        .TextFrame.TextRange.Font.Color = vbBlue
+        '.TextFrame.TextRange.Font.Size = 24
+        .TextFrame.TextRange.Font.Bold = True
+    End With
+    
+    'Agregar primera tabla
+    Range("A23").CurrentRegion.CopyPicture Appearance:=xlScreen, Format:=xlPicture
+    DiapoPP.Shapes.Paste '(se pega en el centro por defecto)
+    
+    'Alinear la imagen usando puntos
+    AppPP.ActiveWindow.Selection.ShapeRange.Left = 2.33 * CM
+    AppPP.ActiveWindow.Selection.ShapeRange.Top = 5.13 * CM
+    
+    
+    'Agregar segunda tabla
+    Range("D23").CurrentRegion.CopyPicture Appearance:=xlScreen, Format:=xlPicture
+    DiapoPP.Shapes.Paste '(se pega en el centro por defecto)
+    
+    'Alinear la imagen usando puntos
+    AppPP.ActiveWindow.Selection.ShapeRange.Left = 2.33 * CM
+    AppPP.ActiveWindow.Selection.ShapeRange.Top = 10.95 * CM
+    
+    
+    'Pegar el gráfico usando bitmap
+    Sheets("Hoja1").ChartObjects("GraficoTorta").Chart.CopyPicture
+    DiapoPP.Shapes.Paste '(se pega en el centro por defecto)
+    
+    AppPP.ActiveWindow.Selection.ShapeRange.Height = 12.69 * CM
+    AppPP.ActiveWindow.Selection.ShapeRange.Left = 9.1 * CM
+    AppPP.ActiveWindow.Selection.ShapeRange.Top = 5.13 * CM
+    
+    
+    'Eliminar la caja de texto
+    DiapoPP.Shapes(2).Delete
+
+End Sub
+
+
+Private Sub Diapo3()
+
+    'Establecer número de diapositiva
+    X = 3
+    
+    'Agregar diapositiva (título y subtítulo)
+    Set DiapoPP = PresentaciónPP.Slides.Add(Index:=X, Layout:=8)
+
+    AgregarLogo
+    
+    'Agregar título
+    DiapoPP.Shapes(1).TextFrame.TextRange.Text = "Ganancia por Día"
+    
+    With DiapoPP.Shapes(1)
+        .TextFrame.TextRange.Font.Color = vbBlue
+        '.TextFrame.TextRange.Font.Size = 24
+        .TextFrame.TextRange.Font.Bold = True
+    End With
+    
+    'Pegar gráfico como bitmap
+    Sheets("Hoja1").ChartObjects("GraficoGananciaPorDia").Chart.CopyPicture
+    DiapoPP.Shapes.Paste '(se pega en el centro por defecto)
+    
+    'Modified for 2010
+    'Tamaño
+    DiapoPP.Shapes("Foto 2").Height = 11.65 * CM
+    DiapoPP.Shapes("Foto 2").Width = 24.2 * CM
+    'Alineación
+    DiapoPP.Shapes("Foto 2").Left = 0.6 * CM
+    DiapoPP.Shapes("Foto 2").Top = 5.33 * CM
+    
+    
+    'Eliminar la caja de texto
+    DiapoPP.Shapes(2).Delete
+
+End Sub
+
+
+
+
+Private Sub Diapo2()
+
+    'Establecer número de diapositiva
+    X = 2
+    
+    'Agregar diapositiva (título y subtítulo)
+    Set DiapoPP = PresentaciónPP.Slides.Add(Index:=X, Layout:=2)
+
+    AgregarLogo
+    
+    'Agregar título
+    DiapoPP.Shapes(1).TextFrame.TextRange.Text = "Registro de Desempeño"
+    
+    With DiapoPP.Shapes(1)
+        .TextFrame.TextRange.Font.Color = vbBlue
+        '.TextFrame.TextRange.Font.Size = 24
+        .TextFrame.TextRange.Font.Bold = True
+    End With
+    
+    'Agregar subtítulo
+    DiapoPP.Shapes(2).TextFrame.TextRange.Text = _
+        Range("A3").Value & vbNewLine & _
+        Range("A4").Value & vbNewLine & _
+        Range("A5").Value
+
+
+End Sub
+
+
+Private Sub Diapo1()
+
+    'Establecer número de diapositiva
+    X = 1
+    
+    'Agregar diapositiva (título y subtítulo)
+    Set DiapoPP = PresentaciónPP.Slides.Add(Index:=X, Layout:=1)
+
+    AgregarLogo
+    
+    'Agregar título
+    DiapoPP.Shapes(1).TextFrame.TextRange.Text = Range("A1").Value
+    
+    With DiapoPP.Shapes(1)
+        .TextFrame.TextRange.Font.Color = vbBlue
+        '.TextFrame.TextRange.Font.Size = 24
+        .TextFrame.TextRange.Font.Bold = True
+    End With
+    
+    'Agregar subtítulos
+    DiapoPP.Shapes(2).TextFrame.TextRange.Text = "Presentado por: " & NombrePresentador
+
+
+End Sub
+
+
+Private Sub CrearPresentacionPP()
+
+    CM = 28.346
+    Pulgada = 72
+
+    'Seleccionar la hoja correcta
+    Hoja2.Select
+
+    'Capturar el nombre del presentador
+    NombrePresentador = InputBox("Por favor ingrese el nombre del presentador aquí:" _
+                        , "¿Quién es el presentador?")
+    
+    'Crear (abrir) la aplicación PowerPoint
+    Set AppPP = CreateObject("PowerPoint.Application")
+
+    'agregar una nueva presentación
+    Set PresentacionPP = AppPP.Presentations.Add
+    
+    'Hacer que PowerPoint esté visible (no activo)
+    AppPP.Visible = True
+    
+End Sub
+
+
+Private Sub DestruirVariables()
+ 
+    'Destruir las variables objeto (en orden inverso)
+    Set DiapoPP = Nothing
+    Set PresentacionPP = Nothing
+    Set AppPP = Nothing
+    
+End Sub

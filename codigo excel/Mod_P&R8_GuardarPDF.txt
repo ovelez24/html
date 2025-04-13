@@ -1,0 +1,68 @@
+Dim MiItem As String
+Dim MiRuta As String
+
+Sub ObtenerDatos()
+
+    'Hacer loop mientras la celda A2 no esté vacía
+    Do While HPedido.Range("A2").Value <> ""
+    
+        'Cargar el código del empleado
+        MiItem = HPedido.Range("A2").Value
+        
+        'Cargar la ruta hacia la foto del empleado
+        MiRuta = Application.WorksheetFunction.VLookup _
+                (MiItem, HDatos.Range("A1").CurrentRegion, 4, False)
+                
+        'Llamar a la subrutina PonerImagen
+        PonerImagen
+                
+        'Eliminar la fila del primer registro
+        HPedido.Range("A2").EntireRow.Delete
+        
+    'Terminar loop
+    Loop
+    
+End Sub
+
+Sub PonerImagen()
+
+    'Seleccionar la hoja correcta
+    HPlantilla.Select
+    
+    'Escribir datos del empleado en la plantilla
+    Range("A2").Value = MiItem
+    
+    'Seleccionar el rango donde va la foto
+    Range("A9").Select
+    
+    'Insertar la foto
+    ActiveSheet.Pictures.Insert( _
+        MiRuta & MiItem & ".jpg").Select
+        
+    'Guardar el nombre de la foto en variable local
+    MiFoto = Selection.ShapeRange.Name
+        
+    'Redimensionar la foto
+    Selection.ShapeRange.Height = 400
+    Selection.ShapeRange.IncrementLeft 15
+    Selection.ShapeRange.IncrementTop 0
+    
+    'Llamar a la rutina GuardarPDF
+    GuardarPDF
+    
+    'Eliminar la foto
+    ActiveSheet.Shapes.Range(Array(MiFoto)).Delete
+    
+End Sub
+
+Sub GuardarPDF()
+
+    'Guardar PDF
+    ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+        MiRuta & MiItem & ".pdf", Quality:= _
+        xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas:=False, _
+        OpenAfterPublish:=True
+
+End Sub
+
+

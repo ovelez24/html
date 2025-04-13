@@ -1,0 +1,21 @@
+Sub PonerFecha()
+
+    'Verificar si la celda activa está vacía
+    If Range("E" & ActiveCell.Row).Value = "" Then
+        'Cargar fecha en la celda
+        Range("E" & ActiveCell.Row).Value = Date & " - "
+    Else
+        'Cargar lo que estaba escrito en la celda, y luego la fecha
+        Range("E" & ActiveCell.Row).Value = _
+            Range("E" & ActiveCell.Row).Value & vbNewLine & _
+            Date & " - "
+    End If
+        
+        'Seleccionar la celda editada
+        Range("E" & ActiveCell.Row).Select
+        
+        'Simular presionar F2 para permitir escritura en celda editada
+        '(No probar desde el panel VBA)
+        Application.SendKeys "{F2}"
+        
+End Sub

@@ -1,0 +1,19 @@
+Private Sub Workbook_NewSheet(ByVal Sh As Object)
+
+Dim Nombre As Variant
+
+inicio:
+Nombre = Application.InputBox("Ingrese el nombre de la nueva hoja", "Nueva hoja creada")
+
+If (Nombre = "" Or Nombre = False) Then GoTo inicio
+
+For Each Sh In Worksheets
+    If Sh.Name = Nombre Then
+        MsgBox "El nombre se encuentra en uso. Por favor, escribe otro nombre", vbCritical + vbOKOnly, "Nombre en uso"
+        GoTo inicio
+    End If
+Next
+
+ActiveSheet.Name = Nombre
+
+End Sub

@@ -1,0 +1,181 @@
+  'ThisWorkbook.Sheets("hoja2").Select
+
+    'ActiveSheet.Range("a1:a15").Select
+
+       
+
+    Dim App As Object
+
+    Dim Mail As Object
+
+   
+
+    'X = ThisWorkbook.Sheets("hoja3").Range("c5").Value - 1
+
+    'For i = 1 To X
+
+    'ThisWorkbook.Sheets("hoja3").Range("c6").Value = i
+
+   
+
+    
+
+    'opcion 2
+
+   
+
+    Dim Ruta As String
+
+    Dim File As String
+
+    Dim Extension As String
+
+    Dim Adjunto As Variant
+
+    Dim msg As String
+
+    Dim oficio As String
+
+    Dim radicado As String
+
+    Dim fecha As Date
+
+   
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    'bucle
+
+   
+
+    For i = 2 To Range("A" & Rows.Count).End(xlUp).Row
+
+   
+
+    
+
+  
+
+    
+
+        
+
+    Set App = CreateObject("outlook.Application")
+
+ 
+
+  
+
+    
+
+    
+
+    
+
+    Set Mail = App.CreateItem(0)
+
+   
+
+    
+
+    
+
+    oficio = Range("C" & i).Value
+
+    radicado = Range("G" & i).Value
+
+    fecha = Range("D" & i).Value
+
+    Ruta = "C:\OSCAR\respuestaspdf"
+
+    File = Range("Q" & i).Value
+
+    Extension = Range("R" & i).Value
+
+    Adjunto = Ruta & "\" & File & Extension
+
+   
+
+    
+
+    msg = "Buen dia, " & vbNewLine & vbNewLine & "Adjunto respuesta oficio No. " & oficio & " radicado " & radicado & " con fecha " & fecha
+
+   
+
+    On Error Resume Next
+
+   
+
+   
+
+    'ActiveWorkbook.EnvelopeVisible = True
+
+   
+
+    
+
+    'With ActiveSheet.MailEnvelope
+
+       '.Item.To = ThisWorkbook.Sheets("hoja3").Range("c1").Value
+
+        '.Item.Subject = ThisWorkbook.Sheets("hoja3").Range("c2").Value
+
+        '.Item.Attachments.Add = Adjunto
+
+       
+
+        '.Item.Send
+
+       
+
+    
+
+   With Mail
+
+    .Display
+
+    .To = Range("O" & i).Value
+
+    .Subject = Range("P" & i).Value
+
+    .HTMLBody = msg & .HTMLBody
+
+   
+
+    .Attachments.Add (Adjunto)
+
+   
+
+   
+
+    
+
+    
+
+    .Send
+
+   
+
+   End With
+
+   
+
+    Next i
+
+   
+
+    
+
+    
+
+End Sub
