@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <head>
+    <title>Getters y Setters</title>
+  </head>
+
+  <body>
+    <script>
+      class Deportista{
+        constructor(nombre, apellido){
+          this.nombre = nombre;
+          this.apellido = apellido;
+        }
+      }
+
+      class Futbolista extends Deportista{
+        constructor(nombre, apellido, goles){
+          super(nombre, apellido);
+          this._goles = goles;// el guion bajo_ indica en esta propiedad que es privada _goles y solo se accede con getters y setters
+        }
+//get: obtener el valor actual de una propiedad(getter)
+        get goles(){
+          return this._goles;
+        }
+// set: establecer un nuevo valor (setter)
+        set goles(nuevoGoles){
+          this._goles = nuevoGoles;
+        }
+      }
+    </script>
+  </body>
+</html>

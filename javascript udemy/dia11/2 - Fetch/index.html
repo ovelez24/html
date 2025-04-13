@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+  <head>
+    <title>JSON</title>
+  </head>
+  <body>
+
+    <div id="nombre"></div>
+
+    <script>
+        let datosJson;
+
+        fetch('persona.json')//extrae el archivo json ;solicitudes http asincronas y es alternativa a XMLHttRequest
+        .then(res => res.json())//then significa una vez que se resuelva la promesa o respuesta
+        .then((salida) => {
+          datosJson = salida;
+
+          let elementoTexto = document.getElementById('nombre');
+          elementoTexto.textContent = datosJson.nombre;
+        })
+    </script>
+  </body>
+</html>

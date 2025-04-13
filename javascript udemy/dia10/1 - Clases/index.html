@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <head>
+    <title>Clases</title>
+  </head>
+
+  <body>
+    <script>
+        
+//la clase es una funcion especial que envuelve los objetos
+
+//declaracion de clase
+        class Papel{
+            constructor(alto, ancho){
+                this.alto = alto;
+                this.ancho = ancho;
+            }
+        }
+//expresion de clase anonima
+        let PapelA = class{
+            constructor(alto, ancho){
+                this.alto = alto;
+                this.ancho = ancho;
+            }
+        }
+//expresion de clase nombrada
+        let PapelB = class PapelX{
+            constructor(alto, ancho){
+                this.alto = alto;
+                this.ancho = ancho;
+            }
+        }
+//crea instancia
+        let papelZ = new Papel(5,3);
+
+    </script>
+  </body>
+</html>

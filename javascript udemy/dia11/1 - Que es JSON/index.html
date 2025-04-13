@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+  <head>
+    <title>JSON</title>
+  </head>
+  <body>
+    <div id="nombre"></div>
+    <script>
+    //json es un formato de archivo que sirve para almacenar que se utiliza
+    //para transmitir informacion entre aplicaciones y sistemas o servidores
+        let datosJson;
+        let xhr = new XMLHttpRequest();//recupera los archivos json y los almacena en una variable
+        xhr.open('GET', "persona.json", true);//abre el archivo
+        xhr.responseType = 'json';//adapta la respuesta en un objeto
+        xhr.onload = function() {//indica que se ha recibido una respuesta satisfactoria del servidor 
+            if(xhr.status === 200) {//http 200 significa que la solicitud ha sido exitosa
+                datosJson = xhr.response;
+                let elementoTexto = document.getElementById("nombre");
+                elementoTexto.textContent = datosJson.nombre;
+            } else {
+                // manejar el error
+            }
+        }
+        xhr.send();
+    </script>
+  </body>
+</html>

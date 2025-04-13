@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <head>
+    <title>Subclases</title>
+  </head>
+
+  <body>
+    <script>
+    //clase
+      class Deportista{
+        //constructor sirve para crear e inicializar un objeto
+        constructor(nombre, apellido){
+          this.nombre = nombre;
+          this.apellido = apellido;
+        }
+      }
+    //subclase: es una clase que hereda metodos y propiedades de otra clase
+      class Futbolista extends Deportista{
+        constructor(nombre, apellido, goles){
+          super(nombre, apellido);
+          this.goles = goles;
+        }
+      }
+    </script>
+  </body>
+</html>
