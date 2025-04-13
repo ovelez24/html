@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>formularios en HTML</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Como crear formularios en html</h1>
+        <form action="aqui va la url donde se encuentra el archivo generalmente en un servidor" method="get(para busqueda) o post(el mas usado para enviar informacion a la base de datos)">
+            <label for="suNombre">Nombre</label>
+            <input type="text" name="nombre" value="" id="suNombre" size="50" autocomplete="on" autofocus maxlength="10" required><br><br>
+            <label for="suApellido">Apellido</label>
+            <input type="text" name="apellido" value="Velez" readonly id="suApellido" size="50" autocomplete="on" autofocus><br><br>
+            <label for="suDireccion">Direccion</label>
+            <input type="text" name="direccion" value="" id="suDireccion" size="50" autocomplete="on" autofocus placeholder="Ej.: calle, numero de casa o apt., ciudad" disabled><br><br>
+            <!--Input tipo email -->
+            <label for="suEmail">Email</label>
+            <input type="email" name="correo_electronico" value="" id="suEmail" size="50"><br><br>
+            <!--Input tipo password -->
+            <label for="suContrasena">Contraseña</label>
+            <input type="password" name="contrasena" value="" id="suContrasena" size="50"><br><br>
+            <!--Input tipo web -->
+            <label for="suWeb">Direccion Web</label>
+            <input type="url" name="direccion_web" value="" id="suWeb" size="50"><br><br>
+            <!--Input tipo radio -->
+            Edad <br>
+            <input type="radio" name="edad_usuario" value="menor18" checked>Menor de 18 años <br>
+            <input type="radio" name="edad_usuario" value="adulto">Entre 18 y 60 años <br>
+            <input type="radio" name="edad_usuario" value="envejeciente">Mayor de 60 años
+
+            <!-- el autocomplete sirve para mostrar la informacion ya escrita anteriormente en el input y tambien puede ir
+            off para que no muestre la informacion antes escrita en el input; el id siempre debe llevar el valor que
+            lleva el for en el label; el autofocus es para que el cursor se ubique en el input cuando se abre la pagina
+            y el maxlength indica el numero de caracteres que va a llevar el input; el placeholder sirve para indicar
+            como se debe llenar el input; el value muestra un valor por defecto en el input y el readonly no deja borrar el valor por
+            defecto del input que va marcado en el value, la opcion disabled deshabilita el input y la opcion required indica
+            que es requerido el valor en el input y no permite enviar la informacion; la opcion checked muestra un input tipo radio
+            ya escogido por defecto-->
+
+        </form>
+    </body>
+</html>

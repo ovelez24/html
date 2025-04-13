@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Elementos multimedia HTML</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Multimedia en HTML</h1>
+        <h2>Reproductor de audio</h2>
+        <audio controls autoplay loop><!-- aqui tambien se puede escribir loop que permite que el audio se reproduzca de manera indefinida y tambien el autplay que reproduce autmaticamente cuando se abre la pagina -->
+            <source src="recursos/zapsplat_cartoon_walk_sneak_tip_toes_faster_quickly_move_orchestral_pizzacato_lower_pitched_113951.mp3" type="audio/mp3">
+            <source src="recursos/zapsplat_cartoon_walk_sneak_tip_toes_faster_quickly_move_orchestral_pizzacato_lower_pitched_113951.ogg" type="audio/ogg">
+            <source src="recursos/zapsplat_cartoon_walk_sneak_tip_toes_faster_quickly_move_orchestral_pizzacato_lower_pitched_113951.wav" type="audio/wav">
+            <p>No se puede reproducir el archivo. el formato no es compatible</p>
+        </audio>
+        <h2>Reproductor de videos</h2>
+        <video width="500" height="281" controls>
+            <source src="recursos/camaleon.mp4" type="video/mp4">
+            <source src="recursos/camaleon.ogg" type="video/ogg">
+            <source src="recursos/camaleon.webm" type="video/webm">
+        </video>
+
+        <h2>Recurso incrustado</h2>
+        <iframe src="https://oferta.senasofiaplus.edu.co/sofia-oferta/" width="1000" height="500" allowfullscreen></iframe>
+        <br>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pqz9NvQzFk0?si=LJk7yE1lxn6ZGkkB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br>
+        <br>
+        <!-- Incrustar animacion en formato Flash -->
+        <object width="" height="" data="recursos/magicball.swf">
+            <param name="movie" value="recursos/magicball.swf">
+            <param name="quality" value="high">
+            <param name="wmode" value="transparent">
+        </object>
+        <br>
+        <br>
+        <embed src="recursos/earth.swf" type="application/vnd.flash-movie" width="300" height="350">
+    </body>
+</html>
