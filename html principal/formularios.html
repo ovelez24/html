@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>Como crear formularios en html</h1>
-        <form action="aqui va la url donde se encuentra el archivo generalmente en un servidor" method="get(para busqueda) o post(el mas usado para enviar informacion a la base de datos)">
+        <form action="aqui va la url donde se encuentra el archivo generalmente en un servidor" 
+        method="get(para busqueda) o post(el mas usado para enviar informacion a la base de datos)" enctype="multipart/form-data">
             <label for="suNombre">Nombre</label>
             <input type="text" name="nombre" value="" id="suNombre" size="50" autocomplete="on" autofocus maxlength="10" required><br><br>
             <label for="suApellido">Apellido</label>
@@ -28,7 +29,60 @@
             Edad <br>
             <input type="radio" name="edad_usuario" value="menor18" checked>Menor de 18 años <br>
             <input type="radio" name="edad_usuario" value="adulto">Entre 18 y 60 años <br>
-            <input type="radio" name="edad_usuario" value="envejeciente">Mayor de 60 años
+            <input type="radio" name="edad_usuario" value="envejeciente">Mayor de 60 años <br><br>
+
+            Pasatiempos<br>
+            <input type="checkbox" name="pasatiempo1" value="leer"> Lectura <br>
+            <input type="checkbox" name="pasatiempo2" value="deportes"> Hacer deportes<br>
+            <input type="checkbox" name="pasatiempo3" value="musica"> Escuchar musica<br>
+            <input type="checkbox" name="pasatiempo4" value="otros" checked> Otros<br><br>
+
+            Cantidad <input type="number" name="cantidad" value="1" min="1" max="50" step="3"><br><br>
+            <!--El value es el valor de inicio del input tipo number y el min y el max son el minimo y maximo
+             de numeros, step es la cantidad en que va aumentando los numeros-->
+
+            <!-- input tipo date -->
+            <label for="fecha">Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" value="fecha" size="50"><br><br>
+
+            <!-- input tipo range -->
+            Define un rango: <input type="range" name="rangos" value="" size="50"><br><br>
+
+            <!-- input tipo file esto permite adjunta archivos la opcion multiple permite adjuntar varios archivos
+            esto se escribe en el form para que pueda adjuntar varios archivos enctype="multipart/form-data"-->
+
+            Adjuntar archivo: <input type="file" name="archivo[]" value="" multiple><br><br>
+
+            <!-- -->
+
+            <!-- input tipo busqueda -->
+            Buscar: <input type="search" name="buscador" value="" placeholder="Buscar...."><br><br>
+
+             <!-- listas desplegables-->
+            Pais <br>
+            <select name="pais[]" multiple>
+                <option value="argentina">Argentina</option>
+                <option value="chile" selected>Chile</option>
+                <option value="colombia">Colombia</option>
+                <option value="estados_unidos">Estados unidos</option>
+                <option value="mexico">Mexico</option>
+                <option value="panama">Panama</option>
+                <option value="republica_dominicana">Republica Dominicana</option>
+            </select><br><br>
+
+            <!-- textarea -->
+            Comentarios <br>
+            <textarea name="mensaje" rows="10" cols="30"></textarea><br><br>
+
+            <!-- boton para enviar datos -->
+            <input type="submit" name="anviar_datos" value="enviar formulario">
+            <!-- boton para resetear datos -->
+            <input type="reset" name="limpiar_campos" value="Resetear fomrulario">
+            <!-- boton generico -->
+            <input type="button" name="boton_generico" value="Pulsar aqui">
+
+            <!-- boton button -->
+            <button type="button">Esto es un <b>boton</b> </button>
 
             <!-- el autocomplete sirve para mostrar la informacion ya escrita anteriormente en el input y tambien puede ir
             off para que no muestre la informacion antes escrita en el input; el id siempre debe llevar el valor que
