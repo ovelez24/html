@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Selectores avanzados CSS</title>
+        <style>
+            /* selector universal */
+            * {
+               margin: ;
+               padding: ;
+            }
+            /* selector multiple */
+
+            h2, #intro {
+                font-size: 25px;
+            }
+            /* selector descendiente */
+
+            div p {
+                background-color: blue;
+                color: white;
+            }
+            /* selector de hijos */
+
+            ol > li {
+                color: red;
+            }
+            /* selector adyacente esta debajo de otro elemento tambien llamado hermano */
+
+            div + p {
+                background-color:seagreen;
+            }
+            /* selector HERMANO GENERAL */
+
+            div ~ p {
+                font-size: 25px;
+            }
+            /* selector de atributos [atr] */
+
+            a[target] {
+                color: green;
+            }
+            /* selector de atributos [atr=] */
+
+            a[target="_self"] {
+                color: red;
+            }
+            /* selector de atributos [atr^="valor"] */
+
+            p[class^="destacado"] {
+                background-color: yellow;
+            }
+            /* selector de atributos [atr$="valor"] */
+
+            a[href$=".es"] {
+                color: darkred;
+            }
+            /* selector de atributos [atr*="valor"] */
+
+            li[tittle*="cur"] {
+                font-size: 22px;
+            }
+            /* selector de atributos [atr~="valor"] */
+
+            p[class~="destacado"] {
+                color: blue;
+            }
+            /* selector de atributos [atr|="valor"] */
+
+            p[class|="texto"] {
+                font-size: 18px;
+            }
+
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+         <h1>Esto es un encabezado de nivel 1</h1>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+         Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+         <a href="#">Leer mas....</a>  
+
+         <h2>Este es un encabezado de nivel 2</h2>     
+         <p id="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+         Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+
+         <div>
+            <h2>Este es un encabezado de nivel 2</h2>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+             Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+            Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+
+         </div>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+         Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec enim mi, sodales sed erat id, convallis tempor lacus. 
+         Vivamus aliquam lacus eget nisl porttitor aliquam. Duis consequat odio sapien,</p>
+
+        <ol>
+            <li>Vegetales</li>
+            <li>frutas</li>
+            <ul>
+                <li>manzanas</li>
+                <li>uvas</li>
+                <li>fresas</li>
+            </ul>
+            <li>Verduras</li>
+        </ol>
+        <br>
+        <a href="#">enlace 1</a>
+        <a href="#" target="_blank">enlace 2</a>
+        <a href="#" target="_self">enlace 1</a>
+        <a href="#">enlace 3</a>
+        <br>
+        <p class="destacado">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec enim mi, sodales sed erat id, convallis tempor lacus</p>
+        <p class="especial destacado">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec enim mi, sodales sed erat id, convallis tempor lacus</p>
+        <p class="destacado principal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec enim mi, sodales sed erat id, convallis tempor lacus</p>
+        <p class="texto-destacado principal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec enim mi, sodales sed erat id, convallis tempor lacus</p>
+        <p class="textodestacado principal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec enim mi, sodales sed erat id, convallis tempor lacus</p>
+        <br>
+        <a href="http://www.google.com">Google</a><br>
+        <a href="http://www.yahoo.com">Yahoo</a><br>
+        <a href="http://www.yahoo.es">Yahoo</a><br>
+        <a href="http://www.google.es">Google</a>
+        <br>
+        <ul>
+            <li tittle="curso php">Curso php</li>
+            <li tittle=" nuevo curso c++">Curso c++</li>
+            <li tittle=" Cursos javasript">Cursos de javascript</li>
+            <li tittle=" aprende html">Aprende HTML </li>
+        </ul>
+    </body>
+</html>

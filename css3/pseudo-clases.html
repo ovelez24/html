@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejemplos de pseudo-clases</title>
+        <style>
+            /* pseudo clases orientadas a enlaces */
+
+            a:link {
+                color: green;
+            }
+            a:visited {
+                color: red;
+            }
+            a:hover {
+                font-size: 18px;
+            }
+            a:active {
+                color: black;
+            }
+            /* Pseuso-clases orientas a cualquier elemento */
+            button:hover {
+                color: red;
+            }
+            button:active {
+                color: blue;
+            }
+
+            /* Pseuso-clases orientas a formularios */
+            input:enabled {
+                background-color: lightyellow;
+            }
+
+            input:focus {
+                background-color: yellow;
+            }
+            input:disabled {
+                background-color: darkgrey;
+                cursor: not-allowed;/* muestra un signo de prohibido */
+            }
+            input[type="email"]:invalid {
+                border: 3px solid red;
+            }
+            input[type="radio"]:checked + label {
+                background-color:blue;
+                color:white;
+            }
+            input[type="checkbox"]:checked + label {
+                
+                color:red;
+            }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Pseudo-clases CSS</h1>
+        <h2>Pseudo-clases orientadas a enlaces</h2>
+        <a href="#">Esto es un enlace</a><br><br>
+        <button type="#">Pulsa aqui</button>
+
+        <h2>Pseudo-clases orientadas a formularios</h2>
+        <form action="">
+            <label for="SuNombre">Nombre:</label>
+            <input type="text" name="" value="" id="SuNombre" size="50"><br><br>
+            <label for="SuApellido">Apellido:</label>
+            <input type="text" name="" value="" id="SuApellido" size="50" disabled><br><br>
+            <label for="SuEmail">Email:</label>
+            <input type="email" name="" value="" id="SuEmail" size="50"><br><br>
+
+            Genero:<br>
+            <input type="radio" name="genero" value="masculino" id="hombre">
+            <label for="hombre">Masculino</label>
+            <input type="radio" name="genero" value="femenino" id="mujer">
+            <label for="mujer">Femenino</label><br><br>
+
+            Pasatiempos:<br>
+            <input type="checkbox" name="pasatiempo1" value="excursionismo" id="hiking">
+            <label for="hiking">excursionismo</label>
+            <input type="checkbox" name="pasatiempo2" value="natacion" id="swimming">
+            <label for="swimming">natacion/label>
+        </form>
+    </body>
+</html>
