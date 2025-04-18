@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ejemplos de pseudo-elementos</title>
+        <style>
+            /* pseudo elemento ::first-letter */
+
+            p#primeraletra::first-letter {
+                color: red;
+                font-size: 30px;
+            }
+            /* pseudo elemento ::first-line */
+
+            p#primeralinea::first-line {
+                color: blue;
+                
+            }
+            /* pseudo elementos ::before y ::after */
+
+            p.error::before {
+                content: url(images/error.png);/*aqui se inserta la imagen antes del texto*/
+                vertical-align: middle;
+                padding-right: 3px;
+                
+            }
+            p.error span::after {
+                content: "ATENCION:";/*aqui se inserta el texto despues de la imagen*/
+                color: red;
+                font-size: 20px;
+                font-weight: bold;
+                
+            }
+
+   
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Pseudo-elementos CSS</h1>
+            <p id="primeraletra">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p id="primeralinea">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p class="error"><span></span> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p class="error"><span></span> Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        
+           
+    </body>    
+</html>

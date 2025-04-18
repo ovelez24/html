@@ -49,6 +49,51 @@
                 color:red;
             }
 
+            /* Pseuso-clases segun la posicion o numero de un elemento*/
+
+            div#posicionElemento p:first-child {/* el primer elemento contenido dentro del div*/
+                color: darkred;
+            }
+
+            div#posicionElemento p:last-child {/* el ultimo elemento contenido dentro del div*/
+                color: darkgreen;
+            }
+            div#posicionElemento p:nth-child(2) {/* el segundo elemento contenido dentro del div*/
+                color: darkblue;
+            }
+            div#posicionElemento p:nth-child(3) {/* el tercer elemento contenido dentro del div*/
+                color: darkorange;
+            }
+            ul li:nth-child(even) {/* se aplica a los elementos pares del li contenido en el ul*/
+                color: green;
+            }
+            ul li:nth-child(odd) {/* se aplica a los elementos impares del li contenido en el ul*/
+                color: blue;
+            }
+            /* Pseuso-clases del enesimo hijo :nth-child(an+b)*/
+
+            ol li:nth-child(3n+0) {/* se aplica a cada tercer elemento de la lista ol*/
+                background-color: yellow;
+            }
+            ol li:nth-child(4n+0) {/* se aplica a cada cuarto elemento de la lista ol*/
+                background-color: green;
+            }
+            ol li:nth-child(4n+1) {/* se aplica a cada cuarto elemento de la lista ol pero empezando desde la primera lista*/
+                background-color: red;
+            }
+            ol li:nth-child(n+6) {/* se aplica a se aplica a todos los elementos con excepcion de los primeros 5*/
+                background-color: white;
+            }
+            ol li:nth-child(-n+5) {/* se aplica a se aplica a  los primeros 5*/
+                background-color: orange;
+            }
+
+            /* Pseudo clase :NOT */
+
+            div#negacion p:not(.segundo) {
+                color: red;
+                font-size: 11px;
+            }
         </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,5 +126,44 @@
             <input type="checkbox" name="pasatiempo2" value="natacion" id="swimming">
             <label for="swimming">natacion/label>
         </form>
-    </body>
+        <h2>Pseudo-clases basadas en la posicion / numero de los elementos</h2>
+        <div id="posicionElemento">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        
+        </div>
+
+        <ul>
+            <li>Manzanas</li>
+            <li>Uvas</li>
+            <li>Peras</li>
+            <li>Fresas</li>
+            <li>Moras</li>
+        </ul>
+
+        <h2>Pseudo-clase :nth-child(an+b)</h2>
+        <ol>
+            <li>Primero</li>
+            <li>segundo</li>
+            <li>Tercero</li>
+            <li>Cuarto</li>
+            <li>Quinto</li>
+            <li>Sexto</li>
+            <li>septimo</li>
+            <li>Octavo</li>
+            <li>Noveno</li>
+            <li>Decimos</li>
+            
+        </ol>
+        <h2>Pseudo clase :not</h2>
+        <div id="negacion">
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="segundo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </body>    
 </html>
