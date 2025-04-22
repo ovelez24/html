@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Fuentes o tipografias</title>
+        <style>
+
+            /* no usar medidas en px sino en porcentajes o em 1 em es igual a 16px 2em igual a 32px para que se quieran sean modulares*/
+            /*body {
+                font-size: 100%;
+            }
+
+            h1 {
+
+                font-size: 250%;
+            }
+            h2 {
+
+                font-size: 200%;
+            }
+            p {
+
+                font-size: 110%;
+            }*/
+
+            /*
+            h1 {
+
+                font-size: 2.62em;/* 42px/16=2.62em*/
+            }
+       
+        /* font-family*/
+            body {
+                    font-family: arial, tahoma, verdana, sans-serif;
+            }
+
+            h2 {
+
+                font-size: 2.18em;/* 35px/16=2.18em*/
+            }
+            p {
+
+                font-size: 1.25em;/* 20px/16px=1.25em */
+            }
+       
+            p span {
+                font-size: 1.25em;
+            } */
+            
+            /* unidad de medida rem*/
+          
+            h1 {
+
+                font-size: 2.62rem;/* 42px/16=2.62em*/
+            }
+
+            h2 {
+
+                font-size: 2.18rem;/* 35px/16=2.18em*/
+            }
+            p {
+
+                font-size: 1.25rem;/* 20px/16px=1.25em */
+            }
+       
+            p span {
+                font-size: 1.25rem;
+            }
+    /* propiedad font-weight: normal/bold/bolder/ lighter 100 200 300 400 500 menos gruesa
+     600 700 800 900 mayor grossor */
+
+        #bold {
+            font-weight:bold;
+        }
+        #p100 {
+            font-weight:100;
+        }
+        #p900 {
+            font-weight:900;
+        }
+
+        /* font-style  */
+        
+        #italica {
+            font-style:italic;
+        }
+        #oblicuo {
+            font-style:oblique;
+        }
+      
+        /*font-variant: normal small-caps */
+     
+        #versalita {
+            font-variant: small-caps;
+        }
+
+
+        /* propiedad font*/
+
+        div p {
+            font: italic small-caps bold 1.20rem arial, sans-serif;
+        }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Fuentes css</h1>
+        <h2>Propiedad font-size</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span>Este texto tiene un tamaño de 1.25em</span></p>
+        
+        <h2>Propiedad font-weight</h2>
+        <p>Este texto tiene aplicado el valor "normal"</p>
+        <p id="bold" >Este texto tiene aplicado el valor "bold"</p>
+        <p id="p100">Este texto tiene aplicado el valor "100"</p>
+        <p id="p900">Este texto tiene aplicado el valor "900"</p>
+        
+        <h2>Propiedad font-style</h2>
+        <p>Este texto tiene aplicado el valor "normal"</p>
+        <p id="italica" >Este texto tiene aplicado el valor "italic"</p>
+        <p id="oblicuo">Este texto tiene aplicado el valor "oblique"</p>
+       
+        <h2>Propiedad font-variant</h2>
+        <p>ESTE TEXTO SE MUESTRA EN MAYUSCULA</p>
+        <p id="versalita" >Este texo se muestra en mayuscula</p>
+        
+         <h2>Propiedad font</h2>  
+
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+    </body>    
+</html>
