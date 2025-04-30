@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Textos y alineaciones</title>
+        <style>
+            body { 
+                font-family:arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            /* Propiedad text-align */
+
+            #derecha {
+                text-align: right;
+            }
+            #centro {
+                text-align: center;
+            }
+            #justificado {
+                text-align: justify;
+            }
+
+            /* Como agregar sangria a un texto*/
+
+            #consangria {
+                text-indent: 4%;
+            }
+
+            /* Propiedad text-decoration */
+
+            #subrayado {
+                text-decoration: underline double;
+            }
+            #linea-superior {
+                text-decoration: overline dashed;
+            }
+            #tachado {
+                text-decoration: line-through wavy red;
+            }
+            /* Propiedad text-transform  que sirve para transformar textos*/
+
+            #mayuscula {
+                text-transform: uppercase;
+            }
+            #minuscula {
+                text-transform: lowercase;
+            }
+            #letra-capital {
+                text-transform: capitalize;
+            }
+            
+            
+            /* Como controlar el interlineado de un texto*/
+
+            #interlineado {
+                line-height: 1,9;
+            }
+            #interlineado2 {
+                line-height: 250%;
+            }
+           
+            /* Como aplicar sombras a un texto*/
+
+            #texto-con-sombra{
+                text-shadow: 8px 4px 4px green;
+                font-size: 3rem;
+                }
+            
+            #multiple{
+                font-size: 3rem;
+                text-shadow: 0 1px 0 yellow,
+                             1px 0 0 yellowgreen,
+                             1px 2px 1px green,
+                             2px 1px 1px greenyellow,
+                             2px 2px 2px grey,
+                             3px 2px 2px blue,
+                             4px 9px 3px black;
+                }
+          
+           
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Propiedades relacionadas con el texto</h1>
+        <h2>Propiedad text-align</h2>
+        <p>Este texto se muestra alineado hacia izquierda(por defecto)</p>        
+        <p id="derecha">Este texto se muestra alineado hacia derecha</p>        
+        <p id="centro">Este texto se muestra alineado hacia el centro</p>        
+        <p id="justificado">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean bibendum laoreet tellus, in iaculis nisl dictum nec. </p> 
+
+        <h2>Propiedad text-indent</h2> 
+        <p>Este texto se muestra sin sangria</p>      
+        <p Id="consangria">Este texto se muestra con sangria</p>
+
+        <h2>Propiedad text-decoration</h2> 
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="subrayado">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="linea-superior">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="tachado">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <h2>Propiedad text-transform</h2> 
+
+            <p id="mayuscula">Este texto se muestra en mayusculas</p>
+            <p id="minuscula">Este texto se muestra en minusculas</p>
+            <p id="letra-capital">La primera letra de cada palabra de este texto se muestra en mayuscula</p>
+            
+        <h2>Propiedad line-height</h2> 
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="interlineado">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="interlineado2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <h2>Propiedad text-shadow</h2> 
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p id="texto-con-sombra">este es un texto con sombra</p>
+            <p id="multiple">este es un texto tiene multiples sombras</p>
+           
+
+       
+
+    </body>    
+</html>
