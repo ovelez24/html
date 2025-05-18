@@ -1,0 +1,84 @@
+<!DOCTYPE html>       
+<html lang="es">
+    <head>
+        <title>Posicionar elementos en CSS</title>
+        <style>
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            img {
+                width: 30%;
+                height: auto;
+                float: left;
+                margin: 0,3em 0,9rem 0,3em 0;
+            }
+            footer {
+                width: 95%;
+                height: auto;
+                font-size: 0,95rem;
+                margin-top: 2em;
+                padding: 0,2em 1em 2em;
+                border: 1px solid;
+                clear: both
+            }
+
+            /* Crear contenido en columnas*/
+
+            .caja {
+                width: 33.33%;
+                float: left;
+
+            }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Elemantos flotantes</h1>
+        <section>
+            <article>
+                <img src="images/perro.png" alt="Imagen de un perro">
+                <h2>Como adiestrar a tu perro</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Nostrum ullam id consequuntur deleniti dolorem recusandae alias eius expedita animi incidunt quo error itaque eaque, 
+                dolore molestiae ipsa! Ullam, neque cum?</p>
+                <p>Placeat dolorum ratione doloribus, mollitia architecto iure, 
+                maxime asperiores dignissimos vitae maiores quibusdam iste, libero velit.
+                Voluptate dolores sapiente laudantium eius natus optio non consequuntur! Praesentium ullam quo temporibus laboriosam.</p>
+                <a href="#">Leer mas</a>
+
+            </article>
+            <footer>
+                <h3>Etiquetas</h3>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Repudiandae cumque aspernatur officia et pariatur enim optio, 
+                iste impedit aliquam esse eum inventore! Reprehenderit, 
+                labore adipisci? Sapiente perferendis sit aperiam ut?
+            </footer>
+        </section>
+       <div class="caja">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+       <div class="caja">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+       <div class="caja">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+
+    </body>    
+</html>

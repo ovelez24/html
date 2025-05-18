@@ -1,0 +1,59 @@
+<!DOCTYPE html>       
+<html lang="es">
+    <head>
+        <title>Posicionar elementos en CSS</title>
+        <style>
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            div {
+                width: 400px;
+                height: 180px;
+                position: relative;
+            }
+
+            #verde {
+                background-color: #008000;
+                left: 139px;
+                top:144px;
+                z-index: 30;
+
+            }
+
+            #rojo {
+                background-color: #ff0000;
+                left: 180px;
+                z-index: 25;
+
+            }
+
+            #azul {
+                background-color: #0000ff;
+                left: 215px;
+                bottom: 153px;
+                z-index: 20;/* esta funcion se puede aplicar a elememntos posicionados diferentes a static y sirve
+                para superponer un elemento sobre otros*/
+            }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="verde"></div>
+        <div id="rojo"></div>
+        <div id="azul"></div>
+       
+
+    </body>    
+</html>

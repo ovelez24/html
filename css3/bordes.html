@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Bordes en CSS</title>
+        <style>
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            div {
+                width: 400px;
+                height: 400px;
+                /*border-style: double solid dotted dashed;/* el primero se aplica al superior, el segundo al derecho
+                el tercero al inferior y el cuarto al izquierdo; si son tres el primero superior el segundo
+                izquierdo y derecho y el tercero al inferior y si son dos valores el primero al superior e inferior
+                y el segundo al izquierdo y derecho*/
+                /*border-width: 5px 4px;
+                border-color: #0000ff #ff0000 #00ff00 #ffff00;*/
+                border:5px dotted #ff0000; 
+                border-top: 2px solid #ff00ff;
+                border-bottom: 3px dashed #0000ff;
+                border-right: 12px groove #ffff00;
+                border-left: 4px outset #008000;
+            }
+
+            #bordesRedondeados {
+                width: 400px;
+                height: 400px;
+                border: 2px solid;
+                border-radius: 92px 21px 181px 180px;
+            }
+            #circulo {
+                width: 500px;
+                height: 500px;
+                border: 1px solid;
+                border-radius: 50%;
+            }
+
+            img {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%/*esto que una imagen se vea con forma circular*/;
+            }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <header>
+            <p>Esto es una cabecera.</p>
+        </header>
+            
+            <div>
+                
+            </div>
+            <br><br>
+            
+            <div id="bordesRedondeados"></div>
+            <br><br><br><br>
+
+            <div id="circulo"></div>
+            <br><br>
+
+            <img src="images/carretera.jpg" alt="Imagen de una carretera">
+                
+           
+                
+            
+
+       
+
+    </body>    
+</html>

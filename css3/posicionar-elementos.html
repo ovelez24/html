@@ -1,0 +1,99 @@
+<!DOCTYPE html>        <h1>Margenes y relleno en CSS</h1>
+<html lang="es">
+    <head>
+        <title>Posicionar elementos en CSS</title>
+        <style>
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            #contenedor {
+                width: 800px;
+                height: auto;
+                border: 1px solid;
+                margin: auto;
+                position: relative;/*cuando se pone el relative en el contenedor el abosulute del elemento
+                dentro del contenedor se mueve con respecto a la posicion del contenedor y no de la pagina*/
+            }
+            #verde, .azul {
+                width: 100px;
+                height: 100px;
+                border: 1px solid;
+                margin-bottom: 12px;
+            }
+            #verde {
+                background-color: #00ff00;
+                position: relative;/* el absolute se mueve fuera del contenedor tomando referencia la pagina, el fixed 
+                se posicion con respecto de la pagina aun si el contenedor tiene posicion relative*/
+                left: 90px;/* se mueve hacia la derecha*/
+                top:80px;/* se mueve hacia abajo*/
+
+
+            }
+            .azul {
+                background-color: #0000ff;
+            }
+
+
+
+
+
+
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Posicionamiento de elementos</h1>
+
+<div id="contenedor">
+    <div class="azul"></div>
+    <div id="verde"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+    <div class="azul"></div>
+	<h2>Texto sin margen	</h2>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsa consectetur illum et tempora reprehenderit nostrum, corrupti magni aliquid facilis cumque! Dolore quidem fugit odio accusantium aliquid. Iste, aliquam molestiae.</p>
+</div>
+<div id="texto-con-margenes">
+	<h2>Texto con margenes</h2>
+		<p>Consectetur eligendi excepturi, fugiat est nostrum vitae consequuntur officia minima nam illo deleniti eius totam provident dignissimos reprehenderit cumque ex molestias quia saepe animi debitis voluptates voluptatum quas tempora. Quis?</p>
+</div>
+<div id="centrar">
+	<h2>Centrar elementos</h2>
+		<p>Animi iste sapiente laboriosam commodi culpa officiis accusantium cupiditate alias, voluptates corporis porro labore dolor minima autem blanditiis neque id in nulla ad, quasi reprehenderit, dignissimos fuga dolorum. Aperiam, illo.</p>
+</div>
+<div >
+    <h2>Texto con margenes y padding</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam soluta tenetur placeat maiores commodi maxime aperiam beatae officiis ea, temporibus, deserunt facere quia obcaecati accusantium. Neque eum sit eveniet magni?</p>
+</div>
+<div>
+    <h2></h2>
+        <p>Ad adipisci repellat atque minima, laudantium quas consequuntur maxime voluptate! Quae officia, a iste accusamus placeat nemo nihil magni, ad laudantium veniam quos aliquam quis suscipit consequatur sunt? Non, qui?</p>
+</div>
+<div>
+    <h2></h2>
+        <p>Inventore minima obcaecati atque commodi maxime perferendis? Illo voluptas molestiae, nesciunt commodi quis quibusdam! Itaque laborum ullam qui incidunt obcaecati aliquid molestias perferendis nobis id recusandae, at facilis, dignissimos laudantium.</p>
+</div>
+
+       
+
+    </body>    
+</html>

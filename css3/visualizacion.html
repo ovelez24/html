@@ -1,0 +1,103 @@
+<!DOCTYPE html>       
+<html lang="es">
+    <head>
+        <title>Display y visibility</title>
+        <style>
+            html {
+                box-sizing: border-box;
+            }
+
+            *, *:before, *:after {
+                box-sizing: border-box
+            }
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            #texto-invisible {
+                visibility: hidden;
+            }
+
+            #ocultar-texto {
+                color: ##ff0000;
+                display: none;
+            }
+
+            /*Modificar el comportamiento de los elementos con la propiedad display*/
+
+            a {
+                background-color: #008000;
+                color: #fff;
+                width: 230px;
+                height: 42px;
+                margin: 12px;
+                display: block;/*se comporta como elemanto bloque y convierte un elemento linea en bloque*/
+            }
+
+            .caja {
+                background-color: #0000ff;
+                color: #fff;
+                width: 87%;
+                height: 130px;
+                margin: 20px 0;
+                display:inline;/*Convierte un elemento bloque en un elemento en linea*/
+            }
+
+            .enLineabloque {
+                background-color: #008000;
+                color: #fff;
+                width: 25%;
+                height: 145px;
+                margin: 4px 0;
+                border: 1px solid;
+                padding: 5px 0;
+                display:inline-block;/*Convierte un elemento en linea en un elemento en bloque*/
+            }
+            
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Como controlar visualizacion de elementos</h1>
+        <h2>Propiedad visibility</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae unde, illo necessitatibus vero suscipit alias sapiente adipisci dolor laudantium aliquid voluptas assumenda quod natus reprehenderit! Voluptatum necessitatibus ex quos fugiat.</p>
+        <p id="texto-invisible">Aliquid molestias corrupti, et inventore, omnis eius exercitationem eaque ipsum iste, porro harum laborum labore odit maxime nam! Vel illum accusamus earum. Aspernatur distinctio, architecto in provident nostrum nemo maiores?</p>
+        <p>Modi esse, tempore doloremque quam aperiam excepturi corrupti, velit soluta fugiat maxime quaerat. Fuga beatae asperiores, ratione ipsam quos quod officia quo, est quam veniam laboriosam nulla inventore provident consequatur?</p>
+       
+       <h2>Propiedad display:none</h2>
+
+       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga minus voluptatum laudantium, dolore, facilis aliquid dolorum sed omnis laborum unde nihil, repellendus velit ad voluptate voluptatem. Adipisci assumenda porro id!</p>
+       <p id="ocultar-texto">Itaque vero non assumenda repellendus, reiciendis quasi odit, officiis possimus deserunt explicabo molestias quisquam eveniet tempore facere eum quis! Sunt vero voluptatum culpa consequatur provident illum quidem nulla architecto qui?</p>
+       <p>Vero rem inventore, mollitia nesciunt omnis animi blanditiis officiis fugit nisi illo officia quae error? Nesciunt commodi omnis ab blanditiis, repudiandae amet magni dicta nobis, earum placeat voluptas, voluptatibus rerum.</p>
+
+        <h2>Propiedad display: block</h2>
+
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contado</a>
+
+        <h2>Propiedad display: inline</h2>
+
+        <div class="caja">Ejemplo 1</div>
+        <div class="caja">Ejemplo 2</div>
+        <div class="caja">Ejemplo 3</div>
+
+        <h2>Propiedad display: inline-block</h2>
+
+        <span class="enLineabloque">Caja 1</span>
+        <span class="enLineabloque">Caja 2</span>
+        <span class="enLineabloque">Caja 3</span>
+
+    </body>    
+</html>

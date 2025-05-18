@@ -1,0 +1,63 @@
+<!DOCTYPE html>       
+<html lang="es">
+    <head>
+        <title>Modificar modelo de caja en CSS</title>
+        <style>
+            html {
+                box-sizing: border-box;
+            }
+
+            *, *:before, *:after {
+                box-sizing: border-box
+            }
+
+            html, body {
+                height: 100%;/* esto se pone para que tome toda la altura*/
+            }
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            .caja {
+                width: 424px;                
+                float: left;
+                margin: 0px 10px;
+                border: 1px solid;
+                padding: 5px 12px;
+            }
+
+            img {
+                width: 100%;
+                
+            }
+            
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Como modificar modelo de caja tradicional</h1>
+       <div class="caja">
+         <img src="images/perro.png" alt="imagen de un perro">                   
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+       <div class="caja">
+        <img src="images/perro.png" alt="imagen de un perro">        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+       <div class="caja">
+        <img src="images/perro.png" alt="imagen de un perro">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum deserunt aperiam vero deleniti culpa aliquam, nemo reprehenderit nulla dolorem, perspiciatis debitis. Ratione perferendis aperiam rerum cumque sed ab deserunt.</p>
+        <a href="#">Leer mas...</a>
+       </div>
+
+    </body>    
+</html>
