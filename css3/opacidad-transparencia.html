@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Opacidad y transparencia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.123rem;
+            }
+            /*CSS Opacity / Transparency
+                La opacity propiedad especifica la opacidad/transparencia de un elemento.
+                La opacity propiedad puede tomar un valor entre 0,0 y 1,0. Cuanto menor sea el valor, más transparente será:
+             */
+
+             /* Efecto de desplazamiento transparente
+                    La opacitypropiedad se utiliza a menudo junto con el :hover selector para 
+                    cambiar la opacidad al pasar el mouse sobre ella:
+             
+              */
+
+            img {
+                opacity: 0.5;
+            }
+
+            img:hover {
+            opacity: 1.0;
+            }
+
+            /*Caja transparente
+            Al usar la opacitypropiedad para añadir transparencia al fondo de un elemento, 
+            todos sus elementos secundarios heredan la misma transparencia. 
+            Esto puede dificultar la lectura del texto dentro de un elemento completamente transparente:*/
+
+            div {
+                background-color: #04AA6D;
+                padding: 10px;
+            }
+
+            div.first {
+                opacity: 0.1;
+            }
+
+            div.second {
+                opacity: 0.3;
+            }
+
+            div.third {
+                opacity: 0.6;
+            }
+
+            /*Transparencia usando RGBA
+            Si no desea aplicar opacidad a los elementos secundarios, como en el ejemplo anterior,
+            utilice valores de color RGBA . 
+            El siguiente ejemplo define la opacidad del color de fondo, no del texto:*/
+
+            /*
+            div {
+                background: rgb(4, 170, 109);
+                padding: 10px;
+                }
+
+            div.first {
+                background: rgba(4, 170, 109, 0.1);
+                }
+
+            div.second {
+                background: rgba(4, 170, 109, 0.3);
+                }
+
+            div.third {
+                background: rgba(4, 170, 109, 0.6);
+                }
+            
+            */
+
+            /*TEXTO EN CUADRO TRANSPARENTE*/
+
+            div.background {
+                background: url(images/perro.png) repeat;
+                border: 2px solid black;
+                }
+            /* nota: opacity de ir con la propiedad filter: aplpha(opacity=100 que en este caso es 0.1)*/
+            div.transbox {
+                margin: 30px;
+                background-color: #ffffff;
+                border: 1px solid black;
+                opacity: 0.6;
+                filter: alpha(opacity=45)
+                }
+
+            div.transbox p {
+                margin: 5%;
+                font-weight: bold;
+                color: #000000;
+                }
+
+        </style>
+    </head>
+    <body>
+        <h1>Image Transparency</h1>
+        <p>The opacity property is often used together with the :hover selector to change the opacity on mouse-over:</p>
+        <img src="images/perro.png" alt="Imagen de un perro" width="170" height="100">
+        <img src="images/perro.png" alt="Imagen de un perro" width="170" height="100">
+        <img src="images/perro.png" alt="Imagen de un perro" width="170" height="100">
+
+        <h1>Transparent Box</h1>
+            <p>When using the opacity property to add transparency to the background of an element, 
+            all of its child elements become transparent as well. 
+            This can make the text inside a fully transparent element hard to read:</p>
+
+            <div class="first"><p>opacity 0.1</p></div>
+            <div class="second"><p>opacity 0.3</p></div>
+            <div class="third"><p>opacity 0.6</p></div>
+            <div><p>opacity 1 (default)</p></div>
+
+            <div class="background">
+            <div class="transbox">
+                <p>This is some text that is placed in the transparent box.</p>
+            </div>
+            </div>
+    </body>
+</html>

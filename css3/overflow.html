@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*La overflowpropiedad CSS controla qué sucede con el contenido que es demasiado grande para caber en un área.
+
+Desbordamiento de CSS
+La overflowpropiedad especifica si se debe recortar el contenido o agregar barras de desplazamiento cuando el contenido de un elemento es demasiado grande para caber en el área especificada.
+
+La overflowpropiedad tiene los siguientes valores:
+
+visiblePredeterminado. El desbordamiento no se recorta. El contenido se muestra fuera del cuadro del elemento.
+hidden- El desbordamiento se recorta y el resto del contenido será invisible.
+scroll- Se recorta el desbordamiento y se agrega una barra de desplazamiento para ver el resto del contenido.
+auto- Similar a scroll, pero agrega barras de desplazamiento solo cuando es necesario.
+
+Nota: La overflowpropiedad solo funciona para elementos de bloque con una altura especificada.
+
+
+
+
+*/
+#overflowTest {
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  width: 50%;
+  height: 100px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+
+/*desbordamiento: visible
+De forma predeterminada, el desbordamiento es visible, 
+lo que significa que no se recorta y se representa fuera del cuadro del elemento:*/
+
+div {
+  background-color: coral;
+  width: 200px;
+  height: 65px;
+  border: 1px solid;
+  overflow: visible;
+}
+
+/*desbordamiento: oculto
+Con el hiddenvalor, se recorta el desbordamiento y se oculta el resto del contenido:*/
+
+#hidden {
+  background-color: coral;
+  width: 200px;
+  height: 65px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+/*desbordamiento-x y desbordamiento-y
+Las propiedades overflow-xy overflow-yespecifican si se debe cambiar el desbordamiento de contenido solo horizontal o
+ verticalmente (o ambos):
+
+overflow-xespecifica qué hacer con los bordes izquierdo/derecho del contenido.
+overflow-yespecifica qué hacer con los bordes superior/inferior del contenido.*/
+
+#x-y {
+  background-color: coral;
+  width: 200px;
+  height: 65px;
+  border: 1px solid black;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Diseño CSS : float 
+
+    La propiedad CSS float especifica cómo debe flotar un elemento.
+
+    La floatpropiedad se utiliza para posicionar y formatear contenido, por ejemplo, dejar que una imagen flote a la izquierda del texto en un contenedor.
+
+    La float propiedad puede tener uno de los siguientes valores:
+
+    left- El elemento flota a la izquierda de su contenedor.
+    right- El elemento flota a la derecha de su contenedor.
+    none- El elemento no flota (se mostrará solo donde aparece en el texto). Esta es la configuración predeterminada.
+    inherit- El elemento hereda el valor flotante de su padre.
+
+*/
+
+/*float: right El siguiente ejemplo especifica que una imagen debe flotar a la derecha en un texto:*/
+
+img {
+  float: right;
+}
+
+/*float: left: El siguiente ejemplo especifica que una imagen debe flotar a la izquierda en un texto: */
+#left {
+  float: left;
+}
+
+/*Sin flotación: la imagen se mostrará justo donde aparece en el texto (float: none;):*/
+
+/*Flotar uno al lado del otro:
+    Normalmente, los elementos div se muestran uno encima del otro. Sin embargo, si usamos [elementos], 
+    float: left podemos dejar que los elementos floten uno junto al otro:
+*/
+
+div {
+  float: left;
+  padding: 15px; 
+}
+
+.div1 {
+  background: red;
+}
+
+.div2 {
+  background: yellow;
+}
+
+.div3 {
+  background: green;
+}
+
+/*La propiedad clear
+    Cuando usamos la floatpropiedad, y queremos que el siguiente elemento esté debajo 
+    (no a la derecha ni a la izquierda), 
+    tendremos que usar la clear propiedad.
+
+    La clearpropiedad especifica qué debe suceder con el elemento que está al lado de un elemento flotante.
+
+La clearpropiedad puede tener uno de los siguientes valores:
+
+none- El elemento no se desplaza por debajo de los elementos flotantes izquierdo o derecho. 
+Esta opción es predeterminada.
+left- El elemento se empuja debajo de los elementos flotantes de la izquierda.
+right- El elemento se empuja debajo de los elementos flotantes de la derecha.
+both- El elemento se empuja debajo de los elementos flotantes izquierdo y derecho.
+inherit- El elemento hereda el valor claro de su padre
+Al borrar elementos flotantes, el borrado debe coincidir con el elemento flotante: 
+si un elemento flota a la izquierda, debe borrarlo a la izquierda. 
+El elemento flotante seguirá flotando, pero el elemento borrado aparecerá debajo en la página web.
+*/
+
+/*Este ejemplo borra el flotante de la izquierda. 
+Esto significa que el elemento <div2> se coloca debajo del elemento flotante izquierdo <div1>:*/
+.div4 {
+  float: left;
+  padding: 10px;
+  border: 3px solid #73AD21;
+}
+
+.div5 {
+  padding: 10px;
+  border: 3px solid red;
+}
+
+.div6 {
+  float: left;
+  padding: 10px;  
+  border: 3px solid #73AD21;
+}
+
+.div7 {
+  padding: 10px;
+  border: 3px solid red;
+  clear: left;
+}
+
+/*El truco de Clearfix
+Si un elemento flotante es más alto que el elemento contenedor, 
+se desbordará fuera de su contenedor. Podemos añadir un truco de clearfix para solucionar este problema:*/
+
+#div8 {
+  border: 3px solid #4CAF50;
+  padding: 5px;
+}
+
+.img1 {
+  float: right;
+}
+
+.img2 {
+  float: right;
+}
+
+/*.clearfix {
+  overflow: auto;
+}*/
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>CSS Overflow</h2>
+
+<p>The overflow property controls what happens to content that is too big to fit into an area.</p>
+
+<div id="overflowTest">This text is really long and the height of its container is only 100 pixels.
+ Therefore, a scrollbar is added to help the reader to scroll the content. Lorem ipsum dolor sit amet, c
+ onsectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+ Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+  consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, 
+  vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+   luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend 
+   option congue nihil imperdiet doming id quod mazim placerat facer possim assum. 
+   Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</div>
+
+<h2>Overflow: visible</h2>
+
+<p>By default, the overflow is visible, meaning that it is not clipped and it renders outside the element's box:</p>
+
+<div>You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<br><br>
+<h2>Overflow: hidden</h2>
+
+<p>With the hidden value, the overflow is clipped, and the rest of the content is hidden:</p>
+<p>Try to remove the overflow property to understand how it works.</p>
+
+<div id="hidden">You can use the overflow property when you want to have better control of the layout. 
+The overflow property specifies what happens if content overflows an element's box.</div>
+
+<h2>Overflow-x and overflow-y</h2>
+
+<p>You can also change the overflow of content horizontally or vertically.</p>
+<p>overflow-x specifies what to do with the left/right edges of the content.</p>
+<p>overflow-y specifies what to do with the top/bottom edges of the content.</p>
+
+<div id="x-y">You can use the overflow property when you want to have better control of the layout. 
+The overflow property specifies what happens if content overflows an element's box.</div>
+
+<p><img src="images/perro.png" alt="imagen de un perro" style="width:170px;height:170px;margin-left:15px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, 
+nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
+ auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, 
+ lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi,
+  sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. 
+  Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. 
+  Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p><br><br>
+<p ><img id="left" src="images/perro.png" alt="imagen de un perro" style="width:170px;height:170px;margin-left:15px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, 
+nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget,
+ auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, 
+ lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi,
+  sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. 
+  Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. 
+  Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+
+<h2>Float Next To Each Other</h2>
+
+<p>In this example, the three divs will float next to each other.</p>
+
+<div class="div1">Div 1</div>
+<div class="div2">Div 2</div>
+<div class="div3">Div 3</div><br><br>
+<br><br>
+<h2>Without clear</h2>
+<div class="div4">div1</div>
+<div class="div5">div2 - Notice that div2 is after div1 in the HTML code. However, since div1 floats to the left, the text in div2 flows around div1.</div>
+<br><br><br><br>
+
+<h2>With clear</h2>
+<div class="div6">div3</div>
+<div class="div7">div4 - Here, clear: left; moves div4 down below the floating div3. 
+The value "left" clears elements floated to the left. You can also clear "right" and "both".</div><br><br><br><br>
+<br><br><br><br>
+<h2>Without Clearfix</h2>
+
+<p>This image is floated to the right. It is also taller than the element containing it, so it overflows outside of its container:</p>
+
+<div id="div8">
+  <img class="img1" src="images/perro.png" alt="Pineapple" width="170" height="170">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
+</div><br><br><br><br><br>
+
+<h2 style="clear:right">With Clearfix</h2>
+<p>We can fix this by adding a clearfix class with overflow: auto; to the containing element:</p>
+
+<div class="clearfix">
+  <img class="img2" src="images/perro.png" alt="Pineapple" width="170" height="170">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
+</div>
+
+</body>
+</html>
