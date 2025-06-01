@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Transitions css</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: arial, sans-serif;
+        font-size: 1.123rem;
+      }
+
+      /* CSS Transitions 
+        Las transiciones CSS le permiten cambiar los valores de las propiedades sin problemas, 
+        durante una duración determinada.
+
+        Para crear un efecto de transición, debes especificar dos cosas:
+
+        La propiedad CSS a la que desea agregar un efecto
+        la duración del efecto
+        Nota: Si no se especifica la parte de duración, la transición no tendrá efecto, 
+        porque el valor predeterminado es 0.
+
+        El siguiente ejemplo muestra un elemento <div> rojo de 100 px x 100 px. El elemento <div>
+        también tiene especificado un efecto de transición para la propiedad width, con una duración de 2 segundos:
+
+        div {
+          width: 100px;
+          height: 100px;
+          background: red;
+          transition: width 2s;
+        }
+
+        El efecto de transición comenzará cuando la propiedad CSS especificada (ancho) cambie de valor.
+        Ahora, especifiquemos un nuevo valor para la propiedad de ancho 
+        cuando un usuario pasa el mouse sobre el elemento <div>:
+      
+      */
+
+      div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s;
+      }
+
+      div:hover {
+        width: 300px;
+      }
+
+      /*Cambiar varios valores de propiedad
+        El siguiente ejemplo agrega un efecto de transición para las propiedades de ancho y alto, 
+        con una duración de 2 segundos para el ancho y 4 segundos para el alto:
+        
+        div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s, height 4s;
+      }
+
+      div:hover {
+        width: 300px;
+        height: 300px;
+      }
+        
+        */
+
+      /*Especifique la curva de velocidad de la transición
+          La transition-timing-functionpropiedad especifica la curva de velocidad del efecto de transición.
+
+          ease- especifica un efecto de transición con un inicio lento, 
+          luego rápido y luego un final lento (este es el valor predeterminado)
+
+          linear- especifica un efecto de transición con la misma velocidad de principio a fin
+
+          ease-in- especifica un efecto de transición con un inicio lento
+
+          ease-out- especifica un efecto de transición con un final lento
+
+          ease-in-out- especifica un efecto de transición con un inicio y un final lentos
+
+          cubic-bezier(n,n,n,n)- le permite definir sus propios valores en una función cúbica-bezier
+
+          El siguiente ejemplo muestra algunas de las diferentes curvas de velocidad que se pueden utilizar:
+        
+        */
+
+      #div1 {
+        transition-timing-function: linear;
+      }
+      #div2 {
+        transition-timing-function: ease;
+      }
+      #div3 {
+        transition-timing-function: ease-in;
+      }
+      #div4 {
+        transition-timing-function: ease-out;
+      }
+      #div5 {
+        transition-timing-function: ease-in-out;
+      }
+
+      /*Retrasar el efecto de transición
+        La transition-delaypropiedad especifica un retraso (en segundos) para el efecto de transición.
+
+        El siguiente ejemplo tiene un retraso de 1 segundo antes de comenzar:
+
+        div {
+          transition-delay: 1s;
+        }
+
+        div {
+          width: 100px;
+          height: 100px;
+          background: red;
+          transition: width 3s;
+          transition-delay: 1s;
+        }
+
+        div:hover {
+          width: 300px;
+        }
+
+        Transición + Transformación
+
+        El siguiente ejemplo agrega un efecto de transición a la transformación:
+
+        div {
+          transition: width 2s, height 2s, transform 2s;
+        }
+      
+      */
+
+      #transition {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s, height 2s, transform 2s;
+      }
+
+      #transition:hover {
+        width: 300px;
+        height: 300px;
+        transform: rotate(180deg);
+      }
+
+      /*Mas ejemplos de transiciones
+        Las propiedades de transición CSS se pueden especificar una por una, de la siguiente manera:
+
+        div {
+          transition-property: width;
+          transition-duration: 2s;
+          transition-timing-function: linear;
+          transition-delay: 1s;
+        }
+              o utilizando la propiedad abreviada transition:
+
+              div {
+              transition: width 2s linear 1s;
+}
+      */
+
+      #transition1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: linear;
+        transition-delay: 1s;
+      }
+
+      #transition1:hover {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The transition Property</h1>
+
+    <p>Hover over the div element below, to see the transition effect:</p>
+    <div></div>
+
+    <h1>The transition-timing-function Property</h1>
+
+    <p>Hover over the div elements below, to see the different speed curves:</p>
+
+    <div id="div1">linear</div>
+    <br />
+    <div id="div2">ease</div>
+    <br />
+    <div id="div3">ease-in</div>
+    <br />
+    <div id="div4">ease-out</div>
+    <br />
+    <div id="div5">ease-in-out</div>
+    <br />
+
+    <h1>Transition + Transform</h1>
+
+    <p>Hover over the div element below:</p>
+
+    <div id="transition"></div>
+
+    <h1>The transition Properties Specified One by One</h1>
+
+    <p>Hover over the div element below, to see the transition effect:</p>
+
+    <div id="transition1"></div>
+
+    <p>
+      <b>Note:</b> The transition effect has a 1 second delay before starting.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Gradientes o degradados</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: arial, sans-serif;
+        font-size: 1.123rem;
+      }
+
+      /* Degradados o gradientes css
+                      Los degradados CSS le permiten mostrar transiciones suaves entre dos o más colores específicos.
+
+                      CSS define tres tipos de degradados:
+
+                      Degradados lineales (va hacia abajo/arriba/izquierda/derecha/diagonalmente)
+                      Gradientes radiales (definidos por su centro)
+                      Gradientes cónicos (rotados alrededor de un punto central)
+
+                      Degradados lineales CSS
+
+                      Para crear un degradado lineal, debes definir al menos dos paradas de color.
+                      Las paradas de color son los colores entre los que quieres crear
+                      transiciones suaves. También puedes establecer un punto de inicio y una dirección
+                      (o un ángulo) junto con el efecto de degradado.
+
+                      Sintaxis
+
+                      background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+
+
+
+                  */
+
+      /*  Dirección: de arriba a abajo (esta es la predeterminada)
+                      El siguiente ejemplo muestra un degradado lineal que comienza en la parte superior.
+                      Comienza en rojo y luego se transforma en amarillo.
+                   */
+
+      #grad1 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(
+          to top,
+          red,
+          yellow
+        ); /*to bottom se muestra arriba, to left a la 
+              izquierda, tambien se puede escribir to left bottom o to right top*/
+      }
+
+      /*Dirección - De izquierda a derecha
+                      El siguiente ejemplo muestra un degradado lineal que comienza desde la izquierda.
+                       Comienza en rojo y luego en amarillo.
+                  */
+
+      #grad2 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to right, red, yellow);
+      }
+
+      /* Dirección - Diagonal
+                  Puede realizar un degradado en diagonal especificando las posiciones iniciales horizontal y vertical.
+                  El siguiente ejemplo muestra un degradado lineal que comienza en la esquina superior izquierda
+                  (y se extiende hasta la esquina inferior derecha). Comienza en rojo y luego en amarillo.
+
+              */
+
+      #grad3 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to bottom right, red, yellow);
+      }
+
+      /*Usando ángulos
+                  Si desea mayor control sobre la dirección del degradado,
+                  puede definir un ángulo en lugar de las direcciones predefinidas
+                  (hacia abajo, hacia arriba, hacia la derecha,hacia la izquierda, hacia abajo a la derecha, etc.).
+                  Un valor de 0 grados equivale a "hacia arriba". Un valor de 90 grados equivale a
+                  "hacia la derecha". Un valor de 180 grados equivale a "hacia abajo".
+
+              */
+      #grad4 {
+        height: 100px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(0deg, red, yellow);
+      }
+
+      #grad5 {
+        height: 100px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(90deg, red, yellow);
+      }
+
+      #grad6 {
+        height: 100px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(180deg, red, yellow);
+      }
+
+      #grad7 {
+        height: 100px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(-90deg, red, yellow);
+      }
+
+      /*Uso de múltiples paradas de color
+                      El siguiente ejemplo muestra un degradado lineal (de arriba a abajo) con múltiples paradas de color:
+
+                  */
+
+      #grad8 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(red, yellow, green);
+      }
+
+      #grad9 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet
+        );
+      }
+
+      #grad10 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(red 10%, green 85%, blue 90%);
+      }
+
+      /*El siguiente ejemplo muestra cómo crear un degradado lineal (de izquierda a derecha) 
+      con el color del arco iris y algo de texto:
+        background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+
+        Uso de la transparencia
+
+        Los degradados CSS también admiten transparencia, que puede utilizarse para crear efectos de desvanecimiento.
+        Para añadir transparencia, usamos la función rgba() para definir las paradas de color
+        El último parámetro de la función rgba() puede ser un valor de 0
+        a 1 y define la transparencia del color: 0 indica transparencia total, 
+        1 indica color completo (sin transparencia).
+
+        El siguiente ejemplo muestra un degradado lineal que comienza desde la izquierda.
+        Comienza completamente transparente y luego se transforma en rojo intenso:
+
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+
+        Repetición de un gradiente lineal
+        La función repeating-linear-gradient() se utiliza para repetir gradientes lineales:
+
+        background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+      */
+
+      /*Degradados radiales CSS
+        Un gradiente radial se define por su centro.
+        Para crear un degradado radial también debes definir al menos dos paradas de color.
+        Sintaxis
+
+        background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+
+        De forma predeterminada, la forma es elipse, el tamaño es la esquina más alejada y la posición es el centro.
+
+        Degradado radial: paradas de color espaciadas uniformemente (este es el valor predeterminado)
+
+        El siguiente ejemplo muestra un degradado radial con paradas de color espaciadas uniformemente:
+
+        background-image: radial-gradient(red, yellow, green);
+
+        Degradado radial: paradas de color con diferentes espacios
+
+        El siguiente ejemplo muestra un degradado radial con paradas de color espaciadas de forma diferente:
+
+        background-image: radial-gradient(red 5%, yellow 15%, green 60%);
+
+        Establecer forma
+
+        El parámetro de forma define la forma. Puede tomar el valor círculo o elipse. 
+        El valor predeterminado es elipse.
+
+        El siguiente ejemplo muestra un degradado radial con forma de círculo:
+
+        background-image: radial-gradient(circle, red, yellow, green);
+
+        Uso de palabras clave de diferentes tamaños
+        El parámetro de tamaño define el tamaño del gradiente. Puede tomar cuatro valores:
+
+        closest-side
+        farthest-side
+        closest-corner
+        farthest-corner
+
+        background-image: radial-gradient(closest-side at 60% 55%, red, yellow, black);
+
+        background-image: radial-gradient(farthest-side at 60% 55%, red, yellow, black);
+
+        un gradiente radial repetitivo:
+
+        background-image: repeating-radial-gradient(red, yellow 10%, green 15%);
+
+      */
+
+      #grad11 {
+        height: 150px;
+        width: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: radial-gradient(red, yellow, green);
+      }
+
+      #grad12 {
+        height: 150px;
+        width: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: radial-gradient(circle, red, yellow, green);
+      }
+
+      /*GRADIENTES CONICOS
+        Gradientes cónicos CSS
+        Un degradado cónico es un degradado con transiciones de color rotadas alrededor de un punto central.
+
+        Para crear un degradado cónico debes definir al menos dos colores.
+
+        EJEMPLOS
+
+        background-image: conic-gradient(red, yellow, green);
+
+        El siguiente ejemplo muestra un gradiente cónico con cinco colores:
+
+        background-image: conic-gradient(red, yellow, green, blue, black);
+
+        El siguiente ejemplo muestra un gradiente cónico con tres colores y un grado para cada color:
+
+        background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg);
+
+        Crear gráficos circulares
+
+        Simplemente agréguelo border-radius: 50%para hacer que el gradiente cónico parezca un pastel:
+
+        background-image: conic-gradient(red, yellow, green, blue, black);
+        border-radius: 50%;
+
+        Aquí hay otro gráfico circular con grados definidos para todos los colores:
+
+        background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg);
+        border-radius: 50%;
+
+        Gradiente cónico con ángulo de salida especificado
+        El [ ángulo desde ] especifica un ángulo en el que se rota todo el gradiente cónico.
+
+        El siguiente ejemplo muestra un gradiente cónico con un ángulo de salida de 90 grados:
+
+        background-image: conic-gradient(from 90deg, red, yellow, green);
+
+        Gradiente cónico con posición central especificada
+        La [ posición en ] especifica el centro del gradiente cónico.
+
+        El siguiente ejemplo muestra un gradiente cónico con una posición central de 60% 45%:
+
+        background-image: conic-gradient(at 60% 45%, red, yellow, green);
+
+        Repetición de un gradiente cónico
+        La repeating-conic-gradient()función se utiliza para repetir gradientes cónicos:
+
+        background-image: repeating-conic-gradient(red 10%, yellow 20%);
+        border-radius: 50%;
+
+        Aquí se muestra un gradiente cónico repetitivo con inicios y finales de color definidos:
+
+        background-image: repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);
+        border-radius: 50%;
+
+        Prefijos para que otras versiones antiguas se puedan ver 
+
+        -webkit-linear-gradient(to right bottom, #008000 30%, #000, #0000ff)chrome
+        -moz-linear-gradient(to right bottom, #008000 30%, #000, #0000ff)mozzila
+        -o-linear-gradient(to right bottom, #008000 30%, #000, #0000ff)opera
+        -ms-linear-gradient(to right bottom, #008000 30%, #000, #0000ff)internet explorer
+
+        o se puede ingresar a la pagina autoprefixer.github.io
+      
+        -webkit-linear-gradient(to right bottom, #008000 30%, #000, #0000ff)se copia la linea de codigo
+        y se pega en la pagina para genere los prefijos para los navegadores
+
+        otra herramienta se llama prefix-free se busca en el navegador
+      */
+    </style>
+  </head>
+  <body>
+    <h1>Linear Gradient - Top to Bottom</h1>
+    <p>
+      This linear gradient starts red at the top, transitioning to yellow at the
+      bottom:
+    </p>
+
+    <div id="grad1"></div>
+
+    <h1>Linear Gradient - Left to Right</h1>
+    <p>
+      This linear gradient starts red at the left, transitioning to yellow (to
+      the right):
+    </p>
+
+    <div id="grad2"></div>
+
+    <h1>Linear Gradient - Diagonal</h1>
+    <p>
+      This linear gradient starts red at top left, transitioning to yellow (at
+      bottom right):
+    </p>
+
+    <div id="grad3"></div>
+
+    <h1>Linear Gradients - Using Different Angles</h1>
+
+    <div id="grad4" style="text-align: center">0deg</div>
+    <br />
+    <div id="grad5" style="text-align: center">90deg</div>
+    <br />
+    <div id="grad6" style="text-align: center">180deg</div>
+    <br />
+    <div id="grad7" style="text-align: center">-90deg</div>
+
+    <h1>Linear Gradients - Multiple Color Stops</h1>
+    <p>
+      <strong>Note:</strong> Color stops are spaced evenly when no percents are
+      specified.
+    </p>
+
+    <h2>3 Color Stops (evenly spaced):</h2>
+    <div id="grad8"></div>
+
+    <h2>7 Color Stops (evenly spaced):</h2>
+    <div id="grad9"></div>
+
+    <h2>3 Color Stops (not evenly spaced):</h2>
+    <div id="grad10"></div>
+
+    <h1>Radial Gradient - Shapes</h1>
+
+    <h2>Ellipse (this is default):</h2>
+    <div id="grad11"></div>
+
+    <h2><strong>Circle:</strong></h2>
+    <div id="grad12"></div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+      corrupti quae error velit possimus recusandae sed accusantium dignissimos
+      amet quaerat aliquid repudiandae enim, ratione sint saepe optio tenetur,
+      voluptatum officiis.
+    </p>
+  </body>
+</html>

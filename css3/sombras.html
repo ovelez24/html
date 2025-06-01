@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Sombras en html</title>
+        <style>
+              html, body {
+                height: 100%;
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.123rem;
+            }
+
+            /* Efectos de sombra CSS
+                Con CSS puedes agregar sombras al texto y a los elementos.
+
+            En estos capítulos aprenderás sobre las siguientes propiedades:
+
+            text-shadow
+            box-shadow
+
+            Sombra de texto CSS
+            La propiedad CSS text-shadowaplica sombra al texto.
+
+            En su uso más simple, solo se especifica la sombra horizontal (2px) y la sombra vertical (2px):
+
+
+            
+            */
+
+            h1 {
+                text-shadow: 2px 2px 5px red;
+                /*una sombra de brillo neon rojo
+                    text-shadow: 0 0 3px #FF0000;
+
+                    Múltiples sombras
+                    Para agregar más de una sombra al texto, puede agregar una lista de sombras separadas por comas.
+
+                    El siguiente ejemplo muestra una sombra de brillo de neón rojo y azul:
+
+                    color: white;
+                    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+                    Borde alrededor del texto
+
+                    color: coral;
+                    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                */
+            }
+
+            /*SOMBRA DE CUADRO CSS
+                Propiedad CSS box-shadow
+                La propiedad CSS box-shadowse utiliza para aplicar una o más sombras a un elemento.
+
+                Especifique una sombra horizontal y una vertical
+                En su uso más simple, solo se especifica una sombra horizontal y otra vertical. 
+                El color predeterminado de la sombra es el color del texto actual.
+            */
+
+            #caja {
+                width: 300px;
+                height: 100px;
+                padding: 15px;
+                background-color: coral;
+                box-shadow: 10px 10px;
+            }
+
+            /*Establecer un color para la sombre
+                box-shadow: 10px 10px lightblue;
+
+            Añadir un efecto de desenfoque a la sombra
+                El blurparámetro define el radio de desenfoque. Cuanto mayor sea el número, más borrosa será la sombra.
+
+                box-shadow: 10px 10px 5px lightblue;
+
+            Establecer el radio de propagación de la sombra
+                El spread parámetro define el radio de propagación.
+                 Un valor positivo aumenta el tamaño de la sombra; un valor negativo, lo reduce.
+
+                 box-shadow: 10px 10px 5px 12px lightblue;
+
+            Establecer el parámetro de inserción
+
+            El inset parámetro cambia la sombra de una sombra externa (inicio) a una sombra interna.
+
+            box-shadow: 10px 10px 5px lightblue inset;
+
+            Agregar múltiples sombras
+            Un elemento también puede tener múltiples sombras:
+
+            box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+
+            Tarjetas
+            También puedes utilizar la box-shadowpropiedad para crear tarjetas con aspecto de papel:
+
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            
+            */
+
+            div.card {
+                width: 250px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                text-align: center;
+             }
+
+            div.header {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                font-size: 40px;
+            }
+
+            div.container {
+                padding: 10px;
+            }
+
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Text-shadow effect!</h1>
+
+        <div id="caja">This is a div element with a box-shadow</div>
+
+        <h2>Create Cards</h2>
+
+        <p>The box-shadow property can be used to create paper-like cards:</p>
+
+        <div class="card">
+        <div class="header">
+            <h1>1</h1>
+        </div>
+
+        <div class="container">
+            <p>January 1, 2021</p>
+        </div>
+        </div>
+    </body>
+</html>
