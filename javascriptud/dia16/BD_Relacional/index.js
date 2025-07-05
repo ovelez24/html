@@ -1,5 +1,6 @@
+//index.js
 //Configurar con eExpressJS el servidor de la app
-const express = require('express');
+const express = require('express');//almacena el complemento express
 const app = express();
 
 app.set('port', 3000)
@@ -26,7 +27,7 @@ connection.connect((err) => {
   });
 
 //Agregar un nuevo registro
-connection.query('INSERT INTO clientes VALUES (3, "oscar", 1, 161616, "Av. Siempreviva 4269")', function(error, resultados){
+connection.query('INSERT INTO clientes VALUES (5, "Teofilo", 1, 123456, "Av. circunvalar 2528")', function(error, resultados){
     if(error) throw error;
     console.log(resultados)
 });
@@ -38,7 +39,7 @@ connection.query('SELECT * FROM clientes', function(error, filas){
 });
 
 //Realizar modificacion de registro
-connection.query('UPDATE clientes SET genero = 0, telefono = 166166 WHERE id_clientes = 1', function(error, resultados){
+connection.query('UPDATE clientes SET genero = 0, telefono = 324456 WHERE id_clientes = 3', function(error, resultados){
     if(error) throw error;
     console.log(resultados)
 });
@@ -50,7 +51,7 @@ connection.query('SELECT * FROM clientes', function(error, filas){
 });
 
 //Eliminar un registro
-connection.query('DELETE FROM clientes WHERE id_clientes = 2', function(error, resultados){
+connection.query('DELETE FROM clientes WHERE id_clientes = 5', function(error, resultados){
     if(error) throw error;
     console.log(resultados)
 });

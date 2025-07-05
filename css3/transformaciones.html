@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>TRANSFORMACIONES</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+          height: 100%;
+        }
+
+        body {
+          font-family: arial, sans-serif;
+          font-size: 1.123rem;
+        }
+
+        /* Transformaciones CSS 2D
+          Las transformaciones CSS le permiten mover, rotar, escalar y sesgar elementos.
+          Funciones de transformación 2D de CSS
+
+          Con la transformpropiedad CSS puedes utilizar las siguientes funciones de transformación 2D:
+          translate()
+          rotate()
+          scaleX()
+          scaleY()
+          scale()
+          skewX()
+          skewY()
+          skew()
+          matrix()
+
+         */
+
+        /*La función translate()
+          La translate()función mueve un elemento desde su posición actual
+           (según los parámetros dados para el eje X y el eje Y).
+
+           El siguiente ejemplo mueve el elemento <div> 50 píxeles hacia la derecha y
+           100 píxeles hacia abajo desde su posición actual:
+
+
+        div {
+          width: 300px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+          transform: translate(50px, 100px);
+        }*/
+
+        /* La función rotate()
+          La rotate()función gira un elemento en sentido horario o antihorario según un grado determinado.
+          El siguiente ejemplo gira el elemento <div> 20 grados en el sentido de las agujas del reloj:
+
+          div {
+          width: 300px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+        }
+
+        div#myDiv {
+          transform: rotate(20deg);
+        }
+
+        El uso de valores negativos rotará el elemento en sentido antihorario.
+        El siguiente ejemplo gira el elemento <div> 20 grados en sentido antihorario:
+
+           div {
+          width: 300px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+        }
+
+        div#myDiv {
+          transform: rotate(-20deg);
+        }
+         */
+
+        /*
+          La función scale()
+
+          La scale()función aumenta o disminuye el tamaño de un elemento
+           (según los parámetros dados para el ancho y la altura).
+           El siguiente ejemplo aumenta el elemento <div> al doble de su ancho original y al triple de su altura original:
+
+           div {
+          margin: 150px;
+          width: 200px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+          transform: scale(2, 3);
+        }
+
+        El siguiente ejemplo reduce el elemento <div> a la mitad de su ancho y alto originales:
+
+        div {
+          margin: 150px;
+          width: 200px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+          transform: scale(0.5,0.5);
+          }
+         */
+
+        /*La función scaleX()
+          La scaleX()función aumenta o disminuye el ancho de un elemento.
+          El siguiente ejemplo aumenta el elemento <div> al doble de su ancho original:
+
+                div {
+                  margin: 150px;
+                  width: 200px;
+                  height: 100px;
+                  background-color: yellow;
+                  border: 1px solid black;
+                  transform: scaleX(2);
+              }
+
+              El siguiente ejemplo reduce el elemento <div> a la mitad de su ancho original:
+
+              div {
+              margin: 150px;
+              width: 200px;
+              height: 100px;
+              background-color: yellow;
+              border: 1px solid black;
+              transform: scaleX(0.5);
+              }
+
+
+              La función scaleY()
+
+              La scaleY()función aumenta o disminuye la altura de un elemento.
+
+              El siguiente ejemplo aumenta el elemento <div> al triple de su altura original:
+
+              div {
+              margin: 150px;
+              width: 200px;
+              height: 100px;
+              background-color: yellow;
+              border: 1px solid black;
+              transform: scaleY(3);
+              }
+
+          El siguiente ejemplo reduce el elemento <div> a la mitad de su altura original:
+
+          div {
+              margin: 150px;
+              width: 200px;
+              height: 100px;
+              background-color: yellow;
+              border: 1px solid black;
+              transform: scaleY(0.5);
+              }
+
+              La función skewX()
+
+              La skewX()función inclina un elemento a lo largo del eje X según el ángulo dado.
+
+              El siguiente ejemplo inclina el elemento <div> 20 grados a lo largo del eje X:
+
+              div {
+                  transform: skewX(20deg);
+                  }
+
+              La función skewY()
+
+              La skewY()función inclina un elemento a lo largo del eje Y según el ángulo dado.
+
+              El siguiente ejemplo inclina el elemento <div> 20 grados a lo largo del eje Y:
+
+              div {
+                  transform: skewY(20deg);
+                  }
+
+              La función skew()
+
+              La skew()función inclina un elemento a lo largo de los ejes X e Y según los ángulos dados.
+
+              El siguiente ejemplo inclina el elemento <div> 20 grados a lo largo del eje X y 10 grados a lo largo del eje Y:
+
+              div {
+                  transform: skew(20deg, 10deg);
+                  }
+
+                  Si no se especifica el segundo parámetro, su valor es cero.
+                  Por lo tanto, el siguiente ejemplo inclina el elemento <div> 20 grados a lo largo del eje X:
+
+              La función matrix()
+
+              La matrix()función combina todas las funciones de transformación 2D en una.
+              La función matrix() toma seis parámetros, que contienen funciones matemáticas,
+              que le permiten rotar, escalar, mover (trasladar) y sesgar elementos.
+              Los parámetros son los siguientes: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+
+
+         */
+
+         /* Transformaciones 3D CSS
+
+         CSS también admite transformaciones 3D.
+
+         Funciones de transformación 3D de CSS
+
+         Con la transformpropiedad CSS puedes utilizar las siguientes funciones de transformación 3D:
+
+         rotateX()
+         rotateY()
+         rotateZ()
+
+         La rotateX()función gira un elemento alrededor de su eje X en un grado determinado:
+
+         #myDiv {
+          transform: rotateX(150deg);
+          }
+
+          La función rotateY()
+
+          La rotateY()función gira un elemento alrededor de su eje Y en un grado determinado:
+
+         #myDiv {
+          transform: rotateY(150deg);
+          }
+
+          La función rotateZ()
+
+          La rotateZ()función gira un elemento alrededor de su eje Z en un grado determinado:
+
+         #myDiv {
+          transform: rotateZ(90deg);
+          }
+
+
+
+
+
+
+         */
+        div {
+          width: 300px;
+          height: 100px;
+          background-color: yellow;
+          border: 1px solid black;
+        }
+
+        div#myDiv1 {
+          transform: matrix(1, -0.3, 0, 1, 0, 0);
+        }
+
+        div#myDiv2 {
+          transform: rotateZ(90deg);
+        }
+
+        /*Como modificar el punto de origen*/
+
+      #punto-origen {
+          background-color: #ffa500;
+          width: 500px;
+          height: 500px;
+          margin: 30px auto 90px;
+          transition: transform 3s ease-in 1s;
+          transform-origin: left top/*right bottom o center center o 45% 90%*/
+          -webkit-transition: -webkit-transform 3s ease-in 1s;
+          transition: -webkit-transform 3s ease-in 1s;
+          -o-transition: transform 3s ease-in 1s;
+          transition: transform 3s ease-in 1s;
+          transition: transform 3s ease-in 1s, -webkit-transform 3s ease-in 1s;
+          -webkit-transform-origin: left top;
+          -ms-transform-origin: left top;
+          transform-origin: left top
+
+      }
+
+      #punto-origen:hover {
+          transform: rotate(360deg);
+          transition: transform 3s ease-in 1s;
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+          -webkit-transition: -webkit-transform 3s ease-in 1s;
+          transition: -webkit-transform 3s ease-in 1s;
+          -o-transition: transform 3s ease-in 1s;
+          transition: transform 3s ease-in 1s;
+          transition: transform 3s ease-in 1s, -webkit-transform 3s ease-in 1s;
+      }
+
+      /* Como crear efecto de profundidad*/
+
+      #contenedor {
+        width: 400px;
+        height: 490px;
+        border: 1 px solid;
+        padding: 50px;
+        margin: 30px auto;
+        perspective: 200px
+      }
+
+      #elemento {
+        background-color:#ffff00;
+        width: 150px;
+        height: 150px;
+        padding: 40px; 
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        text-align: center;
+        transform:rotate3d(-1, 1, 1, 36deg)/*translate3d(120px, 96px, -140px)/*rotateZ(36deg)/*translateZ(50px)/*si se pone negativo se poniendo mas pequeño*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The translate() Method</h1>
+    <p>The translate() method moves an element from its current position:</p>
+
+    <div>
+      This div element is moved 50 pixels to the right, and 100 pixels down from
+      its current position.
+    </div>
+
+    <div id="myDiv1">This div element is rotated clockwise 20 degrees.</div>
+    <div id="myDiv2">Another use of the matrix() method.</div>
+
+    <h2>Propiedad transform-origin</h2>
+    <div id="punto-origen">
+    </div>
+
+      <h2>Transformaciones 3D</h2>
+
+      <div id="contenedor">
+        <div id="elemento">3D</div>
+      </div>
+  </body>
+</html>
