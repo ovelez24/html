@@ -24,9 +24,52 @@
                 
             }
 
+            #enlaceEstilos {
+                color: green;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            #enlaceEstilos:visited {
+                color: orange;
+            }
+
+            #enlaceEstilos:hover {
+                text-decoration: underline;
+            }
+
+            #enlaceEstilos:active {
+                color: red;
+            }
+
+            a[type=button] {
+                background-color: #008000;
+                display: block;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                border: 1px solid;
+                padding: 10px 25px;
+                border-radius: 5px;
+                width: 250px
+            }
+
+            a[type=button]:hover {
+                background-color: #0000ff;
+                font-weight: 100
+            }
+
+            a[type=button]:active {
+                background-color: #012e12;
+            }
+
         </style>
     </head>
     <body>
-
+        <h1>Como aplicar estilos a los enlaces</h1>
+        <a href="">Enlace con estilos por defecto</a>
+        <a href="" id="enlaceEstilos">Enlace con estilos personalizados</a>
+        <a href="" type="button">Enlace tipo boton</a>
     </body>
 </html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como Crear un menu de navegacion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+           /* Como crear un menu vertical*/
+
+           #menuVertical {
+            background-color: #eee;
+            width: 50%;
+            list-style: none;
+            padding: 0 1px;
+           }
+
+           #menuVertical li {
+                border: 1px solid;
+           }
+
+           #menuVertical li a {
+                color: #000;
+                display: block;
+                padding: 12px;
+                text-decoration: none;
+           }
+
+           #menuVertical li a:hover {
+                background-color: #ccc;
+           }
+
+           #menuVertical li a.actual {
+                background-color: #4c4eaf;
+                color: #fff;
+           }
+
+           /* Como crear un menu horizontal*/
+
+           header ul {
+            background-color: #333;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+           }
+
+           header ul li {
+                float: left;
+           }
+
+           header ul li a {
+                display: block;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                padding: 14px 16px;
+           }
+
+           header ul li a:hover {
+            background-color: #111;
+
+           }
+
+           header ul li a.active {
+                background-color: #4c4eaf;
+           }
+
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <ul>
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#" >Acerca de</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            
+        </header>
+        <h2>Menu Vertical</h2>
+        <ul id="menuVertical">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#" class="actual">Acerca de</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </body>
+</html>

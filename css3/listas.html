@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Aplicar estilos a las listas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            /*Como aplicar estilos a las listas*/
+            ul {
+                list-style-type: square;
+
+            }
+
+            ol {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                            
+            }
+
+            #listaImagen {
+
+                list-style: url("images/error.png") inside;
+                width: 20%;
+                height: 20%;
+
+            }
+
+            #listaPosicion {
+                list-style-position: inside;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Aplicar estilos a listas HTML</h1>
+
+        <h2>Listas desordenadas</h2>
+        <ul>
+            <li>Ensaladas</li>
+            <li>Pescados y mariscos</li>
+            <li>Carnes y aves</li>
+        </ul>
+
+        <h2>Listas ordenadas</h2>
+
+        <ol>
+            <li>Primero</li>
+            <li>Segundo</li>
+            <li>Tercero</li>
+        </ol>
+
+        <h2>Lista con imagenes</h2>
+
+        <ul id="listaImagen">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+
+        </ul>
+
+        <h2>Controlar la identacion de elementos sobre la lista</h2>
+        <ul id="listaPosicion">
+           <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit debitis porro iure autem laboriosam perspiciatis nesciunt tempore, enim incidunt excepturi dolorum officiis harum hic facere. Amet dolore libero a veniam.</li>
+           <li>Cumque, aut nemo ad eveniet, ullam voluptatum rem accusantium obcaecati eum ipsum, quo eligendi deserunt. Doloribus, laboriosam? Alias, rem! Vero error animi vel asperiores dignissimos vitae itaque consequatur placeat obcaecati.</li>
+           <li>Fugit qui minus aut hic incidunt, error veritatis ut quam expedita tempora assumenda voluptas animi. Culpa et eos doloremque adipisci minima, magni libero provident placeat similique. Rem delectus et explicabo.</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como aplicar estilos a los botones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+          /* Modificar el estilo de los botones*/
+
+          .btn {
+            border: none;
+            margin-left: 5px;
+            display: inline-block;
+            padding: 20px 25px;
+            font-size: 1.10rem;
+            color: #fff;
+            text-align: center;
+          }
+
+          .estilo1 {
+            background-color: #ffff00;
+            border-radius: 8px;
+            border: 1px solid;
+            color: #000;
+
+          }
+
+          .estilo2 {
+            background-color: #0000ff;
+            background-image: linear-gradient(to top right, #0000ff 12px, #000 150px)
+          }
+
+          .estilo3 {
+            background-color: #008000;
+            color: #fff;
+          }
+
+          .estilo4 {
+            background-color: #ff0000;
+            box-shadow: 4px 4px 8px #333;
+          }
+
+          .estilo3:hover {
+            border: 1px solid #008000;
+            background-color: transparent;
+            color: #000;
+          }
+
+          .estilo5 {
+            background-color: #008cba;
+            margin: 20px 0;
+            width: 100%;
+          }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Aplicar estilos a los botones</h1>
+
+        <h2>Botones basicos</h2>
+        <button type="" class="btn estilo1">Boton</button>
+        <input type="button" class="btn estilo2" value="Boton">
+        <input type="submit" class="btn estilo3" value="Enviar">
+        <input type="reset" class="btn estilo4" value="Resetear">
+        <input type="button" class="btn estilo5" value="Boton">
+        
+    </body>
+</html>

@@ -45,7 +45,7 @@ function login() {
 limitarCaracteres(document.getElementById("txtUsuario"), 20);
 limitarCaracteres(document.getElementById("txtPass"), 20);
 
-function limitarCaracteres(input, maxLength) {
+function limitarCaracteres(input, maxLength) { 
     input.addEventListener("input", function() {
         if(input.value.length > maxLength) {
             input.value = input.value.slice(0, maxLength)
