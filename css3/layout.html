@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como aplicar media queries@</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0433317bfa.js" crossorigin="anonymous"></script><!-- esto se usa para los iconos web fontawesome sin necesidad de descargar una carpeta -->
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            html{
+                box-sizing: border-box;
+            }
+
+            /* Modificar el modelo de cajas de CSS*/
+
+            *, *:before, *:after {
+                box-sizing: border-box;
+            }
+
+            /* Resetear margenes y padding*/
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: "Lucida Sans", sans-serif;
+                font-size: 1.125rem;
+            }
+            /* Estilos de cabecera*/
+            #header {
+                background-color: #4587f1;
+                color: #fff;
+                font-size: 2rem;
+                text-align: center;
+                padding: 20px 0;
+                margin-bottom: 12px;
+            }
+
+          /*Rejilla flexible*/
+
+          #container {
+            width: 100%;
+            max-width: 1366px;
+            padding: 12px 1.46% /*Rellenos laterales: 20px / 1366px*/
+
+          }
+
+          /* Dividir contenido en columnas*/
+          /* Lateral izquierdo */
+
+          #side {
+            width: 25%; /*1366px x 0.25= 341.5*/
+            float: left;
+          }
+
+          /* Menu de navegacion*/
+
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+
+          ul li {
+            background-color: #33b5e5;
+            color: #fff;
+            padding: 8px 3.51%; /*12px / 341.5px */
+            margin-bottom: 8px;
+            box-shadow: 0 1px 1px #00001f;
+          }
+
+          ul li a {
+            color: #fff;
+            text-decoration: none;
+          }
+
+          ul li:hover {
+            background-color: #0099cc;
+          }
+
+          /* contenido central*/
+
+          #mainContent {
+            width: 75%; /*1366 x 0.75 = 1024.5px*/
+            float: left;
+            padding-left: 1.17%
+          }
+
+          h1 {
+            margin-bottom: 20px;
+
+          }
+
+           #mainContent p {
+            font-size: 0.93rem;
+            text-align: justify;
+            line-height: 1.6;
+            margin-bottom: 12px;
+           }
+
+            #mainContent img {
+                max-width: 38%;
+                float: left;
+                margin-left: 0.48%; /* 5px / 1024.5px */
+                margin-right: 1.65%; /* 17px / 1024.5px*/
+                margin-bottom: 4px;
+            }
+
+            /* Estilos de pie de pagina*/
+
+            #footer {
+                background-color: #555;
+                color: #fff;
+                font-size: 0.90rem;
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            .clearfix {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /* Aplicar los siguiente estilos cuando el area de visualizacion sea igual o menor a 600px*/
+
+            @media screen and (max-width: 600px) {
+                #side, #mainContent {
+                    width: 100%;
+                    padding: 0;
+                }
+
+                h1 {
+                    font-size: 1.45rem;
+                    margin-top: 12px;
+                }
+
+                #mainContent img {
+                    max-width: 100%;
+                    margin-bottom: 12px
+                }
+            }
+
+            @media screen and (min-width: 1366px) {
+                #container {
+                    margin: auto;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <!-- Cabecera -->
+
+        <div id="header">
+            <p>Logo</p>
+        </div>
+
+        <!-- Contenidos -->
+        <div id="container">
+            <!-- Lateral y menu de navegacion -->
+            <div id="side">
+                <ul id="menu">
+                    <li>Inicio</li>
+                    <li>Categoria</li>
+                    <li>Acerca de</li>
+                    <li>Contacto</li>
+                </ul>
+            </div>
+
+            <!-- Contenido principal -->
+
+            <div id="mainContent">
+
+                <h1>10 lugares para hacer turismo interno</h1>
+                <img src="images/carretera.jpg" alt="Imagen de una carretera">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus doloremque, ipsa expedita quibusdam quaerat magni, illum numquam placeat modi labore aperiam sint laborum est possimus, quasi perspiciatis architecto dolorum id?</p>
+                <p>Qui sed ea praesentium vero ratione delectus vitae quas maiores optio aliquam, quibusdam cum exercitationem minus magnam consectetur necessitatibus adipisci aliquid perspiciatis molestias? A animi, officia laborum doloribus eaque illum?</p>
+                <p>Odit incidunt perferendis quis quo quisquam sequi, accusamus tempore consequatur vitae animi dolores laudantium id ea accusantium mollitia voluptate deserunt. Aut fuga repellendus ut ratione at quidem natus quo expedita!</p>
+                <p>Maiores in quis, animi consequuntur ipsam eligendi ad aliquam rerum nostrum numquam magnam, ullam veritatis facilis. Quod saepe aliquam dolore voluptates corrupti reiciendis nulla maiores assumenda laboriosam nesciunt! Accusantium, repellat?</p>
+                <p>Earum molestiae labore illum, debitis doloremque quis perferendis ab, commodi cupiditate minus dignissimos tenetur quam quo veritatis atque sapiente aperiam nulla animi. Rerum expedita earum voluptas adipisci, beatae ipsa facere?</p>
+                <p>Nam atque eum, placeat ab illo error enim ducimus? Magnam assumenda ipsum cum esse impedit blanditiis iure, libero voluptas provident. Fugit commodi consequuntur suscipit, reprehenderit sint hic nihil aperiam eum.</p>
+                <p>Reiciendis modi iste laboriosam quia voluptatibus accusamus dolore optio, consequatur aperiam autem. Ullam beatae quidem nihil quam deserunt harum sequi sapiente ut, eius architecto culpa! Illum rerum similique inventore quia.</p>
+                <p>Vel distinctio, tempore atque modi consectetur pariatur impedit laudantium blanditiis dolorum ab ipsum architecto officiis aut fuga doloribus? Expedita fugiat iusto iure tempore corrupti reiciendis modi odit voluptatum nulla libero.</p>
+                <p>Ea doloribus assumenda, quo iusto, omnis quibusdam voluptatum libero nobis, debitis sit earum veniam nisi. Tempore ad aut ratione debitis, soluta amet odit consequuntur iste pariatur suscipit nihil maiores accusantium.</p>
+                <p>Distinctio facere, nam dolorum eligendi blanditiis ratione quae repellat, consequuntur sed non laudantium doloribus cupiditate quia nihil maiores rem delectus voluptatum libero sit necessitatibus beatae perspiciatis iusto, temporibus sequi! Id!</p>
+            </div>
+        </div>
+
+        <!-- Pie de pagina -->
+        <div id="footer" class="clearfix">
+            <small>Derechos reservados.</small>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como aplicar estilos a las tablas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0433317bfa.js" crossorigin="anonymous"></script><!-- esto se usa para los iconos web fontawesome sin necesidad de descargar una carpeta -->
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            table, th, td {
+                border: 1px solid;
+                border-collapse: collapse;
+            }
+
+            table {
+                width: 50%;
+                
+            }
+
+            th {
+                height: 70px;
+                background-color: #04aa6d;
+                color: white;
+            }
+
+            td {
+                text-align: center;
+                height: 50px;
+                
+            }
+
+            tr:hover {
+                background-color: coral;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Aplicar estilos a las tablas</h1>
+
+        <h2>Adicionar un borde a un tabla</h2>
+        
+            <table>
+                <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                </tr>
+                <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                </tr>
+                <tr>
+                    <td>Lois</td>
+                    <td>Griffin</td>
+                </tr>
+                <tr>
+                    <td>Oscar</td>
+                    <td>Velez</td>
+                </tr>
+            </table>
+        
+        
+
+        
+        
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como aplicar media queries@</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0433317bfa.js" crossorigin="anonymous"></script><!-- esto se usa para los iconos web fontawesome sin necesidad de descargar una carpeta -->
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+           img {
+            width: 30%;
+            height: auto;
+            float: left;
+            margin: 0.3em 0.9em 0.3em 0
+           }
+
+           /* Media queries*/
+
+           @media print {
+            body {
+                color: blue;
+            }
+
+            img {
+                display: none;
+            }
+           }
+
+           @media screen and (max-width: 992px) {
+            body {
+                background-color: #e0e0e0;
+            }
+
+            div {
+                margin: 0 0.90em;
+            }
+
+            img {
+                width: 45%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1.09rem;
+            }
+           }
+           @media screen and (max-width: 500px) {
+            div {
+                margin: 0 0.95em;
+            }
+
+            img {
+                width: 100%;
+                margin-bottom: 0.95em
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                text-align: justify;
+            }
+           }
+           
+           @media screen and (min-width: 992px) {
+
+            body {
+                background-color: #e0e0e0;
+            }
+
+            div {
+                margin: 0 0.90em;
+            }
+
+            img {
+                width: 45%;
+                
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                text-align: justify;
+            }
+           }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            
+            <h1>Consejos para adiestrar a tu perro</h1>
+            <img src="images/perro.png" alt="Imagen de un perro">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem optio reprehenderit quod sequi animi modi dignissimos, accusamus aspernatur, debitis omnis placeat, quidem dicta accusantium quam amet libero repudiandae totam deleniti.</p>
+            <p>Delectus consectetur ipsum illo dolores eos saepe aspernatur est sapiente. Fuga laborum eaque aliquid quidem cupiditate at unde ipsam molestias harum, excepturi corrupti, maiores, nihil impedit dignissimos. Culpa, suscipit adipisci!</p>
+        </div>
+        
+    </body>
+</html>

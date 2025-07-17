@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0433317bfa.js" crossorigin="anonymous"></script><!-- esto se usa para los iconos web fontawesome sin necesidad de descargar una carpeta -->
         <style>
             html, body {
                 height: 100%
@@ -62,6 +63,31 @@
             width: 100%;
           }
 
+          /* Como crear un grupo de botones*/
+
+          #grupo-btn .boton {
+
+            background-color: #008000;
+            border: 1px solid #008000;
+            color: #fff;
+            padding: 20px 30px;
+            text-align: center;
+            display: inline-block; /*para que el grupo se vea vertical se coloca block y sin el float*/
+            font-size: 1.1rem;
+            float: left;
+          }
+
+           #grupo-btn .boton:hover {
+            background-color: #3e8e41;
+
+           }
+
+           .fa-brands  {
+            vertical-align: middle;/*esto se hace para manejar lo vertical del icono*/
+            color: red;
+            font-size: 1.35rem;
+           }
+
         </style>
     </head>
     <body>
@@ -74,6 +100,15 @@
         <input type="submit" class="btn estilo3" value="Enviar">
         <input type="reset" class="btn estilo4" value="Resetear">
         <input type="button" class="btn estilo5" value="Boton">
+
+        <h2>Grupo de botones</h2>
+
+        <div id="grupo-btn">
+          <button class="boton"><i class="fa-brands fa-android"></i> Boton</button>
+          <button class="boton">Boton</button>
+          <button class="boton">Boton</button>
+          <button class="boton">Boton</button>
+        </div>
         
     </body>
 </html>

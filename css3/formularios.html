@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Como aplicar estilos a los formularios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/0433317bfa.js" crossorigin="anonymous"></script><!-- esto se usa para los iconos web fontawesome sin necesidad de descargar una carpeta -->
+        <style>
+            html, body {
+                height: 100%
+            }
+
+            body {
+                font-family: arial, sans-serif;
+                font-size: 1.125rem;
+            }
+
+            div {
+                background-color: #f4f4f4;
+                width:50%;
+                height: auto;
+                font-size: 0.95rem;
+                padding: 12px 25px;
+                margin:40px auto;
+            }
+
+            h2 {
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            /* Aplicar estilos a los elementos label*/
+            label {
+                display: block;
+                margin: 12px 0;
+            }
+
+            /* Aplicar estilos a los elementos input y select*/
+
+            input[type="text"], input[type="email"], input[type="password"], select {
+                width:100%;
+                height: 45px;
+                display: inline-block;
+                padding: 0 8px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            select:focus {
+                background-color: #ccc;
+            }
+
+            input[type="submit"], input[type="reset"] {
+                border: none;
+                color:#fff;
+                font-size: 1.03rem;
+                width: 22%;
+                padding: 10px 20px;
+                margin: 24px 2px;
+            }
+
+            input[type="submit"] {
+                background-color: #008000;
+                
+            }
+            input[type="reset"] {
+                background-color: #d10909;
+
+            }
+            input[type="submit"]:hover {
+                background-color: rgba(7, 126, 31, 0.80);
+
+            }
+            input[type="reset"]:hover {
+                background-color: rgba(209, 9, 9, 0.80);;
+
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Aplicar estilos a los formularios</h1>
+
+        <h2>Formulario de registro</h2>
+        
+
+        <div>
+        <p>Rellena este formulario<br>Todos los campos requeridos.</p>  
+        <form action="datos.php" method="POST">
+
+            <label for="suNombre">Nombre:</label>
+            <input type="text" name="nombre" id="suNombre" required>
+            <label for="suEmail">Email:</label>
+            <input type="email" name="email" id="suEmail" required>
+            <label for="SuContrasena">Contraseña:</label>
+            <input type="password" name="contrasena" id="SuContrasena" required>
+            <label for="suContrasena2">Repetir contraseña:</label>
+            <input type="password" name="contrasena2" id="suContrasena2" required>
+            <label for="suPais"></label> 
+            <select name="pais" id="suPais" required>
+                <option value="arg">Argentina</option>
+                <option value="ca">Canada</option>
+                <option value="ch">Chile</option>
+                <option value="co">Colombia</option>
+                <option value="us">Estados Unidos</option>
+                <option value="mx">Mexico</option>
+                <option value="pa">Panama</option>
+                <option value="do">Republica Dominicana</option>
+            </select>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpiar campos">
+        </form>
+        </div>
+
+
+            
+       
+
+        
+        
+
+        
+        
+    </body>
+</html>
