@@ -1,0 +1,519 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*ESTILOS GENERALES*/
+html, body {
+    height: 100%;
+}
+
+/* Modificar el modelo de cajas de CSS*/
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+}
+
+/* Resetear margenes y padding*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+/*ESTILOS DE LOS CONTENIDOS*/
+
+/* Estilos de header*/
+
+header {
+    background-color: green;
+    /*overflow: hidden*/;/*este permite que el logo y el contacto se ven dentro de la linea*/
+}
+
+#logo {
+    float: left;
+}
+
+#infoContacto {
+    float: right;
+    margin-top: 24px;
+}
+
+#infoContacto i {
+    color: #fff;
+    margin-right: 12px;
+    font-size: 1.20rem;
+}
+
+/* Seccion 1*/
+
+article > section:nth-child(1) {
+    background-image: -webkit-gradient(linear,right bottom, left top,from(rgba(55,185,30,0.83)), to(rgba(25,59,240,0.83))), url(../images/fondo_superior.jpg);
+    background-image: -o-linear-gradient(right bottom,rgba(55,185,30,0.83), rgba(25,59,240,0.83)), url(../images/fondo_superior.jpg);
+    background-image: linear-gradient(to left top,rgba(55,185,30,0.83), rgba(25,59,240,0.83)), url(../images/fondo_superior.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+#intro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 50px 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    height: 100%;
+    min-height: 600px;
+}
+
+#formulario {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    background-color: rgba(0,0,0,0.8);
+    padding: 20px 1em;
+    color: #fff;
+}
+
+#descripcion {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+    padding: 0 1em 0 0;
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-family: arial, tahoma, verdana, sans-serif;
+    margin-bottom: 25px;
+}
+
+#descripcion p {
+    margin-bottom: 33px;
+    line-height: 1.65;/*interlineado*/
+}
+
+#descripcion i {
+    font-size: 0.9rem;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #fff;
+    color: #008000;
+}
+
+#formulario h2 {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 0.90rem;
+}
+
+input[type="text"], input[type="email"] {
+    display: inline-block;
+    width:100%;
+    height: 45px;
+    padding: 0 1em;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+}
+/*boton*/
+input[type="submit"]{
+    display: inline-block;
+    border: none;
+    background-color: #008000;
+    color: #fff;
+    width: 100%;
+    padding: 10px 1em;
+    margin: 25px auto;
+    font-size: 1rem;
+}
+
+small a {
+    color: #fff;
+}
+
+/* Seccion 2*/
+
+article > section:nth-child(2) {
+    padding: 60px 0;
+}
+
+#seccionDos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: center;
+}
+
+#seccionDos i {
+    color: #13a3db;
+    font-size: 2.5rem;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 48px 0;
+    width: 140px;
+    height: 140px;
+    margin-bottom: 35px;
+}
+
+.col h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+/* Seccion 3*/
+
+article > section:nth-child(3) {
+    background-color: #f6f9fd;
+    padding: 40px 0;
+}
+
+#seccionTres {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;/*con esta opcion los elementos aparecen en dos columnas*/
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;/*con esta opcion los elementos aparecen en dos columnas*/
+}
+
+#seccionTres div {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;/*con esta opcion los elementos aparecen en dos columnas*/
+    padding-right: 1.9rem;
+} 
+
+h2 {
+    margin-bottom: 20px;
+}
+
+#seccionTres a {
+    display: inline-block;/*con esta opcion los elementos aparecen en dos columnas*/
+    background-color: #008000;
+    color: #fff;
+    padding: 12px 10em;
+    text-decoration: none;
+    margin: 25px 0;
+}
+
+video {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;/*con esta opcion los elementos aparecen en dos columnas*/
+    width: 40%;/*con esta opcion los elementos aparecen en dos columnas*/
+    -ms-flex-item-align: start;
+        align-self: flex-start;/*con esta opcion los elementos aparecen en dos columnas*/
+}
+
+/* Seccion 4*/
+
+article > section:nth-child(4){
+    padding: 60px 0 0;
+    text-align: center;
+}
+
+#seccionCuatro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 50px auto;
+}
+
+.card {
+    margin: 20px 0.5em;
+    -webkit-box-shadow: 2px 5px 15px #ccc9c9;
+            box-shadow: 2px 5px 15px #ccc9c9;
+    padding-bottom: 35px;
+}
+
+.card img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    padding: 12px 2em;
+}
+
+.card i {
+    font-size: 1.5rem;
+    color: #107ba7;
+    margin: 0 0.2em;
+}
+
+/* Seccion 5*/
+
+#seccionCinco {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+    height: 100%;
+    min-height: 330px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #FFF;
+}
+
+#seccionCinco p{
+    padding: 20px 0;
+}
+
+#seccionCinco h2 {
+    margin-bottom: 0;
+}
+
+#seccionCinco a {
+    display: block;
+    background-color: #37b81e;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 2em;
+}
+
+#seccionCinco a:hover {
+    background-color: #358d24;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+article > section:nth-child(5) {
+    background-image: -webkit-gradient(linear, right bottom, left top, from(rgb(16 123 167 / 80%)), to(rgb(16 123 167 / 43%))), url(../images/fondo_inferior.jpg);
+    background-image: -o-linear-gradient(right bottom, rgb(16 123 167 / 80%), rgb(16 123 167 / 43%)), url(../images/fondo_inferior.jpg);
+    background-image: linear-gradient(to left top, rgb(16 123 167 / 80%), rgb(16 123 167 / 43%)), url(../images/fondo_inferior.jpg);;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center right;
+}
+
+/* PIE DE PAGIN*/
+
+footer {
+    background-color: #2c2a2a;
+    padding: 20px 0;
+}
+
+#pieDePagina {
+    overflow: hidden;
+}
+
+.copyright {
+    float: right;
+    color: #c0bcbc;
+    padding-top: 8px;
+}
+
+.nav {
+    float: left;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 12px 0 0;
+}
+
+.nav li a {
+    color: #c0bcbc;
+    text-decoration: none;
+    padding-right: 1.5em;
+}
+
+.nav li a:hover {
+    text-decoration: underline;
+}
+
+/*MEDIA QUERIES*/
+/*Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 3840px*/
+
+@media screen and (max-width:3840px) {
+    .container {
+        width: 91%;
+        max-width: 3840px;
+    }
+}    
+/*Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 1920px*/
+@media screen and (max-width:1920px){
+    .container {
+        max-width: 1920px;
+    }
+}
+/*Aplicar los siguientes estilos cuando el tamaño del viewport se encuentre en un rango de 960px - 1199px*/
+
+@media screen and (min-width:960px) and (max-width:1199px) {
+    .col h3 {
+        font-size: 1.05rem;
+    }
+
+    h2 {
+        font-size: 1.43rem;
+    }
+}
+
+/*Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 959px*/
+
+@media screen and (max-width:959px) {
+    #intro {
+        
+        -webkit-box-orient: vertical;
+        
+        -webkit-box-direction: normal;
+        
+            -ms-flex-flow: column wrap;
+        
+                flex-flow: column wrap;
+        
+    }
+
+    h1 {
+        font-size: 3.3rem;
+    }
+
+    #descripcion {
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        padding: 0 0 0 0;
+        -webkit-box-flex: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0;
+    }
+
+    article > section:nth-child(2) {
+        padding: 20px 0;
+    }
+
+    #seccionDos {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column wrap;
+                flex-flow: column wrap;
+    }
+
+    .col {
+        padding: 30px 0;
+    }
+
+    #seccionTres {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column wrap;
+                flex-flow: column wrap;
+    }
+
+    #seccionTres div{
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        padding-right: 0;
+    }
+
+    #seccionTres a {
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    video {
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        width: 100%;
+    }
+
+    article > section:nth-child(4) {
+        padding: 30px 0 0;
+    }
+
+    #seccionCuatro {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column;
+                flex-flow: column;
+    }
+
+    #seccionCinco {
+        text-align: center;
+    }
+
+}
+
+/*Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 959px*/
+
+@media screen and (max-width:659px){
+    #logo, #infoContacto {
+        width: 100%;
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    #pieDePagina {
+        text-align: center;
+    }
+
+    .nav {
+        float: none;
+    }
+
+    .nav li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    .copyright {
+        float: none;
+        border-top: 1px solid #3e3e3e;
+        margin-top: 30px;
+    }
+    
+}
+
+
+
+
+
+
