@@ -1,0 +1,79 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*ESTILOS GENERALES*/
+html, body {
+    height: 100%;
+}
+
+/* Modificar el modelo de cajas de CSS*/
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+}
+
+/* Resetear margenes y padding*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.09rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+/* Barra de navegacion*/
+
+#navbar {
+    background-color: #0b1245;
+}
+
+#navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+#main-nav {
+    display: flex;
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+}
+
+#main-nav li a {
+    color:#fff;
+    text-decoration: none;
+    padding: 25px 0.9rem;
+    display: inline-block;
+}
+
+#main-nav li:last-child {
+    color: #ffa600;
+    padding: 25px 0.9em;
+}
+
+#main-nav li a:hover {
+    background-color: #060829;
+}
+
+/* Pie de Pagina*/
+
+footer {
+    background-color: #121018;
+}
