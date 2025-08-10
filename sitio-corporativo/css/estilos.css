@@ -69,7 +69,7 @@ p {
 }
 
 .transparent {
-    display: block;
+    display: inline-block;
     border: 1px solid #ffa600;
     padding: 12px 1em;
     width: 250px;
@@ -330,7 +330,7 @@ main header h1 {
 
 #pages section {
     flex-basis: 70%;
-    padding-right: 2em;
+    padding-right: 1em;
     text-align: justify;
     margin-bottom: 30px;
 }
@@ -402,4 +402,69 @@ input#correo {
     border: none;
     width: 150px;
     font-size: 0.95rem;
+}
+
+.row {
+    clear:both;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+.row img {
+    float: left;
+    width: 55%;
+    margin-right: 1em;
+    margin-bottom: 12px;
+}
+
+.row p {
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.row i {
+    color: #0b1245;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+form {
+    margin-right: 1em;
+}
+
+.asterisco {
+    color: #ff0000;
+    
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 0.98rem;
+
+}
+
+input[type="text"], input[type="email"] {
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+}
+
+textarea#comentario {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+input[type="submit"] {
+    background-color: #008000;
+    display: inline-block;
+    padding: 10px 1em;
+    width: 100%;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
 }
