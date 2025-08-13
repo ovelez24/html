@@ -202,6 +202,7 @@ article#home > section:nth-child(1) {
     color: #fff;
     font-size: 1.5rem;
     padding: 15px;
+    margin-bottom: 0;
 }
 
 #seccionPrimera div {
@@ -467,4 +468,77 @@ input[type="submit"] {
     border: none;
     color: #fff;
     font-size: 1rem;
+}
+
+/* MEDIA QUERIES*/
+
+/*Aplicar los siguiente estilos cuando el viewport tenga un tamaño que oscile entre 960 - 1199px*/
+
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    #seccionPrimera h1 {
+        font-size: 2.5rem;
+    }
+
+    #seccionPrimera p {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    #seccionTercera img {
+        flex-basis: 45%;
+        max-width: 45%;
+    }
+
+    #seccionTercera div {
+        flex-basis: 55%;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .col p {
+        text-align: center;
+    }
+
+    #pages {
+        margin-bottom: 12px;
+
+    }
+
+    #boletin p {
+        font-size: 0.95rem;
+    }
+
+    aside ul li a {
+        font-size: 0.95rem;
+    }
+
+    .row {
+        margin: 0 1em 25px 0;
+    }
+
+    .row img {
+        float: none;
+        width: 100%;
+    }
+
+    .row i {
+        margin-bottom: 20px;
+        margin-right: 1em;
+    }
+
+    #pages .row:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .transparent {
+        margin-bottom: 30px;
+    }
 }
