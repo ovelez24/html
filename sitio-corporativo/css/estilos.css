@@ -116,6 +116,19 @@ p {
     background-color: #060829;
 }
 
+#navbar-toggle {/*esta es el icono de las tres lineas que se muestra como menu en pantallas pequeñas*/
+    color: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 62px;
+    right: 35px;
+    display: none;
+}
+
+.top {
+    display: none;
+}
+
 /* Pie de Pagina*/
 
 footer {
@@ -472,13 +485,17 @@ input[type="submit"] {
 
 /* MEDIA QUERIES*/
 
-/*Aplicar los siguiente estilos cuando el viewport tenga un tamaño que oscile entre 960 - 1199px*/
-
-@media screen and (min-width: 960px) and (max-width: 1199px) {
+@media screen and (max-width: 1199px) {
 
     body {
         font-size: 0.95rem;
     }
+}
+
+/*Aplicar los siguiente estilos cuando el viewport tenga un tamaño que oscile entre 960 - 1199px*/
+
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+
 
     #seccionPrimera h1 {
         font-size: 2.5rem;
@@ -542,3 +559,139 @@ input[type="submit"] {
         margin-bottom: 30px;
     }
 }
+
+/*Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 959px*/
+
+@media screen and (max-width: 959px) {
+    #navigation {
+        display: block;
+
+    }
+
+    #main-nav {
+        display: none;
+        flex-direction: column;
+    }
+
+    #navbar-toggle {
+        display: block;
+    }
+
+    #main-nav li a {
+        display: block;
+        padding: 20px 1em;
+    }
+
+    #main-nav li:not(:last-child){
+        border-bottom: 1px solid #353535;
+    }
+
+    #main-nav li:last-child {
+        display: none;
+    }
+
+    .top {
+        background-color: #000;
+        color: #ffa600;
+        padding: 12px 0;
+        font-size: 0.85rem;
+        display: block;
+    }
+
+    .top ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    /*Estilos de la pagina de inicio*/
+    #seccionPrimera h1 {
+        font-size: 2.5rem;
+    }
+
+    #seccionPrimera p {
+        font-size: 1.25rem;
+    }
+
+    #seccionSegunda, #seccionTercera, #seccionCuarta, #seccionQuinta {
+        flex-direction: column;
+    }
+
+    #seccionSegunda div, #seccionTercera div {
+        padding: 0;
+        align-self: normal;
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .btn, .transparent {
+        width: 100%;
+    }
+
+    .transparent {
+        margin-bottom: 20px;
+    }
+
+    #seccionSegunda img, #seccionTercera img {
+        display: none;
+    }
+
+    #seccionTercera.container {
+        width: 90%;
+        padding: 20px 0;
+    }
+
+    article > section:nth-child(4) {
+        padding: 35px 0 12px 0;
+    }
+
+    .col {
+        margin: 20px 0.9em 30px;
+        border: 1px solid #ffa600;
+        padding: 30px 2em;
+    }
+
+    .col p {
+        text-align: center;
+    }
+    
+    #seccionQuinta {
+        text-align: center;
+
+    }
+
+    /* Estilos del resto de las paginas*/
+
+    #pages section {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+
+    aside {
+        flex-basis: 100%;
+    }
+
+    .row img {
+        float: none;
+        width: 100%;
+    }
+
+    #pages .row.row:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .row i {
+        margin-right: 1em;
+    }
+}
+
+/* Aplicar los siguientes estilos cuando el tamaño del viewport sea igual o menor que 659px*/
+
+@media screen and (max-width: 659px){
+    #pieDePagina {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+

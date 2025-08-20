@@ -21,11 +21,20 @@
     </head>
     <body>
         <!-- Cabecera -->
+        <div class="top">
+            <ul class="container">
+                <li><i class="fa-solid fa-phone"></i> 1-234-567-8910</li>
+                <li><i class="fa-solid fa-envelope"></i>info@email.com</li>
+            </ul>
+        </div>
 
         <header>
             <nav id="navbar">
                 <div id="navigation" class="container">
                     <a href="index.html"><img src="images/logo.png" alt="Logotipo"></a>
+                     <span id="navbar-toggle">
+                         <i class="fa-solid fa-bars"></i>   
+                    </span>
                     <ul id="main-nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="la-firma.html">La firma</a></li>
@@ -135,5 +144,22 @@
                 &copy Derechos reservados.
             </div>
         </footer>
+        <script>
+            
+            // Comportamientos para el menú de navegación.
+            let mainNav=document.getElementById('main-nav');
+            let navbarToggle=document.getElementById('navbar-toggle');
+            navbarToggle.addEventListener('click',function() {
+
+            if (this.classList.contains('active')){
+                mainNav.style.display="none";
+                this.classList.remove('active');
+            }
+            else {
+                mainNav.style.display="flex";
+                this.classList.add('active');
+            }
+            });
+        </script>
     </body>
 </html>
